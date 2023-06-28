@@ -61,6 +61,35 @@ app.layout = html.Div(
                         'background': 'white',
                         'padding': '8px 5px'
                     }
+                ),
+
+                html.Div(
+                    '图标示例',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileIcon(
+                            icon=icon
+                        )
+                        for icon in
+                        [
+                            'AddCircleOutline',
+                            'AddOutline',
+                            'AddSquareOutline',
+                            'AppstoreOutline',
+                            'PicturesOutline'
+                        ]
+                    ],
+                    wrap=True,
+                    block=True,
+                    style={
+                        'background': 'white',
+                        'padding': '8px 5px',
+                        'fontSize': 32
+                    }
                 )
             ],
             direction='vertical'
