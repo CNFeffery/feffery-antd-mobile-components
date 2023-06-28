@@ -1,6 +1,6 @@
 Package: fefferyAntdMobileComponents
 Title: Best implementation of Antd Mobile components for Plotly Dash.
-Version: 0.0.1
+Version: 0.0.1-a1
 Description: Best implementation of Antd Mobile components for Plotly Dash.
 Depends: R (>= 3.0.2)
 Imports: 

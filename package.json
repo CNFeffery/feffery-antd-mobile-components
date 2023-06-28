@@ -1,6 +1,6 @@
 {
   "name": "feffery_antd_mobile_components",
-  "version": "0.0.1",
+  "version": "0.0.1-a1",
   "description": "Best implementation of Antd Mobile components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -25,6 +25,7 @@
   "license": "MIT",
   "dependencies": {
     "antd-mobile": "^5.31.1",
+    "antd-mobile-icons": "^0.3.0",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
