@@ -9,6 +9,54 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'CapsuleTabs',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileCapsuleTabs(
+                            items=[
+                                {
+                                    'title': '水果',
+                                    'key': '水果',
+                                    'children': '水果',
+                                },
+                                {
+                                    'title': '蔬菜',
+                                    'key': '蔬菜',
+                                    'children': '蔬菜',
+                                },
+                                {
+                                    'title': '动物',
+                                    'key': '动物',
+                                    'children': '动物',
+                                }
+                            ],
+                            activeKey='蔬菜'
+                        ),
+                        famc.MobileCapsuleTabs(
+                            items=[
+                                {
+                                    'title': value,
+                                    'key': value
+                                }
+                                for value in [
+                                    'Espresso', 'Coffee Latte', 'Cappuccino',
+                                    'Americano', 'Flat White', 'Caramel Macchiato',
+                                    'Cafe Mocha'
+                                ]
+                            ]
+                        )
+                    ],
+                    direction='vertical',
+                    style={
+                        'width': '100vw'
+                    }
+                ),
+
+                html.Div(
                     'Grid',
                     style={
                         'color': '#697b8c'
@@ -207,4 +255,4 @@ app.layout = html.Div(
 )
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True)

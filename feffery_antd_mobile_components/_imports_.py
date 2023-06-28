@@ -5,6 +5,7 @@ from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
 from .MobileGridItem import MobileGridItem
 from .MobileSpace import MobileSpace
+from .MobileCapsuleTabs import MobileCapsuleTabs
 
 __all__ = [
     "MobileButton",
@@ -13,5 +14,6 @@ __all__ = [
     "MobileDivider",
     "MobileGrid",
     "MobileGridItem",
-    "MobileSpace"
+    "MobileSpace",
+    "MobileCapsuleTabs"
 ]
