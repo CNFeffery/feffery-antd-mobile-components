@@ -11,6 +11,7 @@ import MobileGridItem from "./components/layout/MobileGridItem.react";
 import MobileSpace from "./components/layout/MobileSpace.react";
 // 导航
 import MobileCapsuleTabs from "./components/navigation/MobileCapsuleTabs.react";
+import MobileJumboTabs from './components/navigation/MobileJumboTabs.react';
 
 export {
     MobileButton,
@@ -20,5 +21,6 @@ export {
     MobileGrid,
     MobileGridItem,
     MobileSpace,
-    MobileCapsuleTabs
+    MobileCapsuleTabs,
+    MobileJumboTabs
 };

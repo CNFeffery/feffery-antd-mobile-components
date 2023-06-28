@@ -6,6 +6,7 @@ from .MobileGrid import MobileGrid
 from .MobileGridItem import MobileGridItem
 from .MobileSpace import MobileSpace
 from .MobileCapsuleTabs import MobileCapsuleTabs
+from .MobileJumboTabs import MobileJumboTabs
 
 __all__ = [
     "MobileButton",
@@ -15,5 +16,6 @@ __all__ = [
     "MobileGrid",
     "MobileGridItem",
     "MobileSpace",
-    "MobileCapsuleTabs"
+    "MobileCapsuleTabs",
+    "MobileJumboTabs"
 ]

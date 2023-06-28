@@ -9,6 +9,59 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'JumboTabs',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileJumboTabs(
+                            items=[
+                                {
+                                    'title': '水果',
+                                    'key': '水果',
+                                    'children': '水果',
+                                    'description': '描述文案',
+                                },
+                                {
+                                    'title': '蔬菜',
+                                    'key': '蔬菜',
+                                    'children': '蔬菜',
+                                    'description': '描述文案'
+                                },
+                                {
+                                    'title': '动物',
+                                    'key': '动物',
+                                    'children': '动物',
+                                    'description': '描述文案',
+                                    'disabled': True
+                                }
+                            ],
+                            activeKey='蔬菜'
+                        ),
+                        famc.MobileJumboTabs(
+                            items=[
+                                {
+                                    'title': value,
+                                    'key': value,
+                                    'description': '描述文案',
+                                }
+                                for value in [
+                                    'Espresso', 'Coffee Latte', 'Cappuccino',
+                                    'Americano', 'Flat White', 'Caramel Macchiato',
+                                    'Cafe Mocha'
+                                ]
+                            ]
+                        )
+                    ],
+                    direction='vertical',
+                    style={
+                        'width': '100vw'
+                    }
+                ),
+
+                html.Div(
                     'CapsuleTabs',
                     style={
                         'color': '#697b8c'
