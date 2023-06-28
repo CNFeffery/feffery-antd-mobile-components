@@ -14,6 +14,7 @@ import MobileCapsuleTabs from "./components/navigation/MobileCapsuleTabs.react";
 import MobileJumboTabs from './components/navigation/MobileJumboTabs.react';
 import MobileNavBar from './components/navigation/MobileNavBar.react';
 import MobileSideBar from './components/navigation/MobileSideBar.react';
+import MobileTabBar from './components/navigation/MobileTabBar.react';
 
 export {
     MobileButton,
@@ -26,5 +27,6 @@ export {
     MobileCapsuleTabs,
     MobileJumboTabs,
     MobileNavBar,
-    MobileSideBar
+    MobileSideBar,
+    MobileTabBar
 };

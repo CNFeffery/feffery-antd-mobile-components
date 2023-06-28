@@ -9,6 +9,58 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'TabBar',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileTabBar(
+                    items=[
+                        {
+                            'key': f'选项{i}',
+                            'title': f'选项{i}'
+                        }
+                        for i in range(1, 4)
+                    ]
+                ),
+                famc.MobileTabBar(
+                    items=[
+                        {
+                            'key': '首页',
+                            'title': '首页',
+                            'icon': famc.MobileIcon(
+                                icon='AppOutline'
+                            ),
+                            'badge': 6
+                        },
+                        {
+                            'key': '待办',
+                            'title': '待办',
+                            'icon': famc.MobileIcon(
+                                icon='UnorderedListOutline'
+                            ),
+                            'badge': '6'
+                        },
+                        {
+                            'key': '消息',
+                            'title': '消息',
+                            'icon': famc.MobileIcon(
+                                icon='MessageOutline'
+                            ),
+                            'badge': '99+'
+                        },
+                        {
+                            'key': '我的',
+                            'title': '我的',
+                            'icon': famc.MobileIcon(
+                                icon='UserOutline'
+                            ),
+                            'badge': 'dot'
+                        }
+                    ]
+                ),
+
+                html.Div(
                     'SideBar',
                     style={
                         'color': '#697b8c'
