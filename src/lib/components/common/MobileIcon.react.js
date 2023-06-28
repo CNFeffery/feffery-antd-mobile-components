@@ -203,7 +203,10 @@ const MobileIcon = (props) => {
                 {
                     id: id,
                     key: key,
-                    style: style,
+                    style: {
+                        verticalAlign: 'middle',
+                        ...style
+                    },
                     className: className,
                     onClick: () => setProps({ nClicks: nClicks + 1 }),
                     'data-dash-is-loading': (loading_state && loading_state.is_loading) || undefined

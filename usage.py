@@ -9,6 +9,32 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'NavBar',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileNavBar(
+                    '标题示例'
+                ),
+                famc.MobileNavBar(
+                    '标题示例',
+                    back='返回'
+                ),
+                famc.MobileNavBar(
+                    '标题示例',
+                    back='返回',
+                    backArrow=False
+                ),
+                famc.MobileNavBar(
+                    '标题示例',
+                    back='返回',
+                    backArrow=famc.MobileIcon(
+                        icon='CloseOutline'
+                    )
+                ),
+
+                html.Div(
                     'JumboTabs',
                     style={
                         'color': '#697b8c'
