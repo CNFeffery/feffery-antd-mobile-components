@@ -13,6 +13,7 @@ import MobileSpace from "./components/layout/MobileSpace.react";
 import MobileCapsuleTabs from "./components/navigation/MobileCapsuleTabs.react";
 import MobileJumboTabs from './components/navigation/MobileJumboTabs.react';
 import MobileNavBar from './components/navigation/MobileNavBar.react';
+import MobileSideBar from './components/navigation/MobileSideBar.react';
 
 export {
     MobileButton,
@@ -24,5 +25,6 @@ export {
     MobileSpace,
     MobileCapsuleTabs,
     MobileJumboTabs,
-    MobileNavBar
+    MobileNavBar,
+    MobileSideBar
 };

@@ -9,6 +9,41 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'SideBar',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSideBar(
+                    items=[
+                        {
+                            'key': f'选项{i}',
+                            'title': f'选项{i}'
+                        }
+                        for i in range(1, 4)
+                    ]
+                ),
+                famc.MobileSideBar(
+                    items=[
+                        {
+                            'key': '选项1',
+                            'title': '选项1',
+                            'badge': 6
+                        },
+                        {
+                            'key': '选项2',
+                            'title': '选项2',
+                            'badge': '99+'
+                        },
+                        {
+                            'key': '选项3',
+                            'title': '选项3',
+                            'badge': 'dot'
+                        }
+                    ]
+                ),
+
+                html.Div(
                     'NavBar',
                     style={
                         'color': '#697b8c'
