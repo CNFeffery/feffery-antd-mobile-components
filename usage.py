@@ -9,6 +9,44 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Grid',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileGrid(
+                    [
+                        *[
+                            famc.MobileGridItem(
+                                f'item{i}',
+                                span=2,
+                                style={
+                                    'background': '#c5f6fa',
+                                    'border': '1px solid #ffd43b',
+                                    'padding': 8,
+                                    'textAlign': 'center',
+                                    'fontSize': 16
+                                }
+                            )
+                            for i in range(1, 5)
+                        ],
+                        famc.MobileGridItem(
+                            'item5',
+                            span=4,
+                            style={
+                                'background': '#c5f6fa',
+                                'border': '1px solid #ffd43b',
+                                'padding': 8,
+                                'textAlign': 'center',
+                                'fontSize': 16
+                            }
+                        )
+                    ],
+                    columns=4,
+                    gap=5
+                ),
+
+                html.Div(
                     'Divider',
                     style={
                         'color': '#697b8c'

@@ -47,9 +47,6 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- nClicks (number; default 0):
-    用于记录当前间距组件累计被点击次数.
-
 - style (dict; optional):
     用于为当前组件设置css样式.
 
@@ -60,10 +57,10 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileSpace'
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, block=Component.UNDEFINED, direction=Component.UNDEFINED, justify=Component.UNDEFINED, wrap=Component.UNDEFINED, nClicks=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['children', 'id', 'align', 'block', 'className', 'direction', 'justify', 'key', 'loading_state', 'nClicks', 'style', 'wrap']
+    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, align=Component.UNDEFINED, block=Component.UNDEFINED, direction=Component.UNDEFINED, justify=Component.UNDEFINED, wrap=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['children', 'id', 'align', 'block', 'className', 'direction', 'justify', 'key', 'loading_state', 'style', 'wrap']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['children', 'id', 'align', 'block', 'className', 'direction', 'justify', 'key', 'loading_state', 'nClicks', 'style', 'wrap']
+        self.available_properties = ['children', 'id', 'align', 'block', 'className', 'direction', 'justify', 'key', 'loading_state', 'style', 'wrap']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

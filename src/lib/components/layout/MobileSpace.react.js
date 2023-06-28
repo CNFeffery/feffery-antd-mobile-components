@@ -21,7 +21,6 @@ const MobileSpace = (props) => {
         direction,
         justify,
         wrap,
-        nClicks,
         loading_state,
         setProps
     } = props;
@@ -37,7 +36,6 @@ const MobileSpace = (props) => {
         direction={direction}
         justify={justify}
         wrap={wrap}
-        onClick={() => setProps({ nClicks: nClicks + 1 })}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         }
@@ -103,12 +101,6 @@ MobileSpace.propTypes = {
      */
     wrap: PropTypes.bool,
 
-    // 组件监听类属性
-    /**
-     * 用于记录当前间距组件累计被点击次数
-     */
-    nClicks: PropTypes.number,
-
     loading_state: PropTypes.shape({
         /**
          * Determines if the component is loading or not
@@ -134,8 +126,7 @@ MobileSpace.propTypes = {
 MobileSpace.defaultProps = {
     block: false,
     direction: 'horizontal',
-    wrap: false,
-    nClicks: 0
+    wrap: false
 };
 
 export default React.memo(MobileSpace);
