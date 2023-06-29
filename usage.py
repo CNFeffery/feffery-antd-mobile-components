@@ -16,6 +16,23 @@ app.layout = html.Div(
                 ),
                 famc.MobileSpace(
                     [
+                        famc.MobileCard(
+                            '卡片内容',
+                            title='标题测试'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
+                    'Avatar',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
                         famc.MobileAvatar(
                             src='https://images.unsplash.com/photo-1548532928-b34e3be62fc6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
                         ),
