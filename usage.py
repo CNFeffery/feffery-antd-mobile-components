@@ -9,6 +9,24 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Tabs',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileTabs(
+                    items=[
+                        {
+                            'key': f'选项{i}',
+                            'title': f'选项{i}',
+                            'children': f'选项{i}示例内容'*10
+                        }
+                        for i in range(1, 5)
+                    ],
+                    defaultActiveKey='选项3'
+                ),
+
+                html.Div(
                     'TabBar',
                     style={
                         'color': '#697b8c'
@@ -421,4 +439,4 @@ app.layout = html.Div(
 )
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

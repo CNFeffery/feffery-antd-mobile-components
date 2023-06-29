@@ -10,6 +10,7 @@ from .MobileJumboTabs import MobileJumboTabs
 from .MobileNavBar import MobileNavBar
 from .MobileSideBar import MobileSideBar
 from .MobileTabBar import MobileTabBar
+from .MobileTabs import MobileTabs
 
 __all__ = [
     "MobileButton",
@@ -23,5 +24,6 @@ __all__ = [
     "MobileJumboTabs",
     "MobileNavBar",
     "MobileSideBar",
-    "MobileTabBar"
+    "MobileTabBar",
+    "MobileTabs"
 ]
