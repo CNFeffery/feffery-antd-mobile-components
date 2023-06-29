@@ -20,6 +20,7 @@ import MobileTabs from './components/navigation/MobileTabs.react';
 import MobileAvatar from './components/dataDisplay/MobileAvatar.react';
 import MobileCard from './components/dataDisplay/MobileCard.react';
 import MobileCollapse from './components/dataDisplay/MobileCollapse.react';
+import MobileEllipsis from './components/dataDisplay/MobileEllipsis.react';
 
 export {
     MobileButton,
@@ -37,5 +38,6 @@ export {
     MobileTabs,
     MobileAvatar,
     MobileCard,
-    MobileCollapse
+    MobileCollapse,
+    MobileEllipsis
 };

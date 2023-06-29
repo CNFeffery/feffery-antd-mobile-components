@@ -9,6 +9,46 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Ellipsis',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileEllipsis(
+                            content='巴拉巴拉'*100,
+                            direction='middle'
+                        ),
+                        famc.MobileEllipsis(
+                            content='巴拉巴拉'*100,
+                            direction='end',
+                            expandText='展开',
+                            collapseText='收起',
+                            rows=4
+                        ),
+                        famc.MobileEllipsis(
+                            content='巴拉巴拉'*100,
+                            direction='end',
+                            expandText=[
+                                '展开',
+                                famc.MobileIcon(
+                                    icon='DownOutline'
+                                )
+                            ],
+                            collapseText=[
+                                '收起',
+                                famc.MobileIcon(
+                                    icon='UpOutline'
+                                )
+                            ],
+                            rows=4
+                        )
+                    ],
+                    direction='vertical'
+                ),
+
+                html.Div(
                     'Collapse',
                     style={
                         'color': '#697b8c'
@@ -37,7 +77,7 @@ app.layout = html.Div(
                 ),
 
                 html.Div(
-                    'Avatar',
+                    'Card',
                     style={
                         'color': '#697b8c'
                     }
