@@ -9,6 +9,34 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Collapse',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileCollapse(
+                    items=[
+                        {
+                            'key': f'选项{i}',
+                            'title': f'选项{i}',
+                            'children': f'选项{i}示例内容'*25
+                        }
+                        for i in range(1, 6)
+                    ]
+                ),
+                famc.MobileCollapse(
+                    items=[
+                        {
+                            'key': f'手风琴选项{i}',
+                            'title': f'手风琴选项{i}',
+                            'children': f'手风琴选项{i}示例内容'*25
+                        }
+                        for i in range(1, 6)
+                    ],
+                    accordion=True
+                ),
+
+                html.Div(
                     'Avatar',
                     style={
                         'color': '#697b8c'

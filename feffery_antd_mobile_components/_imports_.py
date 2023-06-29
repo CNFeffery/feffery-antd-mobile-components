@@ -2,6 +2,7 @@ from .MobileButton import MobileButton
 from .MobileIcon import MobileIcon
 from .MobileAvatar import MobileAvatar
 from .MobileCard import MobileCard
+from .MobileCollapse import MobileCollapse
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -19,6 +20,7 @@ __all__ = [
     "MobileIcon",
     "MobileAvatar",
     "MobileCard",
+    "MobileCollapse",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",
