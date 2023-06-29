@@ -4,6 +4,7 @@ from .MobileAvatar import MobileAvatar
 from .MobileCard import MobileCard
 from .MobileCollapse import MobileCollapse
 from .MobileEllipsis import MobileEllipsis
+from .MobileFloatingPanel import MobileFloatingPanel
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -23,6 +24,7 @@ __all__ = [
     "MobileCard",
     "MobileCollapse",
     "MobileEllipsis",
+    "MobileFloatingPanel",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",

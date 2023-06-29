@@ -9,6 +9,17 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'FloatingPanel',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileFloatingPanel(
+                    '内容' * 100,
+                    anchors=[100, 0.5, 0.8, 1]
+                ),
+
+                html.Div(
                     'Ellipsis',
                     style={
                         'color': '#697b8c'

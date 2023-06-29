@@ -21,6 +21,8 @@ import MobileAvatar from './components/dataDisplay/MobileAvatar.react';
 import MobileCard from './components/dataDisplay/MobileCard.react';
 import MobileCollapse from './components/dataDisplay/MobileCollapse.react';
 import MobileEllipsis from './components/dataDisplay/MobileEllipsis.react';
+import MobileFloatingPanel from './components/dataDisplay/MobileFloatingPanel.react';
+
 
 export {
     MobileButton,
@@ -39,5 +41,6 @@ export {
     MobileAvatar,
     MobileCard,
     MobileCollapse,
-    MobileEllipsis
+    MobileEllipsis,
+    MobileFloatingPanel
 };
