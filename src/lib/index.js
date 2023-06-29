@@ -16,6 +16,8 @@ import MobileNavBar from './components/navigation/MobileNavBar.react';
 import MobileSideBar from './components/navigation/MobileSideBar.react';
 import MobileTabBar from './components/navigation/MobileTabBar.react';
 import MobileTabs from './components/navigation/MobileTabs.react';
+// 信息展示
+import MobileAvatar from './components/dataDisplay/MobileAvatar.react';
 
 export {
     MobileButton,
@@ -30,5 +32,6 @@ export {
     MobileNavBar,
     MobileSideBar,
     MobileTabBar,
-    MobileTabs
+    MobileTabs,
+    MobileAvatar
 };

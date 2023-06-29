@@ -1,5 +1,6 @@
 from .MobileButton import MobileButton
 from .MobileIcon import MobileIcon
+from .MobileAvatar import MobileAvatar
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -15,6 +16,7 @@ from .MobileTabs import MobileTabs
 __all__ = [
     "MobileButton",
     "MobileIcon",
+    "MobileAvatar",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",

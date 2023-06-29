@@ -2,6 +2,7 @@
 
 export(''MobileButton)
 export(''MobileIcon)
+export(''MobileAvatar)
 export(''MobileAutoCenter)
 export(''MobileDivider)
 export(''MobileGrid)
