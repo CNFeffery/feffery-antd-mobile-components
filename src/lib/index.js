@@ -22,6 +22,7 @@ import MobileCard from './components/dataDisplay/MobileCard.react';
 import MobileCollapse from './components/dataDisplay/MobileCollapse.react';
 import MobileEllipsis from './components/dataDisplay/MobileEllipsis.react';
 import MobileFloatingPanel from './components/dataDisplay/MobileFloatingPanel.react';
+import MobileImage from './components/dataDisplay/MobileImage.react';
 
 
 export {
@@ -42,5 +43,6 @@ export {
     MobileCard,
     MobileCollapse,
     MobileEllipsis,
-    MobileFloatingPanel
+    MobileFloatingPanel,
+    MobileImage
 };

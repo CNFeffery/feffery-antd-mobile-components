@@ -4,20 +4,55 @@ import feffery_antd_mobile_components as famc
 
 app = dash.Dash(__name__)
 
+demo_image = 'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=60'
+
 app.layout = html.Div(
     [
         famc.MobileSpace(
             [
                 html.Div(
-                    'FloatingPanel',
+                    'Image',
                     style={
                         'color': '#697b8c'
                     }
                 ),
-                famc.MobileFloatingPanel(
-                    '内容' * 100,
-                    anchors=[100, 0.5, 0.8, 1]
+
+                famc.MobileSpace(
+                    [
+                        famc.MobileImage(
+                            src=demo_image
+                        ),
+
+                        famc.MobileSpace(
+                            [
+                                famc.MobileImage(
+                                    src=demo_image,
+                                    width=100,
+                                    height=100,
+                                    fit=fit
+                                )
+                                for fit in [
+                                    'fill', 'contain', 'cover',
+                                    'scale-down', 'none'
+                                ]
+                            ],
+                            wrap=True
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
                 ),
+
+                # html.Div(
+                #     'FloatingPanel',
+                #     style={
+                #         'color': '#697b8c'
+                #     }
+                # ),
+                # famc.MobileFloatingPanel(
+                #     '内容' * 100,v
+                #     anchors=[100, 0.5, 0.8, 1]
+                # ),
 
                 html.Div(
                     'Ellipsis',
