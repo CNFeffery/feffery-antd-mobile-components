@@ -1,6 +1,7 @@
 import dash
 from dash import html
 import feffery_antd_mobile_components as famc
+from dash.dependencies import Input, Output, State
 
 app = dash.Dash(__name__)
 
@@ -11,12 +12,26 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'ImageViwer',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileImage(
+                    id='image-viewer-trigger',
+                    src=demo_image
+                ),
+                famc.MobileImageViewer(
+                    id='image-viewer',
+                    image=demo_image
+                ),
+
+                html.Div(
                     'Image',
                     style={
                         'color': '#697b8c'
                     }
                 ),
-
                 famc.MobileSpace(
                     [
                         famc.MobileImage(
@@ -594,6 +609,17 @@ app.layout = html.Div(
         'background': '#fafbfc'
     }
 )
+
+
+@app.callback(
+    Output('image-viewer', 'visible'),
+    Input('image-viewer-trigger', 'nClicks'),
+    prevent_initial_call=True
+)
+def image_viewer_demo(nClicks):
+
+    return True
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

@@ -23,6 +23,7 @@ import MobileCollapse from './components/dataDisplay/MobileCollapse.react';
 import MobileEllipsis from './components/dataDisplay/MobileEllipsis.react';
 import MobileFloatingPanel from './components/dataDisplay/MobileFloatingPanel.react';
 import MobileImage from './components/dataDisplay/MobileImage.react';
+import MobileImageViewer from './components/dataDisplay/MobileImageViewer.react';
 
 
 export {
@@ -44,5 +45,6 @@ export {
     MobileCollapse,
     MobileEllipsis,
     MobileFloatingPanel,
-    MobileImage
+    MobileImage,
+    MobileImageViewer
 };

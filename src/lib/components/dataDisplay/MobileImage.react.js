@@ -41,7 +41,7 @@ const MobileImage = (props) => {
         lazy={lazy}
         src={src}
         width={width}
-        nClicks={() => setProps({ nClicks: nClicks + 1 })}
+        onClick={() => setProps({ nClicks: nClicks + 1 })}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         }
