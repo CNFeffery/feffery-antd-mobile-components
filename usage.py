@@ -12,6 +12,59 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'List',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileList(
+                            title='基础用法',
+                            items=[
+                                {
+                                    'key': f'子项{i}',
+                                    'children': f'子项{i}'
+                                }
+                                for i in range(1, 4)
+                            ]
+                        ),
+                        famc.MobileList(
+                            title='可点击',
+                            items=[
+                                {
+                                    'key': '账单',
+                                    'children': '账单',
+                                    'prefix': famc.MobileIcon(
+                                        icon='UnorderedListOutline'
+                                    ),
+                                    'clickable': True
+                                },
+                                {
+                                    'key': '总资产',
+                                    'children': '总资产',
+                                    'prefix': famc.MobileIcon(
+                                        icon='PayCircleOutline'
+                                    ),
+                                    'clickable': True
+                                },
+                                {
+                                    'key': '设置',
+                                    'children': '设置',
+                                    'prefix': famc.MobileIcon(
+                                        icon='SetOutline'
+                                    ),
+                                    'clickable': True
+                                }
+                            ]
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+
+                html.Div(
                     'ImageViwer',
                     style={
                         'color': '#697b8c'
