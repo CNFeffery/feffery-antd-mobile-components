@@ -8,6 +8,7 @@ from .MobileFloatingPanel import MobileFloatingPanel
 from .MobileImage import MobileImage
 from .MobileImageViewer import MobileImageViewer
 from .MobileList import MobileList
+from .MobilePageIndicator import MobilePageIndicator
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -31,6 +32,7 @@ __all__ = [
     "MobileImage",
     "MobileImageViewer",
     "MobileList",
+    "MobilePageIndicator",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",

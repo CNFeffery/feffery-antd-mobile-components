@@ -12,6 +12,28 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'PageIndicator',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobilePageIndicator(
+                            total=5,
+                            current=0
+                        ),
+                        famc.MobilePageIndicator(
+                            total=5,
+                            current=0,
+                            direction='vertical'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'List',
                     style={
                         'color': '#697b8c'

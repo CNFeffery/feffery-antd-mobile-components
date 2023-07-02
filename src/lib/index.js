@@ -25,6 +25,7 @@ import MobileFloatingPanel from './components/dataDisplay/MobileFloatingPanel.re
 import MobileImage from './components/dataDisplay/MobileImage.react';
 import MobileImageViewer from './components/dataDisplay/MobileImageViewer.react';
 import MobileList from './components/dataDisplay/MobileList.react';
+import MobilePageIndicator from './components/dataDisplay/MobilePageIndicator.react';
 
 
 export {
@@ -48,5 +49,6 @@ export {
     MobileFloatingPanel,
     MobileImage,
     MobileImageViewer,
-    MobileList
+    MobileList,
+    MobilePageIndicator
 };
