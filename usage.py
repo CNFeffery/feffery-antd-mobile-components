@@ -12,6 +12,36 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Steps',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileSteps(
+                            steps=[
+                                {
+                                    'title': f'步骤{i}'
+                                }
+                                for i in range(1, 5)
+                            ]
+                        ),
+                        famc.MobileSteps(
+                            steps=[
+                                {
+                                    'title': f'步骤{i}'
+                                }
+                                for i in range(1, 5)
+                            ],
+                            direction='vertical'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'PageIndicator',
                     style={
                         'color': '#697b8c'
