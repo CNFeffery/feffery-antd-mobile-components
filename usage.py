@@ -12,6 +12,55 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Tag',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileTag(
+                            '标签示例'
+                        ),
+                        *[
+                            famc.MobileTag(
+                                color,
+                                color=color
+                            )
+                            for color in [
+                                'default', 'primary', 'success', 'warning',
+                                'danger'
+                            ]
+                        ],
+                        *[
+                            famc.MobileTag(
+                                color,
+                                color=color,
+                                fill='outline'
+                            )
+                            for color in [
+                                'default', 'primary', 'success', 'warning',
+                                'danger'
+                            ]
+                        ],
+                        *[
+                            famc.MobileTag(
+                                color,
+                                color=color
+                            )
+                            for color in [
+                                '#ff4d4f', '#ff7a45', '#ffa940', '#13c2c2'
+                            ]
+                        ]
+                    ],
+                    block=True,
+                    wrap=True,
+                    style={
+                        'padding': 5
+                    }
+                ),
+
+                html.Div(
                     'Swiper',
                     style={
                         'color': '#697b8c'
