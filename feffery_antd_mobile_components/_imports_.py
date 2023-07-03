@@ -10,6 +10,7 @@ from .MobileImageViewer import MobileImageViewer
 from .MobileList import MobileList
 from .MobilePageIndicator import MobilePageIndicator
 from .MobileSteps import MobileSteps
+from .MobileSwiper import MobileSwiper
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -35,6 +36,7 @@ __all__ = [
     "MobileList",
     "MobilePageIndicator",
     "MobileSteps",
+    "MobileSwiper",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",

@@ -12,6 +12,73 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Swiper',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileSwiper(
+                            items=[
+                                {
+                                    'key': f'子项{i}',
+                                    'children': html.Div(
+                                        f'子项{i}',
+                                        style={
+                                            'height': 200,
+                                            'background': '#40a9ff',
+                                            'opacity': 1 - 0.1*i,
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center',
+                                            'color': 'white',
+                                            'fontSize': 28
+                                        }
+                                    )
+                                }
+                                for i in range(1, 6)
+                            ],
+                            defaultIndex=2,
+                            autoplayInterval=1000,
+                            autoplay=True,
+                            loop=True
+                        ),
+                        famc.MobileSwiper(
+                            items=[
+                                {
+                                    'key': f'子项{i}',
+                                    'children': html.Div(
+                                        f'子项{i}',
+                                        style={
+                                            'height': 200,
+                                            'background': '#40a9ff',
+                                            'opacity': 1 - 0.1*i,
+                                            'display': 'flex',
+                                            'justifyContent': 'center',
+                                            'alignItems': 'center',
+                                            'color': 'white',
+                                            'fontSize': 28
+                                        }
+                                    )
+                                }
+                                for i in range(1, 6)
+                            ],
+                            defaultIndex=2,
+                            autoplayInterval=1000,
+                            autoplay=True,
+                            loop=True,
+                            direction='vertical',
+                            style={
+                                'height': 200
+                            }
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'Steps',
                     style={
                         'color': '#697b8c'

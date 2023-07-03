@@ -27,6 +27,7 @@ import MobileImageViewer from './components/dataDisplay/MobileImageViewer.react'
 import MobileList from './components/dataDisplay/MobileList.react';
 import MobilePageIndicator from './components/dataDisplay/MobilePageIndicator.react';
 import MobileSteps from './components/dataDisplay/MobileSteps.react';
+import MobileSwiper from './components/dataDisplay/MobileSwiper.react';
 
 
 export {
@@ -52,5 +53,6 @@ export {
     MobileImageViewer,
     MobileList,
     MobilePageIndicator,
-    MobileSteps
+    MobileSteps,
+    MobileSwiper
 };
