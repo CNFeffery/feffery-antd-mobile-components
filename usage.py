@@ -14,6 +14,33 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'CheckList',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileCheckList(
+                            id='check-list-demo',
+                            options=[
+                                {
+                                    'children': f'选项{i}',
+                                    'value': f'选项{i}'
+                                }
+                                for i in range(1, 6)
+                            ],
+                            multiple=True
+                        ),
+                        html.Pre(
+                            id='check-list-demo-output'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'CascaderView',
                     style={
                         'color': '#697b8c'
@@ -1019,6 +1046,18 @@ def cascader_demo(value):
     Input('cascader-view-demo', 'value')
 )
 def cascader_view_demo(value):
+
+    return json.dumps(
+        value,
+        indent=4,
+        ensure_ascii=False
+    )
+
+@app.callback(
+    Output('check-list-demo-output', 'children'),
+    Input('check-list-demo', 'value')
+)
+def check_list_demo(value):
 
     return json.dumps(
         value,

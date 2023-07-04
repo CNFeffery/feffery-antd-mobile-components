@@ -16,6 +16,7 @@ from .MobileTag import MobileTag
 from .MobileWaterMark import MobileWaterMark
 from .MobileCascader import MobileCascader
 from .MobileCascaderView import MobileCascaderView
+from .MobileCheckList import MobileCheckList
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -47,6 +48,7 @@ __all__ = [
     "MobileWaterMark",
     "MobileCascader",
     "MobileCascaderView",
+    "MobileCheckList",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",
