@@ -33,6 +33,7 @@ import MobileWaterMark from './components/dataDisplay/MobileWaterMark.react';
 import MobileFooter from './components/dataDisplay/MobileFooter.react';
 // 信息录入
 import MobileCascader from './components/dataEntry/MobileCascader.react';
+import MobileCascaderView from './components/dataEntry/MobileCascaderView.react';
 
 
 export {
@@ -63,5 +64,6 @@ export {
     MobileTag,
     MobileWaterMark,
     MobileFooter,
-    MobileCascader
+    MobileCascader,
+    MobileCascaderView
 };

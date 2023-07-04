@@ -14,6 +14,41 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'CascaderView',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileCascaderView(
+                            id='cascader-view-demo',
+                            options=[
+                                {
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}',
+                                    'children': [
+                                        {
+                                            'label': f'选项{i}-{j}',
+                                            'value': f'选项{i}-{j}',
+                                        }
+                                        for j in range(1, random.randint(3, 6))
+                                    ]
+                                }
+                                for i in range(1, 5)
+                            ],
+                            defaultValue=['选项2', '选项2-3'],
+                            # loading=True
+                        ),
+                        html.Pre(
+                            id='cascader-view-demo-output'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'Cascader',
                     style={
                         'color': '#697b8c'
@@ -971,6 +1006,19 @@ def open_cascader_demo(nClicks):
     Input('cascader-demo', 'value')
 )
 def cascader_demo(value):
+
+    return json.dumps(
+        value,
+        indent=4,
+        ensure_ascii=False
+    )
+
+
+@app.callback(
+    Output('cascader-view-demo-output', 'children'),
+    Input('cascader-view-demo', 'value')
+)
+def cascader_view_demo(value):
 
     return json.dumps(
         value,
