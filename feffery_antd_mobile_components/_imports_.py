@@ -12,6 +12,7 @@ from .MobilePageIndicator import MobilePageIndicator
 from .MobileSteps import MobileSteps
 from .MobileSwiper import MobileSwiper
 from .MobileTag import MobileTag
+from .MobileWaterMark import MobileWaterMark
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -39,6 +40,7 @@ __all__ = [
     "MobileSteps",
     "MobileSwiper",
     "MobileTag",
+    "MobileWaterMark",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",

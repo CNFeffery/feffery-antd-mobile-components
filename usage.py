@@ -12,6 +12,19 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'WaterMark',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileWaterMark(
+                    content='水印示例',
+                    # image='https://gw.alipayobjects.com/zos/bmw-prod/59a18171-ae17-4fc5-93a0-2645f64a3aca.svg',
+                    # imageWidth=115,
+                    # imageHeight=36
+                ),
+
+                html.Div(
                     'Tag',
                     style={
                         'color': '#697b8c'
