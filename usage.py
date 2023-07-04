@@ -1,5 +1,6 @@
 import dash
 import json
+import random
 from dash import html
 import feffery_antd_mobile_components as famc
 from dash.dependencies import Input, Output, State
@@ -12,6 +13,43 @@ app.layout = html.Div(
     [
         famc.MobileSpace(
             [
+                html.Div(
+                    'Cascader',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileButton(
+                            '打开级联选择',
+                            id='open-cascader-demo'
+                        ),
+                        html.Pre(
+                            id='cascader-demo-output'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+                famc.MobileCascader(
+                    id='cascader-demo',
+                    options=[
+                        {
+                            'label': f'选项{i}',
+                            'value': f'选项{i}',
+                            'children': [
+                                {
+                                    'label': f'选项{i}-{j}',
+                                    'value': f'选项{i}-{j}',
+                                }
+                                for j in range(1, random.randint(3, 6))
+                            ]
+                        }
+                        for i in range(1, 5)
+                    ]
+                ),
+
                 html.Div(
                     'Footer',
                     style={
@@ -913,6 +951,29 @@ def footer_chip_click_demo(clickedChip):
 
     return json.dumps(
         clickedChip,
+        indent=4,
+        ensure_ascii=False
+    )
+
+
+@app.callback(
+    Output('cascader-demo', 'visible'),
+    Input('open-cascader-demo', 'nClicks'),
+    prevent_initial_call=True
+)
+def open_cascader_demo(nClicks):
+
+    return True
+
+
+@app.callback(
+    Output('cascader-demo-output', 'children'),
+    Input('cascader-demo', 'value')
+)
+def cascader_demo(value):
+
+    return json.dumps(
+        value,
         indent=4,
         ensure_ascii=False
     )

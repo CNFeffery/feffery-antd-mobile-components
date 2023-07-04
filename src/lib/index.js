@@ -31,6 +31,8 @@ import MobileSwiper from './components/dataDisplay/MobileSwiper.react';
 import MobileTag from './components/dataDisplay/MobileTag.react';
 import MobileWaterMark from './components/dataDisplay/MobileWaterMark.react';
 import MobileFooter from './components/dataDisplay/MobileFooter.react';
+// 信息录入
+import MobileCascader from './components/dataEntry/MobileCascader.react';
 
 
 export {
@@ -60,5 +62,6 @@ export {
     MobileSwiper,
     MobileTag,
     MobileWaterMark,
-    MobileFooter
+    MobileFooter,
+    MobileCascader
 };
