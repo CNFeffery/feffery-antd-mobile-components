@@ -1,4 +1,5 @@
 import dash
+import json
 from dash import html
 import feffery_antd_mobile_components as famc
 from dash.dependencies import Input, Output, State
@@ -11,6 +12,55 @@ app.layout = html.Div(
     [
         famc.MobileSpace(
             [
+                html.Div(
+                    'Footer',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileFooter(
+                            label='页脚label示例'
+                        ),
+                        famc.MobileFooter(
+                            content='测试内容'*10
+                        ),
+                        famc.MobileFooter(
+                            links=[
+                                {
+                                    'text': '链接示例',
+                                    'href': 'https://fac.feffery.tech'
+                                }
+                            ]
+                        ),
+                        famc.MobileFooter(
+                            chips=[
+                                {
+                                    'text': f'标签{i}'
+                                }
+                                for i in range(1, 4)
+                            ]
+                        ),
+                        famc.MobileFooter(
+                            id='footer-chip-click-demo',
+                            chips=[
+                                {
+                                    'text': f'标签{i}',
+                                    'type': 'link',
+                                    'key': f'标签{i}'
+                                }
+                                for i in range(1, 4)
+                            ]
+                        ),
+                        html.Pre(
+                            id='footer-chip-click-demo-output'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
                 html.Div(
                     'WaterMark',
                     style={
@@ -853,6 +903,19 @@ app.layout = html.Div(
 def image_viewer_demo(nClicks):
 
     return True
+
+
+@app.callback(
+    Output('footer-chip-click-demo-output', 'children'),
+    Input('footer-chip-click-demo', 'clickedChip')
+)
+def footer_chip_click_demo(clickedChip):
+
+    return json.dumps(
+        clickedChip,
+        indent=4,
+        ensure_ascii=False
+    )
 
 
 if __name__ == '__main__':

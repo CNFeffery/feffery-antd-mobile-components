@@ -30,6 +30,7 @@ import MobileSteps from './components/dataDisplay/MobileSteps.react';
 import MobileSwiper from './components/dataDisplay/MobileSwiper.react';
 import MobileTag from './components/dataDisplay/MobileTag.react';
 import MobileWaterMark from './components/dataDisplay/MobileWaterMark.react';
+import MobileFooter from './components/dataDisplay/MobileFooter.react';
 
 
 export {
@@ -58,5 +59,6 @@ export {
     MobileSteps,
     MobileSwiper,
     MobileTag,
-    MobileWaterMark
+    MobileWaterMark,
+    MobileFooter
 };

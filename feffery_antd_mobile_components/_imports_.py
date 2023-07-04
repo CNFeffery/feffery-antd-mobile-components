@@ -5,6 +5,7 @@ from .MobileCard import MobileCard
 from .MobileCollapse import MobileCollapse
 from .MobileEllipsis import MobileEllipsis
 from .MobileFloatingPanel import MobileFloatingPanel
+from .MobileFooter import MobileFooter
 from .MobileImage import MobileImage
 from .MobileImageViewer import MobileImageViewer
 from .MobileList import MobileList
@@ -33,6 +34,7 @@ __all__ = [
     "MobileCollapse",
     "MobileEllipsis",
     "MobileFloatingPanel",
+    "MobileFooter",
     "MobileImage",
     "MobileImageViewer",
     "MobileList",
