@@ -1053,6 +1053,7 @@ def cascader_view_demo(value):
         ensure_ascii=False
     )
 
+
 @app.callback(
     Output('check-list-demo-output', 'children'),
     Input('check-list-demo', 'value')

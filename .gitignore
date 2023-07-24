@@ -1,10 +1,14 @@
 /deps
+/build
+/dist
 
 /feffery_antd_mobile_components/*.js
 /feffery_antd_mobile_components/*.map
 /feffery_antd_mobile_components/*.json
 /feffery_antd_mobile_components/*.txt
 /feffery_antd_mobile_components/__pycache__
+
+/feffery_antd_mobile_components.egg-info
 
 /inst
 /man

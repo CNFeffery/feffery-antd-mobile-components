@@ -4,7 +4,7 @@
 /* eslint-disable no-magic-numbers */
 /* eslint-disable prefer-const */
 // react核心
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { TabBar, Badge } from 'antd-mobile';
@@ -22,6 +22,15 @@ const MobileTabBar = (props) => {
         loading_state,
         setProps
     } = props;
+
+    // 初始化同步props
+    useEffect(() => {
+        if (defaultActiveKey && !activeKey) {
+            setProps({
+                activeKey: defaultActiveKey
+            })
+        }
+    }, [])
 
     return <TabBar
         id={id}
