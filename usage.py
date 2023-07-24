@@ -14,6 +14,25 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Popup',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobilePopup(
+                            '测试内容'*100,
+                            visible=True,
+                            closeOnMaskClick=True,
+                            showCloseButton=True
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'CheckList',
                     style={
                         'color': '#697b8c'
@@ -1068,4 +1087,4 @@ def check_list_demo(value):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, port=8008)
