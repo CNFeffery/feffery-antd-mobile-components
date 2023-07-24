@@ -37,7 +37,7 @@ import MobileCascaderView from './components/dataEntry/MobileCascaderView.react'
 import MobileCheckList from './components/dataEntry/MobileCheckList.react';
 // 反馈
 import MobilePopup from './components/feedback/MobilePopup.react';
-
+import MobileCenterPopup from './components/feedback/MobileCenterPopup.react';
 
 export {
     MobileButton,
@@ -70,5 +70,6 @@ export {
     MobileCascader,
     MobileCascaderView,
     MobileCheckList,
-    MobilePopup
+    MobilePopup,
+    MobileCenterPopup
 };

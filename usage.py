@@ -14,6 +14,25 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'CenterPopup',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileCenterPopup(
+                            '测试内容'*100,
+                            # visible=True,
+                            closeOnMaskClick=True,
+                            showCloseButton=True
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'Popup',
                     style={
                         'color': '#697b8c'
@@ -23,7 +42,7 @@ app.layout = html.Div(
                     [
                         famc.MobilePopup(
                             '测试内容'*100,
-                            visible=True,
+                            # visible=True,
                             closeOnMaskClick=True,
                             showCloseButton=True
                         )
