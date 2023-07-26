@@ -14,6 +14,28 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'ErrorBlock',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileErrorBlock(
+                            status=status
+                        )
+                        for status in [
+                            'default',
+                            'disconnected',
+                            'empty',
+                            'busy'
+                        ]
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'SearchBar',
                     style={
                         'color': '#697b8c'

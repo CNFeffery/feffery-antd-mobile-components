@@ -19,6 +19,7 @@ from .MobileCascaderView import MobileCascaderView
 from .MobileCheckList import MobileCheckList
 from .MobileSearchBar import MobileSearchBar
 from .MobileCenterPopup import MobileCenterPopup
+from .MobileErrorBlock import MobileErrorBlock
 from .MobilePopup import MobilePopup
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
@@ -54,6 +55,7 @@ __all__ = [
     "MobileCheckList",
     "MobileSearchBar",
     "MobileCenterPopup",
+    "MobileErrorBlock",
     "MobilePopup",
     "MobileAutoCenter",
     "MobileDivider",
