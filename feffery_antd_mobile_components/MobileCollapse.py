@@ -29,6 +29,9 @@ Keyword arguments:
 
     `items` is a list of dicts with keys:
 
+    - arrow (a list of or a singular dash component, string or number; optional):
+        用于为当前项自定义展开图标元素，传入None时会隐藏图标.
+
     - children (a list of or a singular dash component, string or number; optional):
         可选，用于设置当前选项对应的内容.
 
@@ -68,7 +71,7 @@ Keyword arguments:
 
 - style (dict; optional):
     用于为当前组件设置css样式."""
-    _children_props = ['items[].title', 'items[].children']
+    _children_props = ['items[].title', 'items[].children', 'items[].arrow']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileCollapse'

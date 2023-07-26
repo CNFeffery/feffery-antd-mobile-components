@@ -14,6 +14,20 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'SearchBar',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileSearchBar()
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'CenterPopup',
                     style={
                         'color': '#697b8c'

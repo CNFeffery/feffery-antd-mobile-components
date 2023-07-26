@@ -106,7 +106,12 @@ MobileCollapse.propTypes = {
              * 用于设置当前选项被隐藏后，是否对其children内容进行销毁
              * 默认：false
              */
-            destroyOnClose: PropTypes.bool
+            destroyOnClose: PropTypes.bool,
+
+            /**
+             * 用于为当前项自定义展开图标元素，传入None时会隐藏图标
+             */
+            arrow: PropTypes.node
         })
     ),
 

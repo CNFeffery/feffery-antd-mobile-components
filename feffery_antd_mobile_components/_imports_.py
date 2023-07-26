@@ -17,6 +17,7 @@ from .MobileWaterMark import MobileWaterMark
 from .MobileCascader import MobileCascader
 from .MobileCascaderView import MobileCascaderView
 from .MobileCheckList import MobileCheckList
+from .MobileSearchBar import MobileSearchBar
 from .MobileCenterPopup import MobileCenterPopup
 from .MobilePopup import MobilePopup
 from .MobileAutoCenter import MobileAutoCenter
@@ -51,6 +52,7 @@ __all__ = [
     "MobileCascader",
     "MobileCascaderView",
     "MobileCheckList",
+    "MobileSearchBar",
     "MobileCenterPopup",
     "MobilePopup",
     "MobileAutoCenter",
