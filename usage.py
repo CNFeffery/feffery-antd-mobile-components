@@ -14,6 +14,28 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'CheckboxGroup',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileCheckboxGroup(
+                            options=[
+                                {
+                                    'label': f'选项{i}',
+                                    'value': f'选项{i}'
+                                }
+                                for i in range(1, 6)
+                            ]
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'Checkbox',
                     style={
                         'color': '#697b8c'

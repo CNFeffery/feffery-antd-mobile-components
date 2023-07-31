@@ -17,6 +17,7 @@ from .MobileWaterMark import MobileWaterMark
 from .MobileCascader import MobileCascader
 from .MobileCascaderView import MobileCascaderView
 from .MobileCheckbox import MobileCheckbox
+from .MobileCheckboxGroup import MobileCheckboxGroup
 from .MobileCheckList import MobileCheckList
 from .MobileSearchBar import MobileSearchBar
 from .MobileCenterPopup import MobileCenterPopup
@@ -54,6 +55,7 @@ __all__ = [
     "MobileCascader",
     "MobileCascaderView",
     "MobileCheckbox",
+    "MobileCheckboxGroup",
     "MobileCheckList",
     "MobileSearchBar",
     "MobileCenterPopup",

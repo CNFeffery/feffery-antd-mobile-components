@@ -8,8 +8,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Checkbox } from 'antd-mobile';
-// 工具函数
-import { isUndefined } from 'lodash';
+
 
 const MobileCheckbox = (props) => {
     let {
@@ -20,22 +19,12 @@ const MobileCheckbox = (props) => {
         children,
         block,
         checked,
-        defaultChecked,
         disabled,
         icon,
         indeterminate,
         loading_state,
         setProps
     } = props;
-
-    // 处理defaultChecked、checked的初始化逻辑
-    useEffect(() => {
-        if (!isUndefined(defaultChecked) && isUndefined(checked)) {
-            setProps({
-                checked: defaultChecked
-            })
-        }
-    }, [])
 
     return <Checkbox
         id={id}
@@ -44,7 +33,6 @@ const MobileCheckbox = (props) => {
         className={className}
         block={block}
         checked={checked}
-        defaultChecked={defaultChecked}
         disabled={disabled}
         icon={
             icon ?
@@ -111,12 +99,6 @@ MobileCheckbox.propTypes = {
     checked: PropTypes.bool,
 
     /**
-     * 设置当前复选框初始化时是否被选中
-     * 默认：false
-     */
-    defaultChecked: PropTypes.bool,
-
-    /**
      * 是否禁用当前组件
      * 默认：false
      */
@@ -170,7 +152,6 @@ MobileCheckbox.propTypes = {
 MobileCheckbox.defaultProps = {
     block: false,
     checked: false,
-    defaultChecked: false,
     disabled: false,
     indeterminate: false
 };
