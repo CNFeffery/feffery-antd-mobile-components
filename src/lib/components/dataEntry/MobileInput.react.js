@@ -7,25 +7,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
-import { SearchBar } from 'antd-mobile';
+import { Input } from 'antd-mobile';
 // hooks
 import { useRequest } from 'ahooks';
 
-const MobileSearchBar = (props) => {
+const MobileInput = (props) => {
     let {
         id,
         key,
         style,
         className,
-        cancelText,
-        clearOnCancel,
+        type,
         clearable,
-        icon,
+        defaultValue,
+        disabled,
         maxLength,
         onlyShowClearWhenFocus,
         placeholder,
-        showCancelButton,
+        readOnly,
         value,
+        debounceValue,
         debounceWait,
         loading_state,
         setProps
@@ -44,20 +45,22 @@ const MobileSearchBar = (props) => {
         }
     )
 
-    return <SearchBar
+    return <Input
         id={id}
         key={key}
         style={style}
         className={className}
-        cancelText={cancelText}
-        clearOnCancel={clearOnCancel}
+        type={type}
         clearable={clearable}
-        icon={icon}
+        defaultValue={defaultValue}
+        disabled={disabled}
         maxLength={maxLength}
         onlyShowClearWhenFocus={onlyShowClearWhenFocus}
         placeholder={placeholder}
-        showCancelButton={showCancelButton}
+        readOnly={readOnly}
         value={value}
+        debounceValue={debounceValue}
+        debounceWait={debounceWait}
         onChange={
             (e) => {
                 setProps({
@@ -73,7 +76,7 @@ const MobileSearchBar = (props) => {
 };
 
 
-MobileSearchBar.propTypes = {
+MobileInput.propTypes = {
     // 通用参数
     /**
      * 用于设置当前组件唯一id
@@ -97,27 +100,28 @@ MobileSearchBar.propTypes = {
 
     // 组件常规参数
     /**
-     * 取消按钮文案
-     * 默认：'取消'
+     * 用于设置当前输入框的类型
+     * 可选的有'text'、'password'
+     * 默认：'text'
      */
-    cancelText: PropTypes.string,
+    type: PropTypes.oneOf(['text', 'password']),
 
     /**
-     * 点击取消按钮后是否清空已输入内容
-     * 默认：true
-     */
-    clearOnCancel: PropTypes.bool,
-
-    /**
-     * 是否渲染取消按钮
-     * 默认：true
+     * 是否渲染清除按钮
+     * 默认：false
      */
     clearable: PropTypes.bool,
 
     /**
-     * 自定义前缀图标
+     * 设置初始化已输入内容
      */
-    icon: PropTypes.node,
+    defaultValue: PropTypes.string,
+
+    /**
+     * 是否禁用当前组件
+     * 默认：false
+     */
+    disabled: PropTypes.bool,
 
     /**
      * 限制允许输入内容的长度上限
@@ -126,8 +130,8 @@ MobileSearchBar.propTypes = {
     maxLength: PropTypes.number,
 
     /**
-     * 是否仅在当前搜索框聚焦时才显示取消按钮
-     * 默认：false
+     * 是否仅在当前输入框聚焦时才显示取消按钮
+     * 默认：true
      */
     onlyShowClearWhenFocus: PropTypes.bool,
 
@@ -137,13 +141,13 @@ MobileSearchBar.propTypes = {
     placeholder: PropTypes.string,
 
     /**
-     * 是否在搜索框右侧显示取消按钮
+     * 用于设置是否以只读模式渲染当前组件
      * 默认：false
      */
-    showCancelButton: PropTypes.bool,
+    readOnly: PropTypes.bool,
 
     /**
-     * 设置或监听当前搜索框内的已输入文字内容
+     * 设置或监听当前输入框内的已输入文字内容
      */
     value: PropTypes.string,
 
@@ -180,13 +184,13 @@ MobileSearchBar.propTypes = {
     setProps: PropTypes.func,
 };
 
-MobileSearchBar.defaultProps = {
-    cancelText: '取消',
-    clearOnCancel: true,
-    clearable: true,
-    onlyShowClearWhenFocus: false,
-    showCancelButton: false,
+MobileInput.defaultProps = {
+    type: 'text',
+    clearable: false,
+    disabled: false,
+    onlyShowClearWhenFocus: true,
+    readOnly: false,
     debounceWait: 200
 };
 
-export default React.memo(MobileSearchBar);
+export default React.memo(MobileInput);

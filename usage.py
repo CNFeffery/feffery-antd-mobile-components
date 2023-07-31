@@ -14,6 +14,27 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Input',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileInput(
+                            placeholder='请输入内容',
+                            clearable=True
+                        ),
+                        famc.MobileInput(
+                            placeholder='请输入密码',
+                            type='password'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'CheckboxGroup',
                     style={
                         'color': '#697b8c'
