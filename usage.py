@@ -14,6 +14,22 @@ app.layout = html.Div(
         famc.MobileSpace(
             [
                 html.Div(
+                    'Checkbox',
+                    style={
+                        'color': '#697b8c'
+                    }
+                ),
+                famc.MobileSpace(
+                    [
+                        famc.MobileCheckbox(
+                            '复选框测试'
+                        )
+                    ],
+                    direction='vertical',
+                    block=True
+                ),
+
+                html.Div(
                     'ErrorBlock',
                     style={
                         'color': '#697b8c'

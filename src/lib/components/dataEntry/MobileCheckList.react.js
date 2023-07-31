@@ -56,24 +56,6 @@ const MobileCheckList = (props) => {
     />;
 };
 
-// 定义选项options参数的类型约束
-const optionNodeShape = {
-    /**
-     * 用于设置当前选项的标题内容
-     */
-    label: PropTypes.string,
-
-    /**
-     * 用于设置当前选项对应值
-     */
-    value: PropTypes.string,
-
-    /**
-     * 用于设置是否禁用当前选项
-     * 默认：false
-     */
-    disabled: PropTypes.bool
-}
 
 MobileCheckList.propTypes = {
     // 通用参数
