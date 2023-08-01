@@ -15,6 +15,7 @@ from .MobileSwiper import MobileSwiper
 from .MobileTag import MobileTag
 from .MobileWaterMark import MobileWaterMark
 from .MobileForm import MobileForm
+from .MobileFormHeader import MobileFormHeader
 from .MobileFormItem import MobileFormItem
 from .MobileCascader import MobileCascader
 from .MobileCascaderView import MobileCascaderView
@@ -26,6 +27,8 @@ from .MobileSearchBar import MobileSearchBar
 from .MobileCenterPopup import MobileCenterPopup
 from .MobileErrorBlock import MobileErrorBlock
 from .MobilePopup import MobilePopup
+from .MobileResult import MobileResult
+from .MobileToast import MobileToast
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -56,6 +59,7 @@ __all__ = [
     "MobileTag",
     "MobileWaterMark",
     "MobileForm",
+    "MobileFormHeader",
     "MobileFormItem",
     "MobileCascader",
     "MobileCascaderView",
@@ -67,6 +71,8 @@ __all__ = [
     "MobileCenterPopup",
     "MobileErrorBlock",
     "MobilePopup",
+    "MobileResult",
+    "MobileToast",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",

@@ -39,6 +39,7 @@ import MobileCheckbox from './components/dataEntry/MobileCheckbox.react';
 import MobileCheckboxGroup from './components/dataEntry/MobileCheckboxGroup.react';
 import MobileForm from './components/dataEntry/form/MobileForm.react';
 import MobileFormItem from './components/dataEntry/form/MobileFormItem.react';
+import MobileFormHeader from './components/dataEntry/form/MobileFormHeader.react';
 import MobileInput from './components/dataEntry/MobileInput.react';
 import MobileSearchBar from './components/dataEntry/MobileSearchBar.react';
 
@@ -46,6 +47,8 @@ import MobileSearchBar from './components/dataEntry/MobileSearchBar.react';
 import MobileErrorBlock from './components/feedback/MobileErrorBlock.react';
 import MobilePopup from './components/feedback/MobilePopup.react';
 import MobileCenterPopup from './components/feedback/MobileCenterPopup.react';
+import MobileResult from './components/feedback/MobileResult.react';
+import MobileToast from './components/feedback/MobileToast.react';
 
 export {
     MobileButton,
@@ -82,9 +85,12 @@ export {
     MobileCheckboxGroup,
     MobileForm,
     MobileFormItem,
+    MobileFormHeader,
     MobileInput,
     MobileSearchBar,
     MobileErrorBlock,
     MobilePopup,
-    MobileCenterPopup
+    MobileCenterPopup,
+    MobileResult,
+    MobileToast
 };
