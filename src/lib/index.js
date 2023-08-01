@@ -38,6 +38,7 @@ import MobileCheckList from './components/dataEntry/MobileCheckList.react';
 import MobileCheckbox from './components/dataEntry/MobileCheckbox.react';
 import MobileCheckboxGroup from './components/dataEntry/MobileCheckboxGroup.react';
 import MobileForm from './components/dataEntry/form/MobileForm.react';
+import MobileFormItem from './components/dataEntry/form/MobileFormItem.react';
 import MobileInput from './components/dataEntry/MobileInput.react';
 import MobileSearchBar from './components/dataEntry/MobileSearchBar.react';
 
@@ -80,6 +81,7 @@ export {
     MobileCheckbox,
     MobileCheckboxGroup,
     MobileForm,
+    MobileFormItem,
     MobileInput,
     MobileSearchBar,
     MobileErrorBlock,
