@@ -48,6 +48,7 @@ import MobileErrorBlock from './components/feedback/MobileErrorBlock.react';
 import MobilePopup from './components/feedback/MobilePopup.react';
 import MobileCenterPopup from './components/feedback/MobileCenterPopup.react';
 import MobileResult from './components/feedback/MobileResult.react';
+import MobileSkeleton from './components/feedback/skeleton/MobileSkeleton.react';
 import MobileToast from './components/feedback/MobileToast.react';
 
 export {
@@ -92,5 +93,6 @@ export {
     MobilePopup,
     MobileCenterPopup,
     MobileResult,
+    MobileSkeleton,
     MobileToast
 };

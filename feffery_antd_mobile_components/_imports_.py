@@ -29,6 +29,7 @@ from .MobileErrorBlock import MobileErrorBlock
 from .MobilePopup import MobilePopup
 from .MobileResult import MobileResult
 from .MobileToast import MobileToast
+from .MobileSkeleton import MobileSkeleton
 from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
@@ -73,6 +74,7 @@ __all__ = [
     "MobilePopup",
     "MobileResult",
     "MobileToast",
+    "MobileSkeleton",
     "MobileAutoCenter",
     "MobileDivider",
     "MobileGrid",
