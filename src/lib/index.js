@@ -42,7 +42,6 @@ import MobileFormItem from './components/dataEntry/form/MobileFormItem.react';
 import MobileFormHeader from './components/dataEntry/form/MobileFormHeader.react';
 import MobileInput from './components/dataEntry/MobileInput.react';
 import MobileSearchBar from './components/dataEntry/MobileSearchBar.react';
-
 // 反馈
 import MobileErrorBlock from './components/feedback/MobileErrorBlock.react';
 import MobilePopup from './components/feedback/MobilePopup.react';
@@ -50,6 +49,8 @@ import MobileCenterPopup from './components/feedback/MobileCenterPopup.react';
 import MobileResult from './components/feedback/MobileResult.react';
 import MobileSkeleton from './components/feedback/skeleton/MobileSkeleton.react';
 import MobileToast from './components/feedback/MobileToast.react';
+// 其他
+import MobileFloatingBubble from './components/other/MobileFloatingBubble.react';
 
 export {
     MobileButton,
@@ -94,5 +95,6 @@ export {
     MobileCenterPopup,
     MobileResult,
     MobileSkeleton,
-    MobileToast
+    MobileToast,
+    MobileFloatingBubble
 };
