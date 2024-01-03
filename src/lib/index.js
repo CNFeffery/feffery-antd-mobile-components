@@ -50,6 +50,7 @@ import MobileResult from './components/feedback/MobileResult.react';
 import MobileSkeleton from './components/feedback/skeleton/MobileSkeleton.react';
 import MobileToast from './components/feedback/MobileToast.react';
 import MobileProgressCircle from './components/feedback/MobileProgressCircle.react';
+import MobilePopover from './components/feedback/MobilePopover.react';
 // 其他
 import MobileFloatingBubble from './components/other/MobileFloatingBubble.react';
 
@@ -98,5 +99,6 @@ export {
     MobileSkeleton,
     MobileToast,
     MobileProgressCircle,
+    MobilePopover,
     MobileFloatingBubble
 };

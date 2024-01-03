@@ -7,6 +7,14 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
+        famc.MobilePopover(
+            famc.MobileButton(
+                '测试'
+            ),
+            content='气泡弹出框示例',
+            placement='right',
+            mode='dark'
+        ),
         famc.MobileFloatingBubble(
             famc.MobileIcon(
                 icon='UnorderedListOutline',
