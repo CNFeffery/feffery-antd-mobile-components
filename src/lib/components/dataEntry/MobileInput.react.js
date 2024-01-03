@@ -4,7 +4,7 @@
 /* eslint-disable no-magic-numbers */
 /* eslint-disable prefer-const */
 // react核心
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Input } from 'antd-mobile';
@@ -32,6 +32,9 @@ const MobileInput = (props) => {
         setProps
     } = props;
 
+    // 解决受控value卡部分中文输入法问题
+    const [rawValue, setRawValue] = useState(value);
+
     // 针对debounceValue的防抖监听更新
     const { run: onDebounceChange } = useRequest(
         (e) => {
@@ -44,6 +47,11 @@ const MobileInput = (props) => {
             manual: true
         }
     )
+
+    // 解决value经回调更新后，rawValue未更新的问题
+    useEffect(() => {
+        setRawValue(value);
+    }, [value])
 
     return <Input
         id={id}
@@ -58,15 +66,14 @@ const MobileInput = (props) => {
         onlyShowClearWhenFocus={onlyShowClearWhenFocus}
         placeholder={placeholder}
         readOnly={readOnly}
-        value={value}
-        debounceValue={debounceValue}
-        debounceWait={debounceWait}
+        value={rawValue || value}
         onChange={
             (e) => {
                 setProps({
                     value: e
                 })
                 onDebounceChange(e)
+                setRawValue(e)
             }
         }
         data-dash-is-loading={

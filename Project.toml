@@ -2,7 +2,7 @@
 name = "FefferyAntdMobileComponents"
 uuid = "1b08a953-4be3-4667-9a23-847c6f5bdd4c"
 authors = ["CNFeffery <fefferypzy@gmail.com>"]
-version = "0.0.1-a3"
+version = "0.0.1-a4"
 
 [deps]
 Dash = "1b08a953-4be3-4667-9a23-3db579824955"

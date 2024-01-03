@@ -7,91 +7,15 @@ app = dash.Dash(__name__)
 
 app.layout = html.Div(
     [
-        famc.MobilePopover(
-            famc.MobileButton(
-                '测试'
-            ),
-            content='气泡弹出框示例',
-            placement='right',
-            mode='dark'
-        ),
-        famc.MobileFloatingBubble(
-            famc.MobileIcon(
-                icon='UnorderedListOutline',
-                style={
-                    'fontSize': 32
-                }
-            ),
-            id='floating-bubble',
-            axis='xy',
-            magnetic='x',
+        famc.MobileInput(
+            id='input-demo',
+            placeholder='请输入',
             style={
-                '--initial-position-bottom': '124px',
-                '--initial-position-right': '24px',
-                '--edge-distance': '24px',
+                'width': '100%'
             }
         ),
-        html.Div(id='content'),
-        famc.MobileSpace(
-            [
-                famc.MobileSpace(
-                    [
-                        famc.MobileProgressCircle(
-                            percent=80
-                        ),
-                        famc.MobileProgressCircle(
-                            '50%',
-                            percent=50
-                        )
-                    ]
-                ),
-                famc.MobileSpace(
-                    [
-                        famc.MobileProgressCircle(
-                            percent=75,
-                            style={
-                                '--track-width': '2px'
-                            }
-                        ),
-                        famc.MobileProgressCircle(
-                            percent=75,
-                            style={
-                                '--track-width': '4px'
-                            }
-                        ),
-                        famc.MobileProgressCircle(
-                            percent=75,
-                            style={
-                                '--track-width': '6px'
-                            }
-                        ),
-                    ]
-                ),
-                famc.MobileSpace(
-                    [
-                        famc.MobileProgressCircle(
-                            percent=75,
-                            style={
-                                '--size': '20px'
-                            }
-                        ),
-                        famc.MobileProgressCircle(
-                            percent=75,
-                            style={
-                                '--size': '50px'
-                            }
-                        ),
-                        famc.MobileProgressCircle(
-                            percent=75,
-                            style={
-                                '--size': '100px'
-                            }
-                        ),
-                    ],
-                    align='center'
-                )
-            ],
-            direction='vertical'
+        html.Div(
+            id='input-demo-output'
         )
     ],
     style={
@@ -103,12 +27,12 @@ app.layout = html.Div(
 
 
 @app.callback(
-    Output('content', 'children'),
-    Input('floating-bubble', 'nClicks')
+    Output('input-demo-output', 'children'),
+    Input('input-demo', 'value')
 )
-def demo(nClicks):
+def demo(value):
 
-    return f'nClicks: {nClicks}'
+    return f'value: {value}'
 
 
 if __name__ == '__main__':
