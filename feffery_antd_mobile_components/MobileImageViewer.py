@@ -12,8 +12,18 @@ Keyword arguments:
 - id (string; optional):
     用于设置当前组件唯一id.
 
+- key (string; optional):
+    强制重绘当前组件时使用.
+
+- style (dict; optional):
+    用于为当前组件设置css样式.
+
 - className (string; optional):
     用于为当前组件设置css类名.
+
+- mode (a value equal to: 'default', 'multiple'; default 'default'):
+    用于设置当前图片查看器的显示模式  可选的有'default'、'multiple'，分别对应参数image、images
+    默认：'default'.
 
 - defaultIndex (number; default 0):
     当mode='multiple'时，用于设置默认显示的图片位序  默认：0.
@@ -24,15 +34,15 @@ Keyword arguments:
 - images (list of strings; optional):
     当mode='multiple'时，用于设置目标图片资源地址数组.
 
-- key (string; optional):
-    强制重绘当前组件时使用.
+- maxZoom (number | a value equal to: 'auto'; default 3):
+    设置图片查看时的最大缩放倍数  默认：3.
+
+- visible (boolean; default False):
+    用于监听或设置当前图片查看器是否处于显示状态  默认：False.
 
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
 
     - is_loading (boolean; optional):
         Determines if the component is loading or not.
@@ -40,27 +50,17 @@ Keyword arguments:
     - prop_name (string; optional):
         Holds which property is loading.
 
-- maxZoom (number | a value equal to: 'auto'; default 3):
-    设置图片查看时的最大缩放倍数  默认：3.
-
-- mode (a value equal to: 'default', 'multiple'; default 'default'):
-    用于设置当前图片查看器的显示模式  可选的有'default'、'multiple'，分别对应参数image、images
-    默认：'default'.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
-
-- visible (boolean; default False):
-    用于监听或设置当前图片查看器是否处于显示状态  默认：False."""
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileImageViewer'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, mode=Component.UNDEFINED, defaultIndex=Component.UNDEFINED, image=Component.UNDEFINED, images=Component.UNDEFINED, maxZoom=Component.UNDEFINED, visible=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'defaultIndex', 'image', 'images', 'key', 'loading_state', 'maxZoom', 'mode', 'style', 'visible']
+        self._prop_names = ['id', 'key', 'style', 'className', 'mode', 'defaultIndex', 'image', 'images', 'maxZoom', 'visible', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'defaultIndex', 'image', 'images', 'key', 'loading_state', 'maxZoom', 'mode', 'style', 'visible']
+        self.available_properties = ['id', 'key', 'style', 'className', 'mode', 'defaultIndex', 'image', 'images', 'maxZoom', 'visible', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

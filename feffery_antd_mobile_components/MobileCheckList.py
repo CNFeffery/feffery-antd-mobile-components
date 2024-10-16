@@ -12,33 +12,14 @@ Keyword arguments:
 - id (string; optional):
     用于设置当前组件唯一id.
 
-- className (string; optional):
-    用于为当前组件设置css类名.
-
-- defaultValue (list of strings; optional):
-    用于设置当前可勾选列表组件的默认选中项.
-
-- disabled (boolean; default False):
-    用于设置是否禁用当前组件  默认：False.
-
 - key (string; optional):
     强制重绘当前组件时使用.
 
-- loading_state (dict; optional)
+- style (dict; optional):
+    用于为当前组件设置css样式.
 
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-- multiple (boolean; default False):
-    用于设置是否允许多选  默认：False.
+- className (string; optional):
+    用于为当前组件设置css类名.
 
 - options (list of dicts; optional):
     用于为当前可勾选列表定义选项.
@@ -48,41 +29,60 @@ Keyword arguments:
     - children (a list of or a singular dash component, string or number; optional):
         用于设置当前选项主要区域元素.
 
-    - description (a list of or a singular dash component, string or number; optional):
-        用于设置当前选项中间下部的描述区域元素.
-
-    - disabled (boolean; optional):
-        用于设置是否禁用当前选项  默认：False.
-
-    - prefix (a list of or a singular dash component, string or number; optional):
-        用于设置当前选项左侧区域元素.
-
-    - readOnly (boolean; optional):
-        用于设置是否以只读模式渲染当前选项  默认：False.
+    - value (string; optional):
+        用于设置当前选项的值.
 
     - title (a list of or a singular dash component, string or number; optional):
         用于设置当前选项中间上部的标题区域元素.
 
-    - value (string; optional):
-        用于设置当前选项的值.
+    - description (a list of or a singular dash component, string or number; optional):
+        用于设置当前选项中间下部的描述区域元素.
+
+    - prefix (a list of or a singular dash component, string or number; optional):
+        用于设置当前选项左侧区域元素.
+
+    - disabled (boolean; optional):
+        用于设置是否禁用当前选项  默认：False.
+
+    - readOnly (boolean; optional):
+        用于设置是否以只读模式渲染当前选项  默认：False.
+
+- defaultValue (list of strings; optional):
+    用于设置当前可勾选列表组件的默认选中项.
+
+- disabled (boolean; default False):
+    用于设置是否禁用当前组件  默认：False.
+
+- multiple (boolean; default False):
+    用于设置是否允许多选  默认：False.
 
 - readOnly (boolean; default False):
     用于设置是否以只读模式渲染当前组件  默认：False.
 
-- style (dict; optional):
-    用于为当前组件设置css样式.
-
 - value (list of strings; optional):
-    用于设置或监听当前可勾选列表组件的选中项."""
+    用于设置或监听当前可勾选列表组件的选中项.
+
+- loading_state (dict; optional)
+
+    `loading_state` is a dict with keys:
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = ['options[].children', 'options[].title', 'options[].description', 'options[].prefix']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileCheckList'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, options=Component.UNDEFINED, defaultValue=Component.UNDEFINED, disabled=Component.UNDEFINED, multiple=Component.UNDEFINED, readOnly=Component.UNDEFINED, value=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'defaultValue', 'disabled', 'key', 'loading_state', 'multiple', 'options', 'readOnly', 'style', 'value']
+        self._prop_names = ['id', 'key', 'style', 'className', 'options', 'defaultValue', 'disabled', 'multiple', 'readOnly', 'value', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'defaultValue', 'disabled', 'key', 'loading_state', 'multiple', 'options', 'readOnly', 'style', 'value']
+        self.available_properties = ['id', 'key', 'style', 'className', 'options', 'defaultValue', 'disabled', 'multiple', 'readOnly', 'value', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

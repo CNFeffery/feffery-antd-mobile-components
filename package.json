@@ -1,6 +1,6 @@
 {
   "name": "feffery_antd_mobile_components",
-  "version": "0.0.1-a4",
+  "version": "0.0.1-a5",
   "description": "Best implementation of Antd Mobile components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "start": "webpack serve --config ./webpack.serve.config.js --open",
     "validate-init": "python _validate_init.py",
     "build:js": "webpack --mode production",
-    "build:backends": "dash-generate-components ./src/lib/components feffery_antd_mobile_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
+    "build:backends": "dash-generate-components ./src/lib/components feffery_antd_mobile_components --keep-prop-order ALL -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
     "build:backends-activated": "(. venv/bin/activate || venv\\scripts\\activate && npm run build:py_and_r)",
     "build": "npm run build:js && npm run build:backends",
     "build:activated": "npm run build:js && npm run build:backends-activated"

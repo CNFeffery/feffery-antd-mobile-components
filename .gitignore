@@ -17,7 +17,6 @@
 /src/demo
 /src/jl
 /src/*.jl
-/tests
 
 .Rbuildignore
 CONTRIBUTING.md

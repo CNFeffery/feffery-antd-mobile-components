@@ -48,6 +48,7 @@ import MobilePopup from './components/feedback/MobilePopup.react';
 import MobileCenterPopup from './components/feedback/MobileCenterPopup.react';
 import MobileResult from './components/feedback/MobileResult.react';
 import MobileSkeleton from './components/feedback/skeleton/MobileSkeleton.react';
+import MobileSwipeAction from './components/feedback/MobileSwipeAction.react';
 import MobileToast from './components/feedback/MobileToast.react';
 import MobileProgressCircle from './components/feedback/MobileProgressCircle.react';
 import MobilePopover from './components/feedback/MobilePopover.react';
@@ -97,6 +98,7 @@ export {
     MobileCenterPopup,
     MobileResult,
     MobileSkeleton,
+    MobileSwipeAction,
     MobileToast,
     MobileProgressCircle,
     MobilePopover,

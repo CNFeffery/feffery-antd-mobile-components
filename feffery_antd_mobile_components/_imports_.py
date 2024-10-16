@@ -30,6 +30,7 @@ from .MobilePopover import MobilePopover
 from .MobilePopup import MobilePopup
 from .MobileProgressCircle import MobileProgressCircle
 from .MobileResult import MobileResult
+from .MobileSwipeAction import MobileSwipeAction
 from .MobileToast import MobileToast
 from .MobileSkeleton import MobileSkeleton
 from .MobileAutoCenter import MobileAutoCenter
@@ -78,6 +79,7 @@ __all__ = [
     "MobilePopup",
     "MobileProgressCircle",
     "MobileResult",
+    "MobileSwipeAction",
     "MobileToast",
     "MobileSkeleton",
     "MobileAutoCenter",

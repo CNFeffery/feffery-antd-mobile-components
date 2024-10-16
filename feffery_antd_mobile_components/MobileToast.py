@@ -12,6 +12,12 @@ Keyword arguments:
 - id (string; optional):
     用于设置当前组件唯一id.
 
+- key (string; optional):
+    强制重绘当前组件时使用.
+
+- style (dict; optional):
+    用于为当前组件设置css样式.
+
 - className (string; optional):
     用于为当前组件设置css类名.
 
@@ -23,22 +29,6 @@ Keyword arguments:
 
 - icon (a value equal to: 'success', 'fail', 'loading'; optional):
     额外图标类型，可选的有'success'、'fail'、'loading'.
-
-- key (string; optional):
-    强制重绘当前组件时使用.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading.
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
 
 - maskClassName (string; optional):
     遮罩层css类名.
@@ -52,17 +42,27 @@ Keyword arguments:
 - position (a value equal to: 'top', 'bottom', 'center'; default 'center'):
     垂直方向显示位置，可选的有'top'、'bottom'、'center'  默认：'center'.
 
-- style (dict; optional):
-    用于为当前组件设置css样式."""
+- loading_state (dict; optional)
+
+    `loading_state` is a dict with keys:
+
+    - is_loading (boolean; optional):
+        Determines if the component is loading or not.
+
+    - prop_name (string; optional):
+        Holds which property is loading.
+
+    - component_name (string; optional):
+        Holds the name of the component that is loading."""
     _children_props = ['content']
     _base_nodes = ['content', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileToast'
     @_explicitize_args
     def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, content=Component.UNDEFINED, duration=Component.UNDEFINED, icon=Component.UNDEFINED, maskClassName=Component.UNDEFINED, maskClickable=Component.UNDEFINED, maskStyle=Component.UNDEFINED, position=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'className', 'content', 'duration', 'icon', 'key', 'loading_state', 'maskClassName', 'maskClickable', 'maskStyle', 'position', 'style']
+        self._prop_names = ['id', 'key', 'style', 'className', 'content', 'duration', 'icon', 'maskClassName', 'maskClickable', 'maskStyle', 'position', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'className', 'content', 'duration', 'icon', 'key', 'loading_state', 'maskClassName', 'maskClickable', 'maskStyle', 'position', 'style']
+        self.available_properties = ['id', 'key', 'style', 'className', 'content', 'duration', 'icon', 'maskClassName', 'maskClickable', 'maskStyle', 'position', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
