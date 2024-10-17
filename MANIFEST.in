@@ -1,0 +1,6 @@
+include feffery_antd_mobile_components/*.js
+include feffery_antd_mobile_components/*.map
+include *.json
+include README.md
+include LICENSE
+include package.json

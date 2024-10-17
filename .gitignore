@@ -17,10 +17,10 @@
 /src/demo
 /src/jl
 /src/*.jl
+/.build_cache
 
 .Rbuildignore
 CONTRIBUTING.md
 index.html
-MANIFEST.in
 package-lock.json
 review_checklist.md

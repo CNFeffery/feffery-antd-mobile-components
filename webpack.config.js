@@ -1,4 +1,5 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 const WebpackDashDynamicImport = require('@plotly/webpack-dash-dynamic-import');
 const packagejson = require('./package.json');
@@ -53,12 +54,8 @@ module.exports = (env, argv) => {
             library: dashLibraryName,
             libraryTarget: 'window',
         },
-        devtool,
-        devServer: {
-            static: {
-                directory: path.join(__dirname, '/')
-            }
-        },
+        // devtool: false, // 开发阶段使用，生成全量source-map
+        devtool, // 发布阶段使用，生成最小化source-map
         externals,
         module: {
             rules: [
@@ -83,6 +80,17 @@ module.exports = (env, argv) => {
             ],
         },
         optimization: {
+            minimizer: [
+                new TerserPlugin({
+                    sourceMap: true,
+                    parallel: true,
+                    cache: './.build_cache/terser',
+                    terserOptions: {
+                        warnings: false,
+                        ie8: false
+                    }
+                })
+            ],
             splitChunks: {
                 name: '[name].js',
                 cacheGroups: {
