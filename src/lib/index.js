@@ -55,6 +55,7 @@ import MobileToast from './components/feedback/MobileToast.react';
 import MobilePopover from './components/feedback/MobilePopover.react';
 // 其他
 import MobileFloatingBubble from './components/other/MobileFloatingBubble.react';
+import Fragment from './components/other/Fragment.react';
 
 export {
     MobileButton,
@@ -104,5 +105,6 @@ export {
     MobileSwipeAction,
     MobileToast,
     MobilePopover,
-    MobileFloatingBubble
+    MobileFloatingBubble,
+    Fragment
 };
