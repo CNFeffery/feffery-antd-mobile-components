@@ -9,10 +9,12 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Button } from 'antd-mobile';
 
+/**
+ * 按钮组件MobileButton
+ */
 const MobileButton = (props) => {
     let {
         id,
-        key,
         style,
         className,
         children,
@@ -32,7 +34,6 @@ const MobileButton = (props) => {
 
     return <Button
         id={id}
-        key={key}
         style={style}
         className={className}
         children={children}
@@ -53,94 +54,87 @@ const MobileButton = (props) => {
 };
 
 MobileButton.propTypes = {
-    // 通用参数
     /**
-     * 用于设置当前组件唯一id
+     * 组件唯一id
      */
     id: PropTypes.string,
 
     /**
-     * 强制重绘当前组件时使用
+     * 对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果
      */
     key: PropTypes.string,
 
     /**
-     * 用于为当前组件设置css样式
+     * 当前组件css样式
      */
     style: PropTypes.object,
 
     /**
-     * 用于为当前组件设置css类名
+     * 当前组件css类名
      */
     className: PropTypes.string,
 
     /**
-     * 用于设置内部元素
+     * 组件型，内嵌元素
      */
     children: PropTypes.node,
 
-    // 组件常规参数
     /**
-     * 用于设置当前按钮是否撑满父元素
-     * 默认：false
+     * 当前按钮是否撑满父元素
+     * 默认值：`false`
      */
     block: PropTypes.bool,
 
     /**
-     * 用于设置按钮的颜色状态
-     * 可选的有'default'、'primary'、'success'、'warning'、'danger'
-     * 默认：'default'
+     * 按钮颜色状态，可选项有`'default'`、`'primary'`、`'success'`、`'warning'`、`'danger'`
+     * 默认值：`'default'`
      */
     color: PropTypes.oneOf(['default', 'primary', 'success', 'warning', 'danger']),
 
     /**
-     * 用于设置是否禁用当前按钮
-     * 默认：false
+     * 是否禁用当前按钮
+     * 默认值：`false`
      */
     disabled: PropTypes.bool,
 
     /**
-     * 用于设置当前按钮的填充模式
-     * 可选的有'solid'、'outline'、'none'
-     * 默认：'solid'
+     * 当前按钮填充模式，可选项有`'solid'`、`'outline'`、`'none'`
+     * 默认值：`'solid'`
      */
     fill: PropTypes.oneOf(['solid', 'outline', 'none']),
 
     /**
-     * 用于设置当前按钮是否处于loading状态
-     * 默认：false
+     * 当前按钮是否处于加载中状态
+     * 默认值：`false`
      */
     loading: PropTypes.bool,
 
     /**
-     * 用于设置loading状态下额外展示的文字内容
+     * 加载中状态下额外展示的文字内容
      */
     loadingText: PropTypes.string,
 
     /**
-     * 用于设置当前按钮的形状
-     * 可选的有'default'、'rounded'、'rectangular'
-     * 默认：'default'
+     * 用于设置当前按钮的形状，可选项有`'default'`、`'rounded'`、`'rectangular'`
+     * 默认值：`'default'`
      */
     shape: PropTypes.oneOf(['default', 'rounded', 'rectangular']),
 
     /**
-     * 用于设置当前按钮的尺寸规格
-     * 可选的有'mini'、'small'、'middle'、'large'
-     * 默认：'middle'
+     * 用于设置当前按钮的尺寸规格，可选项有`'mini'`、`'small'`、`'middle'`、`'large'`
+     * 默认值：`'middle'`
      */
     size: PropTypes.oneOf(['mini', 'small', 'middle', 'large']),
 
     /**
-     * 用于设置当前按钮对应原生html的type属性
-     * 可选的有'submit'、'reset'、'button'
-     * 默认：'button'
+     * 用于设置当前按钮对应原生`html`的`type`属性，可选项有`'submit'`、`'reset'`、`'button'`
+     * 默认值：`'button'`
      */
     type: PropTypes.oneOf(['submit', 'reset', 'button']),
 
-    // 组件监听类属性
     /**
-     * 用于记录当前按钮累计被点击次数
+     * 监听当前按钮累计被点击次数
+     * 默认值：`0`
      */
     nClicks: PropTypes.number,
 
