@@ -18,6 +18,7 @@
 /src/jl
 /src/*.jl
 /.build_cache
+/.vscode
 
 .Rbuildignore
 CONTRIBUTING.md
