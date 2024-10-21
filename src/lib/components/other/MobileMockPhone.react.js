@@ -33,6 +33,7 @@ const MobileMockPhone = (props) => {
             data-dash-is-loading={
                 (loading_state && loading_state.is_loading) || undefined
             }>
+            {/* 灵动岛 */}
             <div style={{
                 position: 'absolute',
                 width: '25%',
@@ -43,6 +44,18 @@ const MobileMockPhone = (props) => {
                 left: '50%',
                 transform: 'translateX(-50%)'
             }} />
+            {/* 前置摄像头 */}
+            <div style={{
+                position: 'absolute',
+                width: 10,
+                height: 10,
+                borderRadius: '50%',
+                background: '#0d0e1e',
+                top: 17,
+                left: '50%',
+                transform: 'translateX(-50%)'
+            }} />
+            {/* 底部操作条 */}
             <div style={{
                 position: 'absolute',
                 width: '36%',
@@ -53,15 +66,7 @@ const MobileMockPhone = (props) => {
                 background: '#282828',
                 borderRadius: 10,
             }} />
-            <div style={{
-                position: 'absolute',
-                width: 10,
-                height: 10,
-                borderRadius: '50%',
-                background: '#0d0e1e',
-                top: 17,
-                left: 'calc(50% + 28px)',
-            }} />
+            {/* 内容容器 */}
             <div style={{
                 position: 'absolute',
                 top: 42,
