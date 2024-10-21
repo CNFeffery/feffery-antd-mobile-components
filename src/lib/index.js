@@ -44,6 +44,7 @@ import MobileInput from './components/dataEntry/MobileInput.react';
 import MobilePickerView from './components/dataEntry/MobilePickerView.react';
 import MobileSearchBar from './components/dataEntry/MobileSearchBar.react';
 // 反馈
+import MobileActionSheet from './components/feedback/MobileActionSheet.react';
 import MobileErrorBlock from './components/feedback/MobileErrorBlock.react';
 import MobilePopup from './components/feedback/MobilePopup.react';
 import MobileCenterPopup from './components/feedback/MobileCenterPopup.react';
@@ -98,6 +99,7 @@ export {
     MobileInput,
     MobilePickerView,
     MobileSearchBar,
+    MobileActionSheet,
     MobileErrorBlock,
     MobilePopup,
     MobileCenterPopup,
