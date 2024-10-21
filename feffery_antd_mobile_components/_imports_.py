@@ -27,6 +27,7 @@ from .MobilePickerView import MobilePickerView
 from .MobileSearchBar import MobileSearchBar
 from .MobileActionSheet import MobileActionSheet
 from .MobileCenterPopup import MobileCenterPopup
+from .MobileDialog import MobileDialog
 from .MobileErrorBlock import MobileErrorBlock
 from .MobilePopover import MobilePopover
 from .MobilePopup import MobilePopup
@@ -81,6 +82,7 @@ __all__ = [
     "MobileSearchBar",
     "MobileActionSheet",
     "MobileCenterPopup",
+    "MobileDialog",
     "MobileErrorBlock",
     "MobilePopover",
     "MobilePopup",
