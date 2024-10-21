@@ -41,6 +41,7 @@ import MobileForm from './components/dataEntry/form/MobileForm.react';
 import MobileFormItem from './components/dataEntry/form/MobileFormItem.react';
 import MobileFormHeader from './components/dataEntry/form/MobileFormHeader.react';
 import MobileInput from './components/dataEntry/MobileInput.react';
+import MobilePickerView from './components/dataEntry/MobilePickerView.react';
 import MobileSearchBar from './components/dataEntry/MobileSearchBar.react';
 // 反馈
 import MobileErrorBlock from './components/feedback/MobileErrorBlock.react';
@@ -95,6 +96,7 @@ export {
     MobileFormItem,
     MobileFormHeader,
     MobileInput,
+    MobilePickerView,
     MobileSearchBar,
     MobileErrorBlock,
     MobilePopup,

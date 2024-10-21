@@ -23,6 +23,7 @@ from .MobileCheckbox import MobileCheckbox
 from .MobileCheckboxGroup import MobileCheckboxGroup
 from .MobileCheckList import MobileCheckList
 from .MobileInput import MobileInput
+from .MobilePickerView import MobilePickerView
 from .MobileSearchBar import MobileSearchBar
 from .MobileCenterPopup import MobileCenterPopup
 from .MobileErrorBlock import MobileErrorBlock
@@ -75,6 +76,7 @@ __all__ = [
     "MobileCheckboxGroup",
     "MobileCheckList",
     "MobileInput",
+    "MobilePickerView",
     "MobileSearchBar",
     "MobileCenterPopup",
     "MobileErrorBlock",
