@@ -110,6 +110,17 @@ Keyword arguments:
 - visible (boolean; default False):
     监听或设置当前对话框是否显示  默认值：`False`.
 
+- actionEvent (dict; optional):
+    监听指令点击触发事件.
+
+    `actionEvent` is a dict with keys:
+
+    - key (string; optional):
+        对应指令项`key`值.
+
+    - timestamp (number; optional):
+        事件对应时间戳.
+
 - loading_state (dict; optional)
 
     `loading_state` is a dict with keys:
@@ -127,10 +138,10 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileDialog'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, actions=Component.UNDEFINED, bodyClassName=Component.UNDEFINED, bodyStyle=Component.UNDEFINED, closeOnAction=Component.UNDEFINED, closeOnMaskClick=Component.UNDEFINED, content=Component.UNDEFINED, destroyOnClose=Component.UNDEFINED, disableBodyScroll=Component.UNDEFINED, forceRender=Component.UNDEFINED, header=Component.UNDEFINED, image=Component.UNDEFINED, maskClassName=Component.UNDEFINED, maskStyle=Component.UNDEFINED, title=Component.UNDEFINED, visible=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, actions=Component.UNDEFINED, bodyClassName=Component.UNDEFINED, bodyStyle=Component.UNDEFINED, closeOnAction=Component.UNDEFINED, closeOnMaskClick=Component.UNDEFINED, content=Component.UNDEFINED, destroyOnClose=Component.UNDEFINED, disableBodyScroll=Component.UNDEFINED, forceRender=Component.UNDEFINED, header=Component.UNDEFINED, image=Component.UNDEFINED, maskClassName=Component.UNDEFINED, maskStyle=Component.UNDEFINED, title=Component.UNDEFINED, visible=Component.UNDEFINED, actionEvent=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'actionEvent', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'actionEvent', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
