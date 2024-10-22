@@ -3,6 +3,7 @@ if True:
 
     sys.path.append('../../../')
     import dash
+    import json
     from dash import html
     import feffery_antd_mobile_components as famc
     from feffery_dash_utils.style_utils import style
@@ -15,6 +16,7 @@ app.layout = html.Div(
         famc.MobileButton(
             '打开面板', id='open-action-sheet'
         ),
+        html.Pre(id='action-sheet-event-output'),
         famc.MobileActionSheet(
             id='action-sheet-demo',
             actions=[
@@ -51,6 +53,19 @@ app.layout = html.Div(
 )
 def open_action_sheet(nClicks):
     return True
+
+
+@app.callback(
+    Output('action-sheet-event-output', 'children'),
+    Input('action-sheet-demo', 'actionEvent'),
+    prevent_initial_call=True,
+)
+def show_action_event(actionEvent):
+    return json.dumps(
+        actionEvent,
+        indent=4,
+        ensure_ascii=False,
+    )
 
 
 if __name__ == '__main__':

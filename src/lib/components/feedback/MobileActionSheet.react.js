@@ -48,6 +48,12 @@ const MobileActionSheet = (props) => {
         visible={visible}
         styles={styles}
         onClose={() => setProps({ visible: false })}
+        onAction={(e) => setProps({
+            actionEvent: {
+                key: e.key,
+                timestamp: new Date().getTime()
+            }
+        })}
         data-dash-is-loading={
             (loading_state && loading_state.is_loading) || undefined
         }
@@ -160,6 +166,20 @@ MobileActionSheet.propTypes = {
      * 默认值：`false`
      */
     visible: PropTypes.bool,
+
+    /**
+     * 监听指令点击触发事件
+     */
+    actionEvent: PropTypes.shape({
+        /**
+         * 对应指令项`key`值
+         */
+        key: PropTypes.string,
+        /**
+         * 事件对应时间戳
+         */
+        timestamp: PropTypes.number
+    }),
 
     /**
      * 语义化结构css样式

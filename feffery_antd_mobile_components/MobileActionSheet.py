@@ -71,6 +71,17 @@ Keyword arguments:
 - visible (boolean; default False):
     监听或设置当前面板显示状态  默认值：`False`.
 
+- actionEvent (dict; optional):
+    监听指令点击触发事件.
+
+    `actionEvent` is a dict with keys:
+
+    - key (string; optional):
+        对应指令项`key`值.
+
+    - timestamp (number; optional):
+        事件对应时间戳.
+
 - styles (dict; optional):
     语义化结构css样式.
 
@@ -99,10 +110,10 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileActionSheet'
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, actions=Component.UNDEFINED, cancelText=Component.UNDEFINED, closeOnAction=Component.UNDEFINED, closeOnMaskClick=Component.UNDEFINED, destroyOnClose=Component.UNDEFINED, forceRender=Component.UNDEFINED, extra=Component.UNDEFINED, popupClassName=Component.UNDEFINED, safeArea=Component.UNDEFINED, visible=Component.UNDEFINED, styles=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'actions', 'cancelText', 'closeOnAction', 'closeOnMaskClick', 'destroyOnClose', 'forceRender', 'extra', 'popupClassName', 'safeArea', 'visible', 'styles', 'loading_state']
+    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, actions=Component.UNDEFINED, cancelText=Component.UNDEFINED, closeOnAction=Component.UNDEFINED, closeOnMaskClick=Component.UNDEFINED, destroyOnClose=Component.UNDEFINED, forceRender=Component.UNDEFINED, extra=Component.UNDEFINED, popupClassName=Component.UNDEFINED, safeArea=Component.UNDEFINED, visible=Component.UNDEFINED, actionEvent=Component.UNDEFINED, styles=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+        self._prop_names = ['id', 'key', 'style', 'className', 'actions', 'cancelText', 'closeOnAction', 'closeOnMaskClick', 'destroyOnClose', 'forceRender', 'extra', 'popupClassName', 'safeArea', 'visible', 'actionEvent', 'styles', 'loading_state']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'actions', 'cancelText', 'closeOnAction', 'closeOnMaskClick', 'destroyOnClose', 'forceRender', 'extra', 'popupClassName', 'safeArea', 'visible', 'styles', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'actions', 'cancelText', 'closeOnAction', 'closeOnMaskClick', 'destroyOnClose', 'forceRender', 'extra', 'popupClassName', 'safeArea', 'visible', 'actionEvent', 'styles', 'loading_state']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
