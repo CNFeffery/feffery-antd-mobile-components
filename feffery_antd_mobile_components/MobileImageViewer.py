@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileImageViewer(Component):
     """A MobileImageViewer component.
-
+图片查看器组件MobileImageViewer
 
 Keyword arguments:
 

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobilePopover(Component):
     """A MobilePopover component.
-
+气泡弹出框组件MobilePopover
 
 Keyword arguments:
 

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileSideBar(Component):
     """A MobileSideBar component.
-
+侧边导航组件MobileSideBar
 
 Keyword arguments:
 

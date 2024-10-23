@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileProgressCircle(Component):
     """A MobileProgressCircle component.
-
+进度圈组件MobileProgressCircle
 
 Keyword arguments:
 

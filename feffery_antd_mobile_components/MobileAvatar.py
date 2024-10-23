@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileAvatar(Component):
     """A MobileAvatar component.
-
+头像组件MobileAvatar
 
 Keyword arguments:
 

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileFormItem(Component):
     """A MobileFormItem component.
-
+表单项组件MobileFormItem
 
 Keyword arguments:
 

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileNavBar(Component):
     """A MobileNavBar component.
-
+导航栏组件MobileNavBar
 
 Keyword arguments:
 

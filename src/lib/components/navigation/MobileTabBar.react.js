@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { TabBar, Badge } from 'antd-mobile';
 
+/**
+ * 标签栏组件MobileTabBar
+ */
 const MobileTabBar = (props) => {
     let {
         id,

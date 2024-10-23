@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { NavBar } from 'antd-mobile';
 
+/**
+ * 导航栏组件MobileNavBar
+ */
 const MobileNavBar = (props) => {
     let {
         id,

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileErrorBlock(Component):
     """A MobileErrorBlock component.
-
+异常组件MobileErrorBlock
 
 Keyword arguments:
 

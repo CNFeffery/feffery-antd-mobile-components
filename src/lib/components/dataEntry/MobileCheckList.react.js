@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { CheckList } from 'antd-mobile';
 
+/**
+ * 可勾选列表组件MobileCheckList
+ */
 const MobileCheckList = (props) => {
     let {
         id,

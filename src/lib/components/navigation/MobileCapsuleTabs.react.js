@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { CapsuleTabs } from 'antd-mobile';
 
+/**
+ * 胶囊选项卡组件MobileCapsuleTabs
+ */
 const MobileCapsuleTabs = (props) => {
     let {
         id,

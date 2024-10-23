@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Swiper } from 'antd-mobile';
 
+/**
+ * 走马灯组件MobileSwiper
+ */
 const MobileSwiper = (props) => {
     let {
         id,

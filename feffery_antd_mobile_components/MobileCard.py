@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileCard(Component):
     """A MobileCard component.
-
+卡片组件MobileCard
 
 Keyword arguments:
 

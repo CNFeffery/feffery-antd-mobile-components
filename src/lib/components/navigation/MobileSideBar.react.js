@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { SideBar, Badge } from 'antd-mobile';
 
+/**
+ * 侧边导航组件MobileSideBar
+ */
 const MobileSideBar = (props) => {
     let {
         id,

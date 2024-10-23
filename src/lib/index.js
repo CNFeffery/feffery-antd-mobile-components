@@ -48,6 +48,7 @@ import MobileStepper from './components/dataEntry/MobileStepper.react';
 import MobileActionSheet from './components/feedback/MobileActionSheet.react';
 import MobileDialog from './components/feedback/MobileDialog.react';
 import MobileErrorBlock from './components/feedback/MobileErrorBlock.react';
+import MobilePopover from './components/feedback/MobilePopover.react';
 import MobilePopup from './components/feedback/MobilePopup.react';
 import MobileCenterPopup from './components/feedback/MobileCenterPopup.react';
 import MobileProgressCircle from './components/feedback/MobileProgressCircle.react';
@@ -56,26 +57,29 @@ import MobileResult from './components/feedback/MobileResult.react';
 import MobileSkeleton from './components/feedback/skeleton/MobileSkeleton.react';
 import MobileSwipeAction from './components/feedback/MobileSwipeAction.react';
 import MobileToast from './components/feedback/MobileToast.react';
-import MobilePopover from './components/feedback/MobilePopover.react';
 // 其他
 import MobileFloatingBubble from './components/other/MobileFloatingBubble.react';
 import MobileMockPhone from './components/other/MobileMockPhone.react';
 import Fragment from './components/other/Fragment.react';
 
 export {
+    // 通用
     MobileButton,
     MobileIcon,
+    // 布局
     MobileAutoCenter,
     MobileDivider,
     MobileGrid,
     MobileGridItem,
     MobileSpace,
+    // 导航
     MobileCapsuleTabs,
     MobileJumboTabs,
     MobileNavBar,
     MobileSideBar,
     MobileTabBar,
     MobileTabs,
+    // 信息展示
     MobileAvatar,
     MobileCard,
     MobileCollapse,
@@ -90,6 +94,7 @@ export {
     MobileTag,
     MobileWaterMark,
     MobileFooter,
+    // 信息录入
     MobileCascader,
     MobileCascaderView,
     MobileCheckList,
@@ -102,9 +107,11 @@ export {
     MobilePickerView,
     MobileSearchBar,
     MobileStepper,
+    // 反馈
     MobileActionSheet,
     MobileDialog,
     MobileErrorBlock,
+    MobilePopover,
     MobilePopup,
     MobileCenterPopup,
     MobileProgressCircle,
@@ -113,7 +120,7 @@ export {
     MobileSkeleton,
     MobileSwipeAction,
     MobileToast,
-    MobilePopover,
+    // 其他
     MobileFloatingBubble,
     MobileMockPhone,
     Fragment

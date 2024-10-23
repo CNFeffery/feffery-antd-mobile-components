@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileToast(Component):
     """A MobileToast component.
-
+轻提示组件MobileToast
 
 Keyword arguments:
 

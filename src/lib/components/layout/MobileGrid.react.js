@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Grid } from 'antd-mobile';
 
+/**
+ * 栅格组件MobileGrid
+ */
 const MobileGrid = (props) => {
     let {
         id,

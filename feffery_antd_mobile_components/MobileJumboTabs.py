@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileJumboTabs(Component):
     """A MobileJumboTabs component.
-
+复杂选项卡组件MobileJumboTabs
 
 Keyword arguments:
 

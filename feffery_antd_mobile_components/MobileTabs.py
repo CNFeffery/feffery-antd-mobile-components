@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileTabs(Component):
     """A MobileTabs component.
-
+标签页组件MobileTabs
 
 Keyword arguments:
 

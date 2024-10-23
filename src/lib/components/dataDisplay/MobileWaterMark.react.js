@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { WaterMark } from 'antd-mobile';
 
+/**
+ * 水印组件MobileWaterMark
+ */
 const MobileWaterMark = (props) => {
     let {
         id,

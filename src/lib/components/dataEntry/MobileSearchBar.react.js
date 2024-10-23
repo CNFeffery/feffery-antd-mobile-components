@@ -11,6 +11,9 @@ import { SearchBar } from 'antd-mobile';
 // hooks
 import { useRequest } from 'ahooks';
 
+/**
+ * 搜索框组件MobileSearchBar
+ */
 const MobileSearchBar = (props) => {
     let {
         id,

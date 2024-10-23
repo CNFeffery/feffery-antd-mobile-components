@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Avatar } from 'antd-mobile';
 
+/**
+ * 头像组件MobileAvatar
+ */
 const MobileAvatar = (props) => {
     let {
         id,

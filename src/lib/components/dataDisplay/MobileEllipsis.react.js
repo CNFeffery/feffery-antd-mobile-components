@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Ellipsis } from 'antd-mobile';
 
+/**
+ * 文本省略组件MobileEllipsis
+ */
 const MobileEllipsis = (props) => {
     let {
         id,

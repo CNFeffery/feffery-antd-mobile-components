@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Collapse } from 'antd-mobile';
 
+/**
+ * 折叠面板组件MobileCollapse
+ */
 const MobileCollapse = (props) => {
     let {
         id,

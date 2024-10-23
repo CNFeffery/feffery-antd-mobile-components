@@ -11,6 +11,9 @@ import { Checkbox } from 'antd-mobile';
 // 工具函数
 import { isUndefined } from 'lodash';
 
+/**
+ * 复选框组合组件MobileCheckboxGroup
+ */
 const MobileCheckboxGroup = (props) => {
     let {
         id,

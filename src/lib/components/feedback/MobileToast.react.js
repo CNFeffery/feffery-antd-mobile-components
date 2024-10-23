@@ -9,12 +9,11 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Toast } from 'antd-mobile';
 
+/**
+ * 轻提示组件MobileToast
+ */
 const MobileToast = (props) => {
     let {
-        id,
-        key,
-        style,
-        className,
         content,
         duration,
         icon,

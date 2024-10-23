@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileList(Component):
     """A MobileList component.
-
+列表组件MobileList
 
 Keyword arguments:
 

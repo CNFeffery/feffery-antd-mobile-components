@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { CenterPopup } from 'antd-mobile';
 
+/**
+ * 居中弹出层组件MobileCenterPopup
+ */
 const MobileCenterPopup = (props) => {
     let {
         id,

@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Image } from 'antd-mobile';
 
+/**
+ * 图片组件MobileImage
+ */
 const MobileImage = (props) => {
     let {
         id,

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileDivider(Component):
     """A MobileDivider component.
-
+分割线组件MobileDivider
 
 Keyword arguments:
 

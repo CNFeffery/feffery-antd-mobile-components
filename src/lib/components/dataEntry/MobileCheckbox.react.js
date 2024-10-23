@@ -9,7 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Checkbox } from 'antd-mobile';
 
-
+/**
+ * 复选框组件MobileCheckbox
+ */
 const MobileCheckbox = (props) => {
     let {
         id,

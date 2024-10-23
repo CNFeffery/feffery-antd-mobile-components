@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { AutoCenter } from 'antd-mobile';
 
+/**
+ * 自动居中组件MobileAutoCenter
+ */
 const MobileAutoCenter = (props) => {
     let {
         id,

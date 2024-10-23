@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobilePageIndicator(Component):
     """A MobilePageIndicator component.
-
+分页符组件MobilePageIndicator
 
 Keyword arguments:
 

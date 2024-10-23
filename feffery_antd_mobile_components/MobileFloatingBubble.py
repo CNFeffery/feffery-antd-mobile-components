@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileFloatingBubble(Component):
     """A MobileFloatingBubble component.
-
+浮动气泡组件MobileFloatingBubble
 
 Keyword arguments:
 

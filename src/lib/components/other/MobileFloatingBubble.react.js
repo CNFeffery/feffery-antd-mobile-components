@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { FloatingBubble } from 'antd-mobile';
 
+/**
+ * 浮动气泡组件MobileFloatingBubble
+ */
 const MobileFloatingBubble = (props) => {
     let {
         id,

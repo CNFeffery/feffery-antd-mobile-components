@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileEllipsis(Component):
     """A MobileEllipsis component.
-
+文本省略组件MobileEllipsis
 
 Keyword arguments:
 

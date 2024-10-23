@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Space } from 'antd-mobile';
 
+/**
+ * 间距组件MobileSpace
+ */
 const MobileSpace = (props) => {
     let {
         id,

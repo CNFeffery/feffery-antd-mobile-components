@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { JumboTabs } from 'antd-mobile';
 
+/**
+ * 复杂选项卡组件MobileJumboTabs
+ */
 const MobileJumboTabs = (props) => {
     let {
         id,

@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Form } from 'antd-mobile';
 
+/**
+ * 表单分组标题组件MobileFormHeader
+ */
 const MobileFormHeader = (props) => {
     let {
         id,

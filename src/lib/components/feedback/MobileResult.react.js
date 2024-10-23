@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Result } from 'antd-mobile';
 
+/**
+ * 结果组件MobileResult
+ */
 const MobileResult = (props) => {
     let {
         id,

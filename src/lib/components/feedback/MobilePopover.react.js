@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Popover } from 'antd-mobile';
 
+/**
+ * 气泡弹出框组件MobilePopover
+ */
 const MobilePopover = (props) => {
     let {
         id,

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileMockPhone(Component):
     """A MobileMockPhone component.
-手机设备模拟组件MobileMockPhone
+模拟手机设备组件MobileMockPhone
 
 Keyword arguments:
 

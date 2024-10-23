@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { ImageViewer } from 'antd-mobile';
 
+/**
+ * 图片查看器组件MobileImageViewer
+ */
 const MobileImageViewer = (props) => {
     let {
         id,

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileCollapse(Component):
     """A MobileCollapse component.
-
+折叠面板组件MobileCollapse
 
 Keyword arguments:
 

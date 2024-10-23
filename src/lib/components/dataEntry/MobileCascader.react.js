@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Cascader } from 'antd-mobile';
 
+/**
+ * 级联选择组件MobileCascader
+ */
 const MobileCascader = (props) => {
     let {
         id,

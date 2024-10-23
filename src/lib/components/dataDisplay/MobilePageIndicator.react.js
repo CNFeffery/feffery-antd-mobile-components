@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { PageIndicator } from 'antd-mobile';
 
+/**
+ * 分页符组件MobilePageIndicator
+ */
 const MobilePageIndicator = (props) => {
     let {
         id,

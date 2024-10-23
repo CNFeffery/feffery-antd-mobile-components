@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileCheckList(Component):
     """A MobileCheckList component.
-
+可勾选列表组件MobileCheckList
 
 Keyword arguments:
 

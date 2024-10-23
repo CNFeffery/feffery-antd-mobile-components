@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { List } from 'antd-mobile';
 
+/**
+ * 列表组件MobileList
+ */
 const MobileList = (props) => {
     let {
         id,

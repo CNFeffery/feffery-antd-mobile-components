@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Divider } from 'antd-mobile';
 
+/**
+ * 分割线组件MobileDivider
+ */
 const MobileDivider = (props) => {
     let {
         id,

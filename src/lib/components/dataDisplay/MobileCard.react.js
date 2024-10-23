@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Card } from 'antd-mobile';
 
+/**
+ * 卡片组件MobileCard
+ */
 const MobileCard = (props) => {
     let {
         id,

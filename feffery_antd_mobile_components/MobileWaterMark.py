@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileWaterMark(Component):
     """A MobileWaterMark component.
-
+水印组件MobileWaterMark
 
 Keyword arguments:
 

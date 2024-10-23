@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileSpace(Component):
     """A MobileSpace component.
-
+间距组件MobileSpace
 
 Keyword arguments:
 

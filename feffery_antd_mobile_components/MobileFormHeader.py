@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileFormHeader(Component):
     """A MobileFormHeader component.
-
+表单分组标题组件MobileFormHeader
 
 Keyword arguments:
 

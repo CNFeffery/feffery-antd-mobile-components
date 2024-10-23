@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobilePopup(Component):
     """A MobilePopup component.
-
+弹出层组件MobileErrorBlock
 
 Keyword arguments:
 

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileGridItem(Component):
     """A MobileGridItem component.
-
+栅格项组件MobileGridItem
 
 Keyword arguments:
 

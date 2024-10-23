@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileIcon(Component):
     """A MobileIcon component.
-
+图标组件MobileIcon
 
 Keyword arguments:
 

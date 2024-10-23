@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileSearchBar(Component):
     """A MobileSearchBar component.
-
+搜索框组件MobileSearchBar
 
 Keyword arguments:
 

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileResult(Component):
     """A MobileResult component.
-
+结果组件MobileResult
 
 Keyword arguments:
 

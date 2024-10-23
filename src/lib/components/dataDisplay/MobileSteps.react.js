@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Steps } from 'antd-mobile';
 
+/**
+ * 步骤条组件MobileSteps
+ */
 const MobileSteps = (props) => {
     let {
         id,

@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileFloatingPanel(Component):
     """A MobileFloatingPanel component.
-
+浮动面板组件MobileFloatingPanel
 
 Keyword arguments:
 

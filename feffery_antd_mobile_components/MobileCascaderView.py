@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileCascaderView(Component):
     """A MobileCascaderView component.
-
+级联选择视图组件MobileCascaderView
 
 Keyword arguments:
 

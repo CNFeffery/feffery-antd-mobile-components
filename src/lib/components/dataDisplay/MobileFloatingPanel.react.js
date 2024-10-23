@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { FloatingPanel } from 'antd-mobile';
 
+/**
+ * 浮动面板组件MobileFloatingPanel
+ */
 const MobileFloatingPanel = (props) => {
     let {
         id,

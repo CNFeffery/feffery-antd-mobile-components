@@ -8,7 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * 手机设备模拟组件MobileMockPhone
+ * 模拟手机设备组件MobileMockPhone
  */
 const MobileMockPhone = (props) => {
     let {

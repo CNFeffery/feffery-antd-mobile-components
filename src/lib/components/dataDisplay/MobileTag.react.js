@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Tag } from 'antd-mobile';
 
+/**
+ * 标签组件MobileTag
+ */
 const MobileTag = (props) => {
     let {
         id,

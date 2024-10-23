@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Skeleton } from 'antd-mobile';
 
+/**
+ * 骨架屏组件MobileSkeleton
+ */
 const MobileSkeleton = (props) => {
     let {
         id,

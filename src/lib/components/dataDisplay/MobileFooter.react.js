@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Footer } from 'antd-mobile';
 
+/**
+ * 页脚组件MobileFooter
+ */
 const MobileFooter = (props) => {
     let {
         id,

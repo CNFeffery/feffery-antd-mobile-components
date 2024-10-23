@@ -188,6 +188,9 @@ const iconDict = new Map([
     ['VideoOutline', VideoOutline],
 ])
 
+/**
+ * 图标组件MobileIcon
+ */
 const MobileIcon = (props) => {
     let {
         id,

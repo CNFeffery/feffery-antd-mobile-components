@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { ErrorBlock } from 'antd-mobile';
 
+/**
+ * 异常组件MobileErrorBlock
+ */
 const MobileErrorBlock = (props) => {
     let {
         id,

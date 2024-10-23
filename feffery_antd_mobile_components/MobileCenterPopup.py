@@ -5,7 +5,7 @@ from dash.development.base_component import Component, _explicitize_args
 
 class MobileCenterPopup(Component):
     """A MobileCenterPopup component.
-
+居中弹出层组件MobileCenterPopup
 
 Keyword arguments:
 

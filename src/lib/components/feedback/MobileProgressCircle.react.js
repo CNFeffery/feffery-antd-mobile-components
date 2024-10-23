@@ -9,6 +9,9 @@ import PropTypes from 'prop-types';
 // antd核心
 import { ProgressCircle } from 'antd-mobile';
 
+/**
+ * 进度圈组件MobileProgressCircle
+ */
 const MobileProgressCircle = (props) => {
     let {
         id,
