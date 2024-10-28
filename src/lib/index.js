@@ -83,6 +83,7 @@ import MobileFloatingBubble from './components/other/MobileFloatingBubble.react'
 // TODO: NumberKeyboard
 // TODO: PasscodeInput
 import MobileResultPage from './components/other/MobileResultPage.react';
+import MobileResultPageCard from './components/other/MobileResultPageCard.react';
 // TODO: VirtualInput
 import MobileMockPhone from './components/other/MobileMockPhone.react';
 import Fragment from './components/other/Fragment.react';
@@ -149,6 +150,7 @@ export {
     // 其他
     MobileFloatingBubble,
     MobileResultPage,
+    MobileResultPageCard,
     MobileMockPhone,
     Fragment
 };

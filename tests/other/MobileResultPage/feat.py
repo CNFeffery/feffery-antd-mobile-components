@@ -5,7 +5,6 @@ if True:
     import dash
     from dash import html
     import feffery_antd_mobile_components as famc
-    from feffery_dash_utils.style_utils import style
 
 app = dash.Dash(__name__)
 
