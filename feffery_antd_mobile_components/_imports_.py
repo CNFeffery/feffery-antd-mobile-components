@@ -53,6 +53,7 @@ from .MobileTabs import MobileTabs
 from .Fragment import Fragment
 from .MobileFloatingBubble import MobileFloatingBubble
 from .MobileMockPhone import MobileMockPhone
+from .MobileResultPage import MobileResultPage
 
 __all__ = [
     "MobileButton",
@@ -109,5 +110,6 @@ __all__ = [
     "MobileTabs",
     "Fragment",
     "MobileFloatingBubble",
-    "MobileMockPhone"
+    "MobileMockPhone",
+    "MobileResultPage"
 ]
