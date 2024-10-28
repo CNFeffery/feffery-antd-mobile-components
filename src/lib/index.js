@@ -8,6 +8,7 @@ import MobileAutoCenter from "./components/layout/MobileAutoCenter.react";
 import MobileDivider from "./components/layout/MobileDivider.react";
 import MobileGrid from "./components/layout/MobileGrid.react";
 import MobileGridItem from "./components/layout/MobileGridItem.react";
+import MobileSafeArea from './components/layout/MobileSafeArea.react';
 import MobileSpace from "./components/layout/MobileSpace.react";
 // 导航
 import MobileCapsuleTabs from "./components/navigation/MobileCapsuleTabs.react";
@@ -71,6 +72,7 @@ export {
     MobileDivider,
     MobileGrid,
     MobileGridItem,
+    MobileSafeArea,
     MobileSpace,
     // 导航
     MobileCapsuleTabs,

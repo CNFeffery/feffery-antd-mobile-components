@@ -42,6 +42,7 @@ from .MobileAutoCenter import MobileAutoCenter
 from .MobileDivider import MobileDivider
 from .MobileGrid import MobileGrid
 from .MobileGridItem import MobileGridItem
+from .MobileSafeArea import MobileSafeArea
 from .MobileSpace import MobileSpace
 from .MobileCapsuleTabs import MobileCapsuleTabs
 from .MobileJumboTabs import MobileJumboTabs
@@ -98,6 +99,7 @@ __all__ = [
     "MobileDivider",
     "MobileGrid",
     "MobileGridItem",
+    "MobileSafeArea",
     "MobileSpace",
     "MobileCapsuleTabs",
     "MobileJumboTabs",
