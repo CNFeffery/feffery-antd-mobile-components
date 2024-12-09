@@ -26,7 +26,7 @@ import MobileEllipsis from './components/dataDisplay/MobileEllipsis.react';
 import MobileFloatingPanel from './components/dataDisplay/MobileFloatingPanel.react';
 import MobileImage from './components/dataDisplay/MobileImage.react';
 import MobileImageViewer from './components/dataDisplay/MobileImageViewer.react';
-// TODO: InfiniteScroll
+import MobileInfiniteScroll from './components/dataDisplay/MobileInfiniteScroll.react';
 import MobileList from './components/dataDisplay/MobileList.react';
 import MobilePageIndicator from './components/dataDisplay/MobilePageIndicator.react';
 import MobileSteps from './components/dataDisplay/MobileSteps.react';
@@ -114,6 +114,7 @@ export {
     MobileFloatingPanel,
     MobileImage,
     MobileImageViewer,
+    MobileInfiniteScroll,
     MobileList,
     MobilePageIndicator,
     MobileSteps,
