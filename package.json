@@ -1,6 +1,6 @@
 {
   "name": "feffery_antd_mobile_components",
-  "version": "0.1.0-a8",
+  "version": "0.1.0-rc1",
   "description": "Best implementation of Antd Mobile components for Plotly Dash.",
   "repository": {
     "type": "git",
@@ -46,9 +46,9 @@
     "eslint-plugin-react": "^7.14.2",
     "lodash": "^4.17.21",
     "prop-types": "^15.8.1",
-    "react": "^16.8.6",
+    "react": "^18.3.1",
     "react-docgen": "^5.4.3",
-    "react-dom": "^16.8.6",
+    "react-dom": "^18.3.1",
     "style-loader": "^0.23.1",
     "styled-jsx": "^3.2.1",
     "webpack": "4.36.1",
