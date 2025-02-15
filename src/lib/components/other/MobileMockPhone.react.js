@@ -6,19 +6,20 @@
 // react核心
 import React from 'react';
 import PropTypes from 'prop-types';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 模拟手机设备组件MobileMockPhone
  */
-const MobileMockPhone = (props) => {
-    let {
-        id,
-        children,
-        width,
-        height,
-        loading_state,
-        setProps
-    } = props;
+const MobileMockPhone = ({
+    id,
+    children,
+    width = 433,
+    height = 882,
+    setProps
+}) => {
 
     return (
         <div id={id}
@@ -30,9 +31,7 @@ const MobileMockPhone = (props) => {
                 boxSizing: 'border-box',
                 position: 'relative'
             }}
-            data-dash-is-loading={
-                (loading_state && loading_state.is_loading) || undefined
-            }>
+            data-dash-is-loading={useLoading()}>
             {/* 灵动岛 */}
             <div style={{
                 position: 'absolute',
@@ -111,31 +110,11 @@ MobileMockPhone.propTypes = {
      */
     height: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileMockPhone.defaultProps = {
-    width: 433,
-    height: 882
 };
 
 export default React.memo(MobileMockPhone);

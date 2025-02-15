@@ -8,23 +8,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Tag } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 标签组件MobileTag
  */
-const MobileTag = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        color,
-        fill,
-        round,
-        loading_state,
-        setProps
-    } = props;
+const MobileTag = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    color = 'default',
+    fill = 'solid',
+    round = false,
+    setProps
+}) => {
 
     return <Tag
         id={id}
@@ -35,9 +36,7 @@ const MobileTag = (props) => {
         color={color}
         fill={fill}
         round={round}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -93,32 +92,11 @@ MobileTag.propTypes = {
      */
     round: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileTag.defaultProps = {
-    color: 'default',
-    fill: 'solid',
-    round: false
 };
 
 export default React.memo(MobileTag);

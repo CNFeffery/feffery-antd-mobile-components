@@ -8,33 +8,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Dialog } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 对话框组件MobileDialog
  */
-const MobileDialog = (props) => {
-    let {
-        id,
-        style,
-        className,
-        actions,
-        bodyClassName,
-        bodyStyle,
-        closeOnAction,
-        closeOnMaskClick,
-        content,
-        destroyOnClose,
-        disableBodyScroll,
-        forceRender,
-        header,
-        image,
-        maskClassName,
-        maskStyle,
-        title,
-        visible,
-        loading_state,
-        setProps
-    } = props;
+const MobileDialog = ({
+    id,
+    style,
+    className,
+    actions,
+    bodyClassName,
+    bodyStyle,
+    closeOnAction = false,
+    closeOnMaskClick = false,
+    content,
+    destroyOnClose = false,
+    disableBodyScroll = true,
+    forceRender = false,
+    header,
+    image,
+    maskClassName,
+    maskStyle,
+    title,
+    visible = false,
+    setProps
+}) => {
 
     return <Dialog
         id={id}
@@ -62,9 +63,7 @@ const MobileDialog = (props) => {
                 timestamp: new Date().getTime()
             }
         })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -255,35 +254,11 @@ MobileDialog.propTypes = {
         timestamp: PropTypes.number
     }),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileDialog.defaultProps = {
-    closeOnAction: false,
-    closeOnMaskClick: false,
-    destroyOnClose: false,
-    disableBodyScroll: true,
-    forceRender: false,
-    visible: false
 };
 
 export default React.memo(MobileDialog);

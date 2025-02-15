@@ -8,32 +8,31 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Input } from 'antd-mobile';
-// hooks
+// 辅助库
 import { useRequest } from 'ahooks';
+import { useLoading } from '../../utils';
 
 /**
  * 输入框组件MobileInput
  */
-const MobileInput = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        type,
-        clearable,
-        defaultValue,
-        disabled,
-        maxLength,
-        onlyShowClearWhenFocus,
-        placeholder,
-        readOnly,
-        value,
-        debounceValue,
-        debounceWait,
-        loading_state,
-        setProps
-    } = props;
+const MobileInput = ({
+    id,
+    key,
+    style,
+    className,
+    type = 'text',
+    clearable = false,
+    defaultValue,
+    disabled = false,
+    maxLength,
+    onlyShowClearWhenFocus = true,
+    placeholder,
+    readOnly = false,
+    value,
+    debounceValue,
+    debounceWait = 200,
+    setProps
+}) => {
 
     // 解决受控value卡部分中文输入法问题
     const [rawValue, setRawValue] = useState(value);
@@ -79,9 +78,7 @@ const MobileInput = (props) => {
                 setRawValue(e)
             }
         }
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -172,35 +169,11 @@ MobileInput.propTypes = {
      */
     debounceWait: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileInput.defaultProps = {
-    type: 'text',
-    clearable: false,
-    disabled: false,
-    onlyShowClearWhenFocus: true,
-    readOnly: false,
-    debounceWait: 200
 };
 
 export default React.memo(MobileInput);

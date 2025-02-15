@@ -8,23 +8,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Avatar } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 头像组件MobileAvatar
  */
-const MobileAvatar = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        fallback,
-        fit,
-        src,
-        loading_state,
-        setProps
-    } = props;
+const MobileAvatar = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    fallback,
+    fit = 'cover',
+    src = '',
+    setProps
+}) => {
 
     return <Avatar
         id={id}
@@ -35,9 +36,7 @@ const MobileAvatar = (props) => {
         fallback={fallback}
         fit={fit}
         src={src}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -106,11 +105,6 @@ MobileAvatar.propTypes = {
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileAvatar.defaultProps = {
-    fit: 'cover',
-    src: ''
 };
 
 export default React.memo(MobileAvatar);

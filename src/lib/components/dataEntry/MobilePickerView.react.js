@@ -8,25 +8,26 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { PickerView } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 选择器视图组件MobilePickerView
  */
-const MobilePickerView = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        columns,
-        defaultValue,
-        value,
-        mouseWheel,
-        loading,
-        loadingContent,
-        loading_state,
-        setProps
-    } = props;
+const MobilePickerView = ({
+    id,
+    key,
+    style,
+    className,
+    columns,
+    defaultValue = [],
+    value,
+    mouseWheel = false,
+    loading = false,
+    loadingContent,
+    setProps
+}) => {
 
     // 处理defaultValue、value的初始化逻辑
     useEffect(() => {
@@ -49,9 +50,7 @@ const MobilePickerView = (props) => {
         loading={loading}
         loadingContent={loadingContent}
         onChange={(e) => setProps({ value: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -122,32 +121,11 @@ MobilePickerView.propTypes = {
      */
     loadingContent: PropTypes.node,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobilePickerView.defaultProps = {
-    defaultValue: [],
-    mouseWheel: false,
-    loading: false
 };
 
 export default React.memo(MobilePickerView);

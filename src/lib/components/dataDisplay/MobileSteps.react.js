@@ -8,22 +8,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Steps } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 步骤条组件MobileSteps
  */
-const MobileSteps = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        steps,
-        current,
-        direction,
-        loading_state,
-        setProps
-    } = props;
+const MobileSteps = ({
+    id,
+    key,
+    style,
+    className,
+    steps = [],
+    current = 0,
+    direction = 'horizontal',
+    setProps
+}) => {
 
     return <Steps
         id={id}
@@ -37,9 +38,7 @@ const MobileSteps = (props) => {
                 (step) => <Steps.Step {...step} />
             )
         }
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -109,32 +108,11 @@ MobileSteps.propTypes = {
      */
     direction: PropTypes.oneOf(['horizontal', 'vertical']),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileSteps.defaultProps = {
-    steps: [],
-    current: 0,
-    direction: 'horizontal'
 };
 
 export default React.memo(MobileSteps);

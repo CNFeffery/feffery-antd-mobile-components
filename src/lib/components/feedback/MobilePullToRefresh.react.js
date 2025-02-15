@@ -8,27 +8,27 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { PullToRefresh } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
 
 /**
  * 下拉刷新组件MobilePullToRefresh
  */
-const MobilePullToRefresh = (props) => {
-    let {
-        id,
-        children,
-        canReleaseText,
-        completeDelay,
-        completeText,
-        disabled,
-        headHeight,
-        pullingText,
-        refreshingText,
-        threshold,
-        refreshCount,
-        stopRefreshing,
-        loading_state,
-        setProps
-    } = props;
+const MobilePullToRefresh = ({
+    id,
+    children,
+    canReleaseText,
+    completeDelay = 500,
+    completeText,
+    disabled = false,
+    headHeight = 40,
+    pullingText,
+    refreshingText,
+    threshold = 60,
+    refreshCount = 0,
+    stopRefreshing,
+    setProps
+}) => {
 
     // 加载执行中标识
     const _refreshing = useRef(false);
@@ -80,9 +80,7 @@ const MobilePullToRefresh = (props) => {
                 )
             }
         }
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     >{children}</ PullToRefresh>;
 };
 
@@ -157,34 +155,11 @@ MobilePullToRefresh.propTypes = {
      */
     stopRefreshing: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobilePullToRefresh.defaultProps = {
-    completeDelay: 500,
-    disabled: false,
-    headHeight: 40,
-    threshold: 60,
-    refreshCount: 0
 };
 
 export default React.memo(MobilePullToRefresh);

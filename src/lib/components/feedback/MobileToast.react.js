@@ -9,21 +9,20 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Toast } from 'antd-mobile';
 
+
 /**
  * 轻提示组件MobileToast
  */
-const MobileToast = (props) => {
-    let {
-        content,
-        duration,
-        icon,
-        maskClassName,
-        maskClickable,
-        maskStyle,
-        position,
-        loading_state,
-        setProps
-    } = props;
+const MobileToast = ({
+    content,
+    duration = 2000,
+    icon,
+    maskClassName,
+    maskClickable = true,
+    maskStyle,
+    position = 'center',
+    setProps
+}) => {
 
     useEffect(() => {
         Toast.show({
@@ -102,32 +101,11 @@ MobileToast.propTypes = {
      */
     position: PropTypes.oneOf(['top', 'bottom', 'center']),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileToast.defaultProps = {
-    duration: 2000,
-    maskClickable: true,
-    position: 'center'
 };
 
 export default React.memo(MobileToast);

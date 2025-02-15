@@ -8,21 +8,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Grid } from 'antd-mobile';
+import { useLoading } from '../../utils';
 
 /**
  * 栅格项组件MobileGridItem
  */
-const MobileGridItem = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        span,
-        loading_state,
-        setProps
-    } = props;
+const MobileGridItem = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    span = 1,
+    setProps
+}) => {
 
     return <Grid.Item
         id={id}
@@ -31,9 +30,7 @@ const MobileGridItem = (props) => {
         className={className}
         children={children}
         span={span}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -71,30 +68,11 @@ MobileGridItem.propTypes = {
      */
     span: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileGridItem.defaultProps = {
-    span: 1
 };
 
 export default React.memo(MobileGridItem);

@@ -8,28 +8,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Image } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 图片组件MobileImage
  */
-const MobileImage = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        alt,
-        draggable,
-        fallback,
-        fit,
-        height,
-        lazy,
-        src,
-        width,
-        nClicks,
-        loading_state,
-        setProps
-    } = props;
+const MobileImage = ({
+    id,
+    key,
+    style,
+    className,
+    alt,
+    draggable = false,
+    fallback,
+    fit = 'fill',
+    height,
+    lazy = false,
+    src,
+    width,
+    nClicks = 0,
+    setProps
+}) => {
 
     return <Image
         id={id}
@@ -45,9 +46,7 @@ const MobileImage = (props) => {
         src={src}
         width={width}
         onClick={() => setProps({ nClicks: nClicks + 1 })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -127,33 +126,11 @@ MobileImage.propTypes = {
      */
     nClicks: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileImage.defaultProps = {
-    draggable: false,
-    fit: 'fill',
-    lazy: false,
-    nClicks: 0
 };
 
 export default React.memo(MobileImage);

@@ -8,29 +8,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { ActionSheet } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 动作面板组件MobileActionSheet
  */
-const MobileActionSheet = (props) => {
-    let {
-        id,
-        style,
-        className,
-        actions,
-        cancelText,
-        closeOnAction,
-        closeOnMaskClick,
-        destroyOnClose,
-        forceRender,
-        extra,
-        popupClassName,
-        safeArea,
-        visible,
-        styles,
-        loading_state,
-        setProps
-    } = props;
+const MobileActionSheet = ({
+    id,
+    style,
+    className,
+    actions,
+    cancelText,
+    closeOnAction = false,
+    closeOnMaskClick = true,
+    destroyOnClose = false,
+    forceRender = false,
+    extra,
+    popupClassName,
+    safeArea = true,
+    visible = false,
+    styles,
+    setProps
+}) => {
 
     return <ActionSheet
         id={id}
@@ -54,9 +55,7 @@ const MobileActionSheet = (props) => {
                 timestamp: new Date().getTime()
             }
         })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -195,35 +194,11 @@ MobileActionSheet.propTypes = {
         mask: PropTypes.object
     }),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileActionSheet.defaultProps = {
-    closeOnAction: false,
-    closeOnMaskClick: true,
-    destroyOnClose: false,
-    forceRender: false,
-    safeArea: true,
-    visible: false
 };
 
 export default React.memo(MobileActionSheet);

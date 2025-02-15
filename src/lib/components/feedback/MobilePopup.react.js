@@ -8,32 +8,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Popup } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 弹出层组件MobileErrorBlock
  */
-const MobilePopup = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        visible,
-        bodyClassName,
-        bodyStyle,
-        closeOnMaskClick,
-        destroyOnClose,
-        forceRender,
-        mask,
-        maskClassName,
-        maskStyle,
-        position,
-        showCloseButton,
-        closeOnSwipe,
-        loading_state,
-        setProps
-    } = props;
+const MobilePopup = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    visible = false,
+    bodyClassName,
+    bodyStyle,
+    closeOnMaskClick = false,
+    destroyOnClose = false,
+    forceRender = false,
+    mask = true,
+    maskClassName,
+    maskStyle,
+    position = 'bottom',
+    showCloseButton,
+    closeOnSwipe = false,
+    setProps
+}) => {
 
     return <Popup
         id={id}
@@ -54,9 +55,7 @@ const MobilePopup = (props) => {
         showCloseButton={showCloseButton}
         closeOnSwipe={closeOnSwipe}
         onClose={() => setProps({ visible: false })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -157,36 +156,11 @@ MobilePopup.propTypes = {
      */
     closeOnSwipe: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobilePopup.defaultProps = {
-    visible: false,
-    closeOnMaskClick: false,
-    destroyOnClose: false,
-    forceRender: false,
-    mask: true,
-    position: 'bottom',
-    closeOnSwipe: false
 };
 
 export default React.memo(MobilePopup);

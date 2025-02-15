@@ -8,27 +8,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Form } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 表单项组件MobileFormItem
  */
-const MobileFormItem = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        childElementPosition,
-        disabled,
-        help,
-        hidden,
-        label,
-        layout,
-        required,
-        loading_state,
-        setProps
-    } = props;
+const MobileFormItem = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    childElementPosition = 'normal',
+    disabled,
+    help,
+    hidden = false,
+    label,
+    layout,
+    required = false,
+    setProps
+}) => {
 
     return <Form.Item
         id={id}
@@ -43,9 +44,7 @@ const MobileFormItem = (props) => {
         layout={layout}
         required={required}
         children={children}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -118,32 +117,11 @@ MobileFormItem.propTypes = {
      */
     required: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileFormItem.defaultProps = {
-    childElementPosition: 'normal',
-    hidden: false,
-    required: false
 };
 
 export default React.memo(MobileFormItem);

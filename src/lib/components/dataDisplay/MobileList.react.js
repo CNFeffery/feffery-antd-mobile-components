@@ -8,22 +8,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { List } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 列表组件MobileList
  */
-const MobileList = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        items,
-        title,
-        mode,
-        loading_state,
-        setProps
-    } = props;
+const MobileList = ({
+    id,
+    key,
+    style,
+    className,
+    items = [],
+    title,
+    mode = 'default',
+    setProps
+}) => {
 
     return <List
         id={id}
@@ -50,9 +51,7 @@ const MobileList = (props) => {
                     {...item} />
             )
         }
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -156,31 +155,11 @@ MobileList.propTypes = {
      */
     clickedItem: PropTypes.object,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileList.defaultProps = {
-    items: [],
-    mode: 'default'
 };
 
 export default React.memo(MobileList);

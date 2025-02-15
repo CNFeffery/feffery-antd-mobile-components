@@ -8,25 +8,25 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Skeleton } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
 
 /**
  * 骨架屏组件MobileSkeleton
  */
-const MobileSkeleton = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        animated,
-        debug,
-        listenPropsMode,
-        excludeProps,
-        includeProps,
-        loading_state,
-        setProps
-    } = props;
+const MobileSkeleton = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    animated = false,
+    debug = false,
+    listenPropsMode = 'default',
+    excludeProps,
+    includeProps,
+    setProps
+}) => {
 
     const [showLoading, setShowLoading] = useState(false);
     const timer = useRef();
@@ -77,9 +77,7 @@ const MobileSkeleton = (props) => {
                 style={style}
                 className={className}
                 animated={animated}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={useLoading()}
             /> :
             <>{children}</>
     )
@@ -143,32 +141,11 @@ MobileSkeleton.propTypes = {
      */
     includeProps: PropTypes.arrayOf(PropTypes.string),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileSkeleton.defaultProps = {
-    animated: false,
-    debug: false,
-    listenPropsMode: 'default'
 };
 
 export default MobileSkeleton;
