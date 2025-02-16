@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileList(Component):
@@ -60,29 +67,42 @@ Keyword arguments:
     用于设置当前列表的渲染方式  可选的有'default'、'card'  默认：'default'.
 
 - clickedItem (dict; optional):
-    用于针对可点击的子项，监听点击事件信息.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于针对可点击的子项，监听点击事件信息."""
     _children_props = ['items[].arrow', 'items[].children', 'items[].description', 'items[].extra', 'items[].prefix', 'items[].title', 'title']
     _base_nodes = ['title', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileList'
+    Items = TypedDict(
+        "Items",
+            {
+            "key": str,
+            "arrow": NotRequired[typing.Union[bool, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]],
+            "children": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "clickable": NotRequired[bool],
+            "description": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "disabled": NotRequired[bool],
+            "extra": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "prefix": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "title": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, items=Component.UNDEFINED, title=Component.UNDEFINED, mode=Component.UNDEFINED, clickedItem=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'items', 'title', 'mode', 'clickedItem', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        items: typing.Optional[typing.Sequence["Items"]] = None,
+        title: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        mode: typing.Optional[Literal["default", "card"]] = None,
+        clickedItem: typing.Optional[dict] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'items', 'title', 'mode', 'clickedItem']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'items', 'title', 'mode', 'clickedItem', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'items', 'title', 'mode', 'clickedItem']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

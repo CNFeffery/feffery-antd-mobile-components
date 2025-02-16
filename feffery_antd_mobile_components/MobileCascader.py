@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileCascader(Component):
@@ -49,29 +56,34 @@ Keyword arguments:
     用于设置或监听当前已选中项.
 
 - visible (boolean; default False):
-    用于设置是否显示当前级联选择  默认：False.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于设置是否显示当前级联选择  默认：False."""
     _children_props = ['title']
     _base_nodes = ['title', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileCascader'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, cancelText=Component.UNDEFINED, confirmText=Component.UNDEFINED, defaultValue=Component.UNDEFINED, destroyOnClose=Component.UNDEFINED, forceRender=Component.UNDEFINED, options=Component.UNDEFINED, placeholder=Component.UNDEFINED, title=Component.UNDEFINED, value=Component.UNDEFINED, visible=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'cancelText', 'confirmText', 'defaultValue', 'destroyOnClose', 'forceRender', 'options', 'placeholder', 'title', 'value', 'visible', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        cancelText: typing.Optional[str] = None,
+        confirmText: typing.Optional[str] = None,
+        defaultValue: typing.Optional[typing.Sequence[str]] = None,
+        destroyOnClose: typing.Optional[bool] = None,
+        forceRender: typing.Optional[bool] = None,
+        options: typing.Optional[typing.Any] = None,
+        placeholder: typing.Optional[str] = None,
+        title: typing.Optional[typing.Union[str, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]] = None,
+        value: typing.Optional[typing.Sequence[str]] = None,
+        visible: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'cancelText', 'confirmText', 'defaultValue', 'destroyOnClose', 'forceRender', 'options', 'placeholder', 'title', 'value', 'visible']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'cancelText', 'confirmText', 'defaultValue', 'destroyOnClose', 'forceRender', 'options', 'placeholder', 'title', 'value', 'visible', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'cancelText', 'confirmText', 'defaultValue', 'destroyOnClose', 'forceRender', 'options', 'placeholder', 'title', 'value', 'visible']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

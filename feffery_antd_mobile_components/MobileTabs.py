@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileTabs(Component):
@@ -54,29 +61,40 @@ Keyword arguments:
     用于设置初始化时，处于被激活状态的选项对应key值  默认激活items中按顺序第一位的选项.
 
 - stretch (boolean; default True):
-    用于设置选项卡头部是否拉伸  默认：True.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于设置选项卡头部是否拉伸  默认：True."""
     _children_props = ['items[].title', 'items[].children']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileTabs'
+    Items = TypedDict(
+        "Items",
+            {
+            "key": str,
+            "title": typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]],
+            "children": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "disabled": NotRequired[bool],
+            "forceRender": NotRequired[bool],
+            "destroyOnClose": NotRequired[bool]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, items=Component.UNDEFINED, activeKey=Component.UNDEFINED, activeLineMode=Component.UNDEFINED, defaultActiveKey=Component.UNDEFINED, stretch=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'items', 'activeKey', 'activeLineMode', 'defaultActiveKey', 'stretch', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        items: typing.Optional[typing.Sequence["Items"]] = None,
+        activeKey: typing.Optional[str] = None,
+        activeLineMode: typing.Optional[Literal["auto", "full", "fixed"]] = None,
+        defaultActiveKey: typing.Optional[str] = None,
+        stretch: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'items', 'activeKey', 'activeLineMode', 'defaultActiveKey', 'stretch']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'items', 'activeKey', 'activeLineMode', 'defaultActiveKey', 'stretch', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'items', 'activeKey', 'activeLineMode', 'defaultActiveKey', 'stretch']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

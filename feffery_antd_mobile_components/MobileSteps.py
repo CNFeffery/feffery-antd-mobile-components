@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileSteps(Component):
@@ -43,29 +50,36 @@ Keyword arguments:
     用于设置当前步骤条所在步骤（从0开始计数）  默认：0.
 
 - direction (a value equal to: 'horizontal', 'vertical'; default 'horizontal'):
-    用于设置步骤条显示方向  可选的有'horizontal'、'vertical'  默认：'horizontal'.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于设置步骤条显示方向  可选的有'horizontal'、'vertical'  默认：'horizontal'."""
     _children_props = ['steps[].description', 'steps[].icon', 'steps[].title']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileSteps'
+    Steps = TypedDict(
+        "Steps",
+            {
+            "description": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "icon": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "status": NotRequired[Literal["wait", "process", "finish", "error"]],
+            "title": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, steps=Component.UNDEFINED, current=Component.UNDEFINED, direction=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'steps', 'current', 'direction', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        steps: typing.Optional[typing.Sequence["Steps"]] = None,
+        current: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        direction: typing.Optional[Literal["horizontal", "vertical"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'steps', 'current', 'direction']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'steps', 'current', 'direction', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'steps', 'current', 'direction']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileImage(Component):
@@ -47,29 +54,33 @@ Keyword arguments:
     用于设置当前图片的宽度  当传入数值型时会被视作像素宽度.
 
 - nClicks (number; default 0):
-    用于记录当前图片累计被点击次数.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于记录当前图片累计被点击次数."""
     _children_props = ['fallback']
     _base_nodes = ['fallback', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileImage'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, alt=Component.UNDEFINED, draggable=Component.UNDEFINED, fallback=Component.UNDEFINED, fit=Component.UNDEFINED, height=Component.UNDEFINED, lazy=Component.UNDEFINED, src=Component.UNDEFINED, width=Component.UNDEFINED, nClicks=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'alt', 'draggable', 'fallback', 'fit', 'height', 'lazy', 'src', 'width', 'nClicks', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        alt: typing.Optional[str] = None,
+        draggable: typing.Optional[bool] = None,
+        fallback: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        fit: typing.Optional[Literal["contain", "cover", "fill", "none", "scale-down"]] = None,
+        height: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        lazy: typing.Optional[bool] = None,
+        src: typing.Optional[str] = None,
+        width: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        nClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'alt', 'draggable', 'fallback', 'fit', 'height', 'lazy', 'src', 'width', 'nClicks']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'alt', 'draggable', 'fallback', 'fit', 'height', 'lazy', 'src', 'width', 'nClicks', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'alt', 'draggable', 'fallback', 'fit', 'height', 'lazy', 'src', 'width', 'nClicks']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

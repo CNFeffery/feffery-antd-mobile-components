@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileFooter(Component):
@@ -53,29 +60,45 @@ Keyword arguments:
         用于为当前标签设置唯一识别id，用于在可点击类型下监听标签点击事件.
 
 - clickedChip (dict; optional):
-    用于针对可点击的标签项，监听点击事件信息.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于针对可点击的标签项，监听点击事件信息."""
     _children_props = ['label', 'content', 'chips[].text']
     _base_nodes = ['label', 'content', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileFooter'
+    Links = TypedDict(
+        "Links",
+            {
+            "text": NotRequired[str],
+            "href": NotRequired[str]
+        }
+    )
+
+    Chips = TypedDict(
+        "Chips",
+            {
+            "text": NotRequired[typing.Union[str, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]],
+            "type": NotRequired[Literal["plain", "link"]],
+            "key": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, label=Component.UNDEFINED, links=Component.UNDEFINED, content=Component.UNDEFINED, chips=Component.UNDEFINED, clickedChip=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'label', 'links', 'content', 'chips', 'clickedChip', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        label: typing.Optional[typing.Union[str, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]] = None,
+        links: typing.Optional[typing.Sequence["Links"]] = None,
+        content: typing.Optional[typing.Union[str, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]] = None,
+        chips: typing.Optional[typing.Sequence["Chips"]] = None,
+        clickedChip: typing.Optional[dict] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'label', 'links', 'content', 'chips', 'clickedChip']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'label', 'links', 'content', 'chips', 'clickedChip', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'label', 'links', 'content', 'chips', 'clickedChip']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

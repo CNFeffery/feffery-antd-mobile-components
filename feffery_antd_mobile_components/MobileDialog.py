@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileDialog(Component):
@@ -119,29 +126,60 @@ Keyword arguments:
         对应指令项`key`值.
 
     - timestamp (number; optional):
-        事件对应时间戳.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        事件对应时间戳."""
     _children_props = ['content', 'header', 'title']
     _base_nodes = ['content', 'header', 'title', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileDialog'
+    Actions = TypedDict(
+        "Actions",
+            {
+            "key": str,
+            "text": str,
+            "style": NotRequired[dict],
+            "className": NotRequired[str],
+            "bold": NotRequired[bool],
+            "danger": NotRequired[bool],
+            "disabled": NotRequired[bool]
+        }
+    )
+
+    ActionEvent = TypedDict(
+        "ActionEvent",
+            {
+            "key": NotRequired[str],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, actions=Component.UNDEFINED, bodyClassName=Component.UNDEFINED, bodyStyle=Component.UNDEFINED, closeOnAction=Component.UNDEFINED, closeOnMaskClick=Component.UNDEFINED, content=Component.UNDEFINED, destroyOnClose=Component.UNDEFINED, disableBodyScroll=Component.UNDEFINED, forceRender=Component.UNDEFINED, header=Component.UNDEFINED, image=Component.UNDEFINED, maskClassName=Component.UNDEFINED, maskStyle=Component.UNDEFINED, title=Component.UNDEFINED, visible=Component.UNDEFINED, actionEvent=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'actionEvent', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        actions: typing.Optional[typing.Sequence[typing.Union["Actions", typing.Sequence["Actions"]]]] = None,
+        bodyClassName: typing.Optional[str] = None,
+        bodyStyle: typing.Optional[dict] = None,
+        closeOnAction: typing.Optional[bool] = None,
+        closeOnMaskClick: typing.Optional[bool] = None,
+        content: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        destroyOnClose: typing.Optional[bool] = None,
+        disableBodyScroll: typing.Optional[bool] = None,
+        forceRender: typing.Optional[bool] = None,
+        header: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        image: typing.Optional[str] = None,
+        maskClassName: typing.Optional[str] = None,
+        maskStyle: typing.Optional[dict] = None,
+        title: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        visible: typing.Optional[bool] = None,
+        actionEvent: typing.Optional["ActionEvent"] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'actionEvent']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'actionEvent', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'actions', 'bodyClassName', 'bodyStyle', 'closeOnAction', 'closeOnMaskClick', 'content', 'destroyOnClose', 'disableBodyScroll', 'forceRender', 'header', 'image', 'maskClassName', 'maskStyle', 'title', 'visible', 'actionEvent']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

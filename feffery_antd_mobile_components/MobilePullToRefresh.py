@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobilePullToRefresh(Component):
@@ -46,29 +53,33 @@ Keyword arguments:
     监听下拉刷新操作累计触发次数  默认值：`0`.
 
 - stopRefreshing (boolean; optional):
-    用于手动终止进行中的加载过程，每次调用会将更新为`True`后，都会在终止加载状态后，被重置为`False`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于手动终止进行中的加载过程，每次调用会将更新为`True`后，都会在终止加载状态后，被重置为`False`."""
     _children_props = ['canReleaseText', 'completeText', 'pullingText', 'refreshingText']
     _base_nodes = ['canReleaseText', 'completeText', 'pullingText', 'refreshingText', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobilePullToRefresh'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, canReleaseText=Component.UNDEFINED, completeDelay=Component.UNDEFINED, completeText=Component.UNDEFINED, disabled=Component.UNDEFINED, headHeight=Component.UNDEFINED, pullingText=Component.UNDEFINED, refreshingText=Component.UNDEFINED, threshold=Component.UNDEFINED, refreshCount=Component.UNDEFINED, stopRefreshing=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'canReleaseText', 'completeDelay', 'completeText', 'disabled', 'headHeight', 'pullingText', 'refreshingText', 'threshold', 'refreshCount', 'stopRefreshing', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        canReleaseText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        completeDelay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        completeText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        disabled: typing.Optional[bool] = None,
+        headHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        pullingText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        refreshingText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        threshold: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        refreshCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        stopRefreshing: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'canReleaseText', 'completeDelay', 'completeText', 'disabled', 'headHeight', 'pullingText', 'refreshingText', 'threshold', 'refreshCount', 'stopRefreshing']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'canReleaseText', 'completeDelay', 'completeText', 'disabled', 'headHeight', 'pullingText', 'refreshingText', 'threshold', 'refreshCount', 'stopRefreshing', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'canReleaseText', 'completeDelay', 'completeText', 'disabled', 'headHeight', 'pullingText', 'refreshingText', 'threshold', 'refreshCount', 'stopRefreshing']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileCheckList(Component):
@@ -60,29 +67,42 @@ Keyword arguments:
     用于设置是否以只读模式渲染当前组件  默认：False.
 
 - value (list of strings; optional):
-    用于设置或监听当前可勾选列表组件的选中项.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于设置或监听当前可勾选列表组件的选中项."""
     _children_props = ['options[].children', 'options[].title', 'options[].description', 'options[].prefix']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileCheckList'
+    Options = TypedDict(
+        "Options",
+            {
+            "children": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "value": NotRequired[str],
+            "title": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "description": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "prefix": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "disabled": NotRequired[bool],
+            "readOnly": NotRequired[bool]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, options=Component.UNDEFINED, defaultValue=Component.UNDEFINED, disabled=Component.UNDEFINED, multiple=Component.UNDEFINED, readOnly=Component.UNDEFINED, value=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'options', 'defaultValue', 'disabled', 'multiple', 'readOnly', 'value', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        options: typing.Optional[typing.Sequence["Options"]] = None,
+        defaultValue: typing.Optional[typing.Sequence[str]] = None,
+        disabled: typing.Optional[bool] = None,
+        multiple: typing.Optional[bool] = None,
+        readOnly: typing.Optional[bool] = None,
+        value: typing.Optional[typing.Sequence[str]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'options', 'defaultValue', 'disabled', 'multiple', 'readOnly', 'value']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'options', 'defaultValue', 'disabled', 'multiple', 'readOnly', 'value', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'options', 'defaultValue', 'disabled', 'multiple', 'readOnly', 'value']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
