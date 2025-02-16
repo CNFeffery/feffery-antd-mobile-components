@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 // antd核心
 import { Form } from 'antd-mobile';
 // 辅助库
-import { useLoading } from '../../utils';
+import { useLoading } from '../../../utils';
 
 
 /**
