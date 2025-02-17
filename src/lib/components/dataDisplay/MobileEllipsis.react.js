@@ -8,25 +8,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Ellipsis } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 文本省略组件MobileEllipsis
  */
-const MobileEllipsis = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        collapseText,
-        content,
-        direction,
-        expandText,
-        rows,
-        defaultExpanded,
-        loading_state,
-        setProps
-    } = props;
+const MobileEllipsis = ({
+    id,
+    key,
+    style,
+    className,
+    collapseText = '',
+    content,
+    direction = 'end',
+    expandText,
+    rows = 1,
+    defaultExpanded = false,
+    setProps
+}) => {
 
     return <Ellipsis
         id={id}
@@ -39,9 +40,7 @@ const MobileEllipsis = (props) => {
         expandText={expandText}
         rows={rows}
         defaultExpanded={defaultExpanded}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -102,33 +101,11 @@ MobileEllipsis.propTypes = {
      */
     defaultExpanded: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileEllipsis.defaultProps = {
-    collapseText: '',
-    direction: 'end',
-    rows: 1,
-    defaultExpanded: false
 };
 
 export default React.memo(MobileEllipsis);

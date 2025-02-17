@@ -8,32 +8,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { WaterMark } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 水印组件MobileWaterMark
  */
-const MobileWaterMark = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        content,
-        fontColor,
-        fontSize,
-        fullPage,
-        gapX,
-        gapY,
-        height,
-        image,
-        imageHeight,
-        imageWidth,
-        rotate,
-        width,
-        zIndex,
-        loading_state,
-        setProps
-    } = props;
+const MobileWaterMark = ({
+    id,
+    key,
+    style,
+    className,
+    content,
+    fontColor = 'rgba(0, 0, 0, .15)',
+    fontSize = 14,
+    fullPage = true,
+    gapX = 24,
+    gapY = 48,
+    height = 64,
+    image,
+    imageHeight = 64,
+    imageWidth = 120,
+    rotate = -22,
+    width = 120,
+    zIndex = 2000,
+    setProps
+}) => {
 
     return <WaterMark
         id={id}
@@ -53,9 +54,7 @@ const MobileWaterMark = (props) => {
         rotate={rotate}
         width={width}
         zIndex={zIndex}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -164,40 +163,11 @@ MobileWaterMark.propTypes = {
      */
     zIndex: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileWaterMark.defaultProps = {
-    fontColor: 'rgba(0, 0, 0, .15)',
-    fontSize: 14,
-    fullPage: true,
-    gapX: 24,
-    gapY: 48,
-    height: 64,
-    imageHeight: 64,
-    imageWidth: 120,
-    rotate: -22,
-    width: 120,
-    zIndex: 2000,
 };
 
 export default React.memo(MobileWaterMark);

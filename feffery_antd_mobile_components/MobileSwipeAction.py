@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileSwipeAction(Component):
@@ -63,29 +70,53 @@ Keyword arguments:
         操作按钮对应`key`值.
 
     - timestamp (number; optional):
-        事件对应时间戳.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+        事件对应时间戳."""
     _children_props = ['leftActions[].text', 'rightActions[].text']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileSwipeAction'
+    LeftActions = TypedDict(
+        "LeftActions",
+            {
+            "key": NotRequired[typing.Union[str, typing.Union[int, float, numbers.Number]]],
+            "color": NotRequired[str],
+            "text": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+        }
+    )
+
+    RightActions = TypedDict(
+        "RightActions",
+            {
+            "color": NotRequired[str],
+            "key": NotRequired[typing.Union[str, typing.Union[int, float, numbers.Number]]],
+            "text": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+        }
+    )
+
+    ActionEvent = TypedDict(
+        "ActionEvent",
+            {
+            "key": NotRequired[typing.Union[str, typing.Union[int, float, numbers.Number]]],
+            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, closeOnAction=Component.UNDEFINED, closeOnTouchOutside=Component.UNDEFINED, leftActions=Component.UNDEFINED, rightActions=Component.UNDEFINED, actionEvent=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'children', 'closeOnAction', 'closeOnTouchOutside', 'leftActions', 'rightActions', 'actionEvent', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        closeOnAction: typing.Optional[bool] = None,
+        closeOnTouchOutside: typing.Optional[bool] = None,
+        leftActions: typing.Optional[typing.Sequence["LeftActions"]] = None,
+        rightActions: typing.Optional[typing.Sequence["RightActions"]] = None,
+        actionEvent: typing.Optional["ActionEvent"] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'children', 'closeOnAction', 'closeOnTouchOutside', 'leftActions', 'rightActions', 'actionEvent']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'children', 'closeOnAction', 'closeOnTouchOutside', 'leftActions', 'rightActions', 'actionEvent', 'loading_state']
+        self.available_properties = ['id', 'key', 'children', 'closeOnAction', 'closeOnTouchOutside', 'leftActions', 'rightActions', 'actionEvent']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

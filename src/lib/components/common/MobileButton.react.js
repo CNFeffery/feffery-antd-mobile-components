@@ -8,29 +8,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Button } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
 
 /**
  * 按钮组件MobileButton
  */
-const MobileButton = (props) => {
-    let {
-        id,
-        style,
-        className,
-        children,
-        block,
-        color,
-        disabled,
-        fill,
-        loading,
-        loadingText,
-        shape,
-        size,
-        type,
-        nClicks,
-        loading_state,
-        setProps
-    } = props;
+const MobileButton = ({
+    id,
+    style,
+    className,
+    children,
+    block = false,
+    color = 'default',
+    disabled = false,
+    fill = 'solid',
+    loading = false,
+    loadingText,
+    shape = 'default',
+    size = 'middle',
+    type = 'button',
+    nClicks = 0,
+    setProps
+}) => {
 
     return <Button
         id={id}
@@ -47,9 +47,7 @@ const MobileButton = (props) => {
         size={size}
         type={type}
         onClick={() => setProps({ nClicks: nClicks + 1 })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -138,38 +136,11 @@ MobileButton.propTypes = {
      */
     nClicks: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileButton.defaultProps = {
-    block: false,
-    color: 'default',
-    disabled: false,
-    fill: 'solid',
-    loading: false,
-    shape: 'default',
-    size: 'middle',
-    type: 'button',
-    nClicks: 0
 };
 
 export default React.memo(MobileButton);

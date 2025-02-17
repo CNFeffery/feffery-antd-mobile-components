@@ -8,25 +8,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Popover } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 气泡弹出框组件MobilePopover
  */
-const MobilePopover = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        content,
-        destroyOnHide,
-        mode,
-        placement,
-        visible,
-        loading_state,
-        setProps
-    } = props;
+const MobilePopover = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    content,
+    destroyOnHide = false,
+    mode = 'light',
+    placement = 'top',
+    visible,
+    setProps
+}) => {
 
     return <Popover
         id={id}
@@ -41,9 +42,7 @@ const MobilePopover = (props) => {
         visible={visible}
         trigger={'click'}
         onVisibleChange={(e) => setProps({ visible: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -103,32 +102,11 @@ MobilePopover.propTypes = {
      */
     visible: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobilePopover.defaultProps = {
-    destroyOnHide: false,
-    mode: 'light',
-    placement: 'top',
 };
 
 export default React.memo(MobilePopover);

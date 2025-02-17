@@ -8,26 +8,26 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Checkbox } from 'antd-mobile';
-// 工具函数
+// 辅助库
 import { isUndefined } from 'lodash';
+import { useLoading } from '../../utils';
+
 
 /**
  * 复选框组合组件MobileCheckboxGroup
  */
-const MobileCheckboxGroup = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        options,
-        block,
-        defaultValue,
-        disabled,
-        value,
-        loading_state,
-        setProps
-    } = props;
+const MobileCheckboxGroup = ({
+    id,
+    key,
+    style,
+    className,
+    options = [],
+    block = true,
+    defaultValue = [],
+    disabled = false,
+    value,
+    setProps
+}) => {
 
     // 处理defaultValue、value的初始化逻辑
     useEffect(() => {
@@ -57,9 +57,7 @@ const MobileCheckboxGroup = (props) => {
             )
         }
         onChange={(e) => setProps({ value: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -143,33 +141,11 @@ MobileCheckboxGroup.propTypes = {
      */
     value: PropTypes.arrayOf(PropTypes.string),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCheckboxGroup.defaultProps = {
-    options: [],
-    block: true,
-    defaultValue: [],
-    disabled: false
 };
 
 export default React.memo(MobileCheckboxGroup);

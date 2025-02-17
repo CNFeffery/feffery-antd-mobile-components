@@ -8,28 +8,30 @@ app = dash.Dash(__name__)
 app.layout = famc.Fragment(
     html.Div(
         [
-            famc.MobileInput(
-                id='input-demo',
-                placeholder='请输入',
-                style={'width': '100%'},
+            famc.MobileButton(
+                '测试',
+                id='button-demo',
+                color='primary',
             ),
-            html.Div(id='input-demo-output'),
+            html.Div(id='button-demo-output'),
         ],
         style={
             'background': '#fafbfc',
             'minHeight': '100vh',
             'padding': 24,
+            'boxSizing': 'border-box',
         },
     )
 )
 
 
 @app.callback(
-    Output('input-demo-output', 'children'),
-    Input('input-demo', 'value'),
+    Output('button-demo-output', 'children'),
+    Input('button-demo', 'nClicks'),
+    prevent_initial_call=True,
 )
-def demo(value):
-    return f'value: {value}'
+def button_demo(nClicks):
+    return nClicks
 
 
 if __name__ == '__main__':

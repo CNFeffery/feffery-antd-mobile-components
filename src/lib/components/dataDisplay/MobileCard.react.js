@@ -8,26 +8,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Card } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 卡片组件MobileCard
  */
-const MobileCard = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        bodyClassName,
-        bodyStyle,
-        extra,
-        headerClassName,
-        headerStyle,
-        title,
-        loading_state,
-        setProps
-    } = props;
+const MobileCard = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    bodyClassName,
+    bodyStyle,
+    extra,
+    headerClassName,
+    headerStyle,
+    title,
+    setProps
+}) => {
 
     return <Card
         id={id}
@@ -41,9 +42,7 @@ const MobileCard = (props) => {
         headerClassName={headerClassName}
         headerStyle={headerStyle}
         title={title}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -105,29 +104,11 @@ MobileCard.propTypes = {
      */
     title: PropTypes.node,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCard.defaultProps = {
 };
 
 export default React.memo(MobileCard);

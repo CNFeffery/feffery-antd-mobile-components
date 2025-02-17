@@ -8,24 +8,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { SafeArea } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 安全区组件MobileSafeArea
  */
-const MobileSafeArea = (props) => {
-    let {
-        id,
-        position,
-        loading_state,
-        setProps
-    } = props;
+const MobileSafeArea = ({
+    id,
+    position,
+    setProps
+}) => {
 
     return <SafeArea
         id={id}
         position={position}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -45,29 +44,11 @@ MobileSafeArea.propTypes = {
      */
     position: PropTypes.oneOf(['top', 'bottom']),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileSafeArea.defaultProps = {
 };
 
 export default React.memo(MobileSafeArea);

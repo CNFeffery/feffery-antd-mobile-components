@@ -8,29 +8,30 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Cascader } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 级联选择组件MobileCascader
  */
-const MobileCascader = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        cancelText,
-        confirmText,
-        defaultValue,
-        destroyOnClose,
-        forceRender,
-        options,
-        placeholder,
-        title,
-        value,
-        visible,
-        loading_state,
-        setProps
-    } = props;
+const MobileCascader = ({
+    id,
+    key,
+    style,
+    className,
+    cancelText = '取消',
+    confirmText = '确认',
+    defaultValue,
+    destroyOnClose = true,
+    forceRender = false,
+    options = [],
+    placeholder = '请选择',
+    title,
+    value,
+    visible = false,
+    setProps
+}) => {
 
     // 处理defaultValue、value的初始化逻辑
     useEffect(() => {
@@ -58,9 +59,7 @@ const MobileCascader = (props) => {
         visible={visible}
         onConfirm={(e) => setProps({ value: e })}
         onClose={() => setProps({ visible: !visible })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -175,36 +174,11 @@ MobileCascader.propTypes = {
      */
     visible: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCascader.defaultProps = {
-    cancelText: '取消',
-    confirmText: '确认',
-    destroyOnClose: true,
-    forceRender: false,
-    options: [],
-    placeholder: '请选择',
-    visible: false
 };
 
 export default React.memo(MobileCascader);

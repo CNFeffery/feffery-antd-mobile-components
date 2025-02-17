@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileSwiper(Component):
@@ -60,29 +67,42 @@ Keyword arguments:
     用于为当前走马灯设置是否在边界两边卡住，避免出现空白  仅在非loop模式下且slideSize<100时生效  默认：True.
 
 - trackOffset (number; default 0):
-    用于为当前走马灯设置滑块轨道整体的偏移量百分比  默认：0.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于为当前走马灯设置滑块轨道整体的偏移量百分比  默认：0."""
     _children_props = ['items[].children']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileSwiper'
+    Items = TypedDict(
+        "Items",
+            {
+            "key": str,
+            "children": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, items=Component.UNDEFINED, allowTouchMove=Component.UNDEFINED, autoplay=Component.UNDEFINED, autoplayInterval=Component.UNDEFINED, defaultIndex=Component.UNDEFINED, direction=Component.UNDEFINED, loop=Component.UNDEFINED, rubberband=Component.UNDEFINED, slideSize=Component.UNDEFINED, stuckAtBoundary=Component.UNDEFINED, trackOffset=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'items', 'allowTouchMove', 'autoplay', 'autoplayInterval', 'defaultIndex', 'direction', 'loop', 'rubberband', 'slideSize', 'stuckAtBoundary', 'trackOffset', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        items: typing.Optional[typing.Sequence["Items"]] = None,
+        allowTouchMove: typing.Optional[bool] = None,
+        autoplay: typing.Optional[bool] = None,
+        autoplayInterval: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        defaultIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        direction: typing.Optional[Literal["horizontal", "vertical"]] = None,
+        loop: typing.Optional[bool] = None,
+        rubberband: typing.Optional[bool] = None,
+        slideSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        stuckAtBoundary: typing.Optional[bool] = None,
+        trackOffset: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'items', 'allowTouchMove', 'autoplay', 'autoplayInterval', 'defaultIndex', 'direction', 'loop', 'rubberband', 'slideSize', 'stuckAtBoundary', 'trackOffset']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'items', 'allowTouchMove', 'autoplay', 'autoplayInterval', 'defaultIndex', 'direction', 'loop', 'rubberband', 'slideSize', 'stuckAtBoundary', 'trackOffset', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'items', 'allowTouchMove', 'autoplay', 'autoplayInterval', 'defaultIndex', 'direction', 'loop', 'rubberband', 'slideSize', 'stuckAtBoundary', 'trackOffset']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

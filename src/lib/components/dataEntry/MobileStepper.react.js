@@ -8,29 +8,30 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Stepper } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 步进器组件MobileStepper
  */
-const MobileStepper = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        allowEmpty,
-        defaultValue,
-        value,
-        digits,
-        disabled,
-        inputReadOnly,
-        max,
-        min,
-        step,
-        stringMode,
-        loading_state,
-        setProps
-    } = props;
+const MobileStepper = ({
+    id,
+    key,
+    style,
+    className,
+    allowEmpty = false,
+    defaultValue = 0,
+    value,
+    digits,
+    disabled = false,
+    inputReadOnly = false,
+    max,
+    min,
+    step = 1,
+    stringMode = false,
+    setProps
+}) => {
 
     // 处理defaultValue、value的初始化逻辑
     useEffect(() => {
@@ -57,9 +58,7 @@ const MobileStepper = (props) => {
         step={step}
         stringMode={stringMode}
         onChange={(e) => setProps({ value: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -155,35 +154,11 @@ MobileStepper.propTypes = {
      */
     stringMode: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileStepper.defaultProps = {
-    allowEmpty: false,
-    defaultValue: 0,
-    disabled: false,
-    inputReadOnly: false,
-    step: 1,
-    stringMode: false
 };
 
 export default React.memo(MobileStepper);

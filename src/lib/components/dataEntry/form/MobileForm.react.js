@@ -8,25 +8,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Form } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../../utils';
+
 
 /**
  * 表单组件MobileForm
  */
-const MobileForm = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        disabled,
-        footer,
-        layout,
-        mode,
-        requiredMarkStyle,
-        loading_state,
-        setProps
-    } = props;
+const MobileForm = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    disabled = false,
+    footer,
+    layout = 'vertical',
+    mode = 'default',
+    requiredMarkStyle = 'asterisk',
+    setProps
+}) => {
 
     return <Form
         id={id}
@@ -39,9 +40,7 @@ const MobileForm = (props) => {
         mode={mode}
         requiredMarkStyle={requiredMarkStyle}
         children={children}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -104,33 +103,11 @@ MobileForm.propTypes = {
      */
     requiredMarkStyle: PropTypes.oneOf(['asterisk', 'text-required', 'text-optional', 'none']),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileForm.defaultProps = {
-    disabled: false,
-    layout: 'vertical',
-    mode: 'default',
-    requiredMarkStyle: 'asterisk'
 };
 
 export default React.memo(MobileForm);

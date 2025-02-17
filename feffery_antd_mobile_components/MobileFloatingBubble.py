@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileFloatingBubble(Component):
@@ -43,29 +50,36 @@ Keyword arguments:
         垂直方向像素偏移位置  默认：0.
 
 - nClicks (number; default 0):
-    监听当前浮动气泡组件累计被点击次数  默认：0.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听当前浮动气泡组件累计被点击次数  默认：0."""
     _children_props = []
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileFloatingBubble'
+    Offset = TypedDict(
+        "Offset",
+            {
+            "x": NotRequired[typing.Union[int, float, numbers.Number]],
+            "y": NotRequired[typing.Union[int, float, numbers.Number]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, axis=Component.UNDEFINED, magnetic=Component.UNDEFINED, offset=Component.UNDEFINED, nClicks=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'axis', 'magnetic', 'offset', 'nClicks', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        axis: typing.Optional[Literal["xy", "lock", "x", "y"]] = None,
+        magnetic: typing.Optional[Literal["x", "y"]] = None,
+        offset: typing.Optional["Offset"] = None,
+        nClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'axis', 'magnetic', 'offset', 'nClicks']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'axis', 'magnetic', 'offset', 'nClicks', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'axis', 'magnetic', 'offset', 'nClicks']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

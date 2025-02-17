@@ -8,25 +8,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Space } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 间距组件MobileSpace
  */
-const MobileSpace = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        align,
-        block,
-        direction,
-        justify,
-        wrap,
-        loading_state,
-        setProps
-    } = props;
+const MobileSpace = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    align,
+    block = false,
+    direction = 'horizontal',
+    justify,
+    wrap = false,
+    setProps
+}) => {
 
     return <Space
         id={id}
@@ -39,9 +40,7 @@ const MobileSpace = (props) => {
         direction={direction}
         justify={justify}
         wrap={wrap}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -104,32 +103,11 @@ MobileSpace.propTypes = {
      */
     wrap: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileSpace.defaultProps = {
-    block: false,
-    direction: 'horizontal',
-    wrap: false
 };
 
 export default React.memo(MobileSpace);

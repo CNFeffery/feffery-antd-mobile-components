@@ -8,20 +8,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Form } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../../utils';
+
 
 /**
  * 表单分组标题组件MobileFormHeader
  */
-const MobileFormHeader = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        loading_state,
-        setProps
-    } = props;
+const MobileFormHeader = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    setProps
+}) => {
 
     return <Form.Header
         id={id}
@@ -29,9 +30,7 @@ const MobileFormHeader = (props) => {
         style={style}
         className={className}
         children={children}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -63,29 +62,11 @@ MobileFormHeader.propTypes = {
      */
     children: PropTypes.node,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileFormHeader.defaultProps = {
 };
 
 export default React.memo(MobileFormHeader);

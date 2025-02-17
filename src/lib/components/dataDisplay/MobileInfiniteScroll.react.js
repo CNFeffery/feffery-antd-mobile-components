@@ -8,20 +8,21 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { InfiniteScroll } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 无限滚动组件MobileInfiniteScroll
  */
-const MobileInfiniteScroll = (props) => {
-    let {
-        id,
-        threshold,
-        refreshCount,
-        stopRefreshing,
-        hasMore,
-        loading_state,
-        setProps
-    } = props;
+const MobileInfiniteScroll = ({
+    id,
+    threshold = 250,
+    refreshCount = 0,
+    stopRefreshing,
+    hasMore = true,
+    setProps
+}) => {
 
     // 加载执行中标识
     const _refreshing = useRef(false);
@@ -67,9 +68,7 @@ const MobileInfiniteScroll = (props) => {
             }
         }
         hasMore={hasMore}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        } />;
+        data-dash-is-loading={useLoading()} />;
 };
 
 MobileInfiniteScroll.propTypes = {
@@ -106,32 +105,11 @@ MobileInfiniteScroll.propTypes = {
      */
     hasMore: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileInfiniteScroll.defaultProps = {
-    threshold: 250,
-    refreshCount: 0,
-    hasMore: true
 };
 
 export default React.memo(MobileInfiniteScroll);

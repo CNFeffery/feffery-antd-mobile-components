@@ -8,25 +8,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { ErrorBlock } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 异常组件MobileErrorBlock
  */
-const MobileErrorBlock = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        description,
-        fullPage,
-        image,
-        status,
-        title,
-        loading_state,
-        setProps
-    } = props;
+const MobileErrorBlock = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    description,
+    fullPage = false,
+    image,
+    status = 'default',
+    title,
+    setProps
+}) => {
 
     return <ErrorBlock
         id={id}
@@ -39,9 +40,7 @@ const MobileErrorBlock = (props) => {
         image={image}
         status={status}
         title={title}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -100,31 +99,11 @@ MobileErrorBlock.propTypes = {
      */
     title: PropTypes.node,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileErrorBlock.defaultProps = {
-    fullPage: false,
-    status: 'default'
 };
 
 export default React.memo(MobileErrorBlock);

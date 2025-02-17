@@ -8,28 +8,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { ResultPage } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 结果页面组件MobileResultPage
  */
-const MobileResultPage = (props) => {
-    let {
-        id,
-        style,
-        className,
-        children,
-        title,
-        description,
-        icon,
-        details,
-        status,
-        primaryButtonText,
-        secondaryButtonText,
-        nClicksPrimary,
-        nClicksSecondary,
-        loading_state,
-        setProps
-    } = props;
+const MobileResultPage = ({
+    id,
+    style,
+    className,
+    children,
+    title,
+    description,
+    icon,
+    details,
+    status = 'info',
+    primaryButtonText,
+    secondaryButtonText,
+    nClicksPrimary = 0,
+    nClicksSecondary = 0,
+    setProps
+}) => {
 
     return <ResultPage
         id={id}
@@ -45,9 +46,7 @@ const MobileResultPage = (props) => {
         secondaryButtonText={secondaryButtonText}
         onPrimaryButtonClick={() => setProps({ nClicksPrimary: nClicksPrimary + 1 })}
         onSecondaryButtonClick={() => setProps({ nClicksSecondary: nClicksSecondary + 1 })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -141,32 +140,11 @@ MobileResultPage.propTypes = {
      */
     nClicksSecondary: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileResultPage.defaultProps = {
-    status: 'info',
-    nClicksPrimary: 0,
-    nClicksSecondary: 0
 };
 
 export default React.memo(MobileResultPage);

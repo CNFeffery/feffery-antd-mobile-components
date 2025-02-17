@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileForm(Component):
@@ -39,29 +46,30 @@ Keyword arguments:
 - requiredMarkStyle (a value equal to: 'asterisk', 'text-required', 'text-optional', 'none'; default 'asterisk'):
     针对内部表单项的必填选填标记样式类型进行设置
     可选的有'asterisk'、'text-required'、'text-optional'、'none'
-    默认：'asterisk'.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    默认：'asterisk'."""
     _children_props = ['footer']
     _base_nodes = ['footer', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileForm'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, disabled=Component.UNDEFINED, footer=Component.UNDEFINED, layout=Component.UNDEFINED, mode=Component.UNDEFINED, requiredMarkStyle=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'disabled', 'footer', 'layout', 'mode', 'requiredMarkStyle', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        disabled: typing.Optional[bool] = None,
+        footer: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        layout: typing.Optional[Literal["vertical", "horizontal"]] = None,
+        mode: typing.Optional[Literal["default", "card"]] = None,
+        requiredMarkStyle: typing.Optional[Literal["asterisk", "text-required", "text-optional", "none"]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'disabled', 'footer', 'layout', 'mode', 'requiredMarkStyle']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'disabled', 'footer', 'layout', 'mode', 'requiredMarkStyle', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'disabled', 'footer', 'layout', 'mode', 'requiredMarkStyle']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

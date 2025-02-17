@@ -8,66 +8,73 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Skeleton } from 'antd-mobile';
+// 辅助库
+import { equals } from 'ramda';
+import { useLoading, loadingSelector } from '../../../utils';
 
 /**
  * 骨架屏组件MobileSkeleton
  */
-const MobileSkeleton = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        animated,
-        debug,
-        listenPropsMode,
-        excludeProps,
-        includeProps,
-        loading_state,
-        setProps
-    } = props;
+const MobileSkeleton = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    animated = false,
+    debug = false,
+    listenPropsMode = 'default',
+    excludeProps,
+    includeProps,
+    setProps
+}) => {
+
+    const ctx = window.dash_component_api.useDashContext();
+    // 获取内部加载中组件信息
+    const loading_info = ctx.useSelector(loadingSelector(ctx.componentPath), equals);
 
     const [showLoading, setShowLoading] = useState(false);
     const timer = useRef();
 
     useEffect(() => {
-        if (loading_state) {
+        if (loading_info) {
             if (timer.current) {
                 clearTimeout(timer.current);
             }
-            if (loading_state.is_loading && !showLoading) {
+            if (loading_info.length > 0 && !showLoading) {
                 // 当listenPropsMode为'default'时
                 if (listenPropsMode === 'default') {
                     if (debug) {
-                        console.log(loading_state.component_name + '.' + loading_state.prop_name)
+                        loading_info.forEach(item => console.log(item.id + '.' + item.property))
                     }
                     setShowLoading(true);
                 } else if (listenPropsMode === 'exclude') {
                     // 当listenPropsMode为'exclude'模式时
-                    // 当前触发loading_state的组件+属性组合不在排除列表中时，激活动画
-                    if (excludeProps.indexOf(loading_state.component_name + '.' + loading_state.prop_name) === -1) {
+                    // 当前触发加载状态的组件+属性组合均不在排除列表中时，激活动画
+                    if (loading_info.every(item => excludeProps.indexOf(item.id + '.' + item.property) === -1)) {
                         if (debug) {
-                            console.log(loading_state.component_name + '.' + loading_state.prop_name)
+                            loading_info.forEach(item => console.log(item.id + '.' + item.property))
                         }
                         setShowLoading(true);
                     }
                 } else if (listenPropsMode === 'include') {
                     // 当listenPropsMode为'include'模式时
-                    // 当前触发loading_state的组件+属性组合在包含列表中时，激活动画
-                    if (includeProps.indexOf(loading_state.component_name + '.' + loading_state.prop_name) !== -1) {
+                    // 当前触发加载状态的组件+属性组合至少有一个在包含列表中时，激活动画
+                    if (loading_info.some(item => includeProps.indexOf(item.id + '.' + item.property) !== -1)) {
                         if (debug) {
-                            console.log(loading_state.component_name + '.' + loading_state.prop_name)
+                            loading_info.forEach(item => console.log(item.id + '.' + item.property))
                         }
                         setShowLoading(true);
                     }
                 }
 
-            } else if (!loading_state.is_loading && showLoading) {
+            } else if (loading_info.length === 0 && showLoading) {
                 timer.current = setTimeout(() => setShowLoading(false));
             }
         }
-    }, [loading_state]);
+    }, [loading_info]);
+
+    const component_loading = useLoading();
 
     return (
         showLoading ?
@@ -77,15 +84,11 @@ const MobileSkeleton = (props) => {
                 style={style}
                 className={className}
                 animated={animated}
-                data-dash-is-loading={
-                    (loading_state && loading_state.is_loading) || undefined
-                }
+                data-dash-is-loading={component_loading}
             /> :
             <>{children}</>
     )
 };
-
-MobileSkeleton._dashprivate_isLoadingComponent = true;
 
 MobileSkeleton.propTypes = {
     // 通用参数
@@ -143,32 +146,11 @@ MobileSkeleton.propTypes = {
      */
     includeProps: PropTypes.arrayOf(PropTypes.string),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileSkeleton.defaultProps = {
-    animated: false,
-    debug: false,
-    listenPropsMode: 'default'
 };
 
 export default MobileSkeleton;

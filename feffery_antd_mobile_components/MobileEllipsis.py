@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileEllipsis(Component):
@@ -37,29 +44,30 @@ Keyword arguments:
     用于设置展示文字内容的行数  默认：1.
 
 - defaultExpanded (boolean; default False):
-    用于设置初始化时候展开  默认：False.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于设置初始化时候展开  默认：False."""
     _children_props = ['collapseText', 'expandText']
     _base_nodes = ['collapseText', 'expandText', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileEllipsis'
+
     @_explicitize_args
-    def __init__(self, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, collapseText=Component.UNDEFINED, content=Component.UNDEFINED, direction=Component.UNDEFINED, expandText=Component.UNDEFINED, rows=Component.UNDEFINED, defaultExpanded=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'collapseText', 'content', 'direction', 'expandText', 'rows', 'defaultExpanded', 'loading_state']
+    def __init__(
+        self,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        collapseText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        content: typing.Optional[str] = None,
+        direction: typing.Optional[Literal["start", "end", "middle"]] = None,
+        expandText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        rows: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        defaultExpanded: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'collapseText', 'content', 'direction', 'expandText', 'rows', 'defaultExpanded']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'collapseText', 'content', 'direction', 'expandText', 'rows', 'defaultExpanded', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'collapseText', 'content', 'direction', 'expandText', 'rows', 'defaultExpanded']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

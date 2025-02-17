@@ -8,23 +8,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Footer } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 页脚组件MobileFooter
  */
-const MobileFooter = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        label,
-        links,
-        content,
-        chips,
-        loading_state,
-        setProps
-    } = props;
+const MobileFooter = ({
+    id,
+    key,
+    style,
+    className,
+    label,
+    links,
+    content,
+    chips,
+    setProps
+}) => {
 
     return <Footer
         id={id}
@@ -41,9 +42,7 @@ const MobileFooter = (props) => {
                 timestamp: new Date().getTime()
             }
         })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -136,29 +135,11 @@ MobileFooter.propTypes = {
      */
     clickedChip: PropTypes.object,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileFooter.defaultProps = {
 };
 
 export default React.memo(MobileFooter);

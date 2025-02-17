@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileCheckbox(Component):
@@ -48,29 +55,38 @@ Keyword arguments:
         自定义半选中状态下图标元素.
 
 - indeterminate (boolean; default False):
-    是否以半选中状态进行渲染，仅用作样式控制.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    是否以半选中状态进行渲染，仅用作样式控制."""
     _children_props = ['icon.checked', 'icon.unchecked', 'icon.indeterminate']
     _base_nodes = ['children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileCheckbox'
+    Icon = TypedDict(
+        "Icon",
+            {
+            "checked": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "unchecked": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "indeterminate": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, block=Component.UNDEFINED, checked=Component.UNDEFINED, disabled=Component.UNDEFINED, icon=Component.UNDEFINED, indeterminate=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'block', 'checked', 'disabled', 'icon', 'indeterminate', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        block: typing.Optional[bool] = None,
+        checked: typing.Optional[bool] = None,
+        disabled: typing.Optional[bool] = None,
+        icon: typing.Optional["Icon"] = None,
+        indeterminate: typing.Optional[bool] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'block', 'checked', 'disabled', 'icon', 'indeterminate']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'block', 'checked', 'disabled', 'icon', 'indeterminate', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'block', 'checked', 'disabled', 'icon', 'indeterminate']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

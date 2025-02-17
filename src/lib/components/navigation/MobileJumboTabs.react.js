@@ -8,22 +8,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { JumboTabs } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 复杂选项卡组件MobileJumboTabs
  */
-const MobileJumboTabs = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        items,
-        activeKey,
-        defaultActiveKey,
-        loading_state,
-        setProps
-    } = props;
+const MobileJumboTabs = ({
+    id,
+    key,
+    style,
+    className,
+    items = [],
+    activeKey,
+    defaultActiveKey,
+    setProps
+}) => {
 
     return <JumboTabs
         id={id}
@@ -40,9 +41,7 @@ const MobileJumboTabs = (props) => {
         activeKey={activeKey}
         defaultActiveKey={defaultActiveKey}
         onChange={(e) => setProps({ activeKey: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -125,30 +124,11 @@ MobileJumboTabs.propTypes = {
      */
     defaultActiveKey: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileJumboTabs.defaultProps = {
-    items: []
 };
 
 export default React.memo(MobileJumboTabs);

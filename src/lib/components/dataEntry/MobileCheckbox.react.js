@@ -8,25 +8,26 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Checkbox } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 复选框组件MobileCheckbox
  */
-const MobileCheckbox = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        block,
-        checked,
-        disabled,
-        icon,
-        indeterminate,
-        loading_state,
-        setProps
-    } = props;
+const MobileCheckbox = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    block = false,
+    checked = false,
+    disabled = false,
+    icon,
+    indeterminate = false,
+    setProps
+}) => {
 
     return <Checkbox
         id={id}
@@ -53,9 +54,7 @@ const MobileCheckbox = (props) => {
         onChange={() => setProps({
             checked: !checked
         })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -129,33 +128,11 @@ MobileCheckbox.propTypes = {
      */
     indeterminate: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCheckbox.defaultProps = {
-    block: false,
-    checked: false,
-    disabled: false,
-    indeterminate: false
 };
 
 export default React.memo(MobileCheckbox);

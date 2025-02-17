@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileAvatar(Component):
@@ -50,8 +57,29 @@ Keyword arguments:
     _base_nodes = ['fallback', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileAvatar'
+    LoadingState = TypedDict(
+        "LoadingState",
+            {
+            "is_loading": NotRequired[bool],
+            "prop_name": NotRequired[str],
+            "component_name": NotRequired[str]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, fallback=Component.UNDEFINED, fit=Component.UNDEFINED, src=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        fallback: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        fit: typing.Optional[Literal["contain", "cover", "fill", "none", "scale-down"]] = None,
+        src: typing.Optional[str] = None,
+        loading_state: typing.Optional["LoadingState"] = None,
+        **kwargs
+    ):
         self._prop_names = ['id', 'key', 'style', 'className', 'children', 'fallback', 'fit', 'src', 'loading_state']
         self._valid_wildcard_attributes =            []
         self.available_properties = ['id', 'key', 'style', 'className', 'children', 'fallback', 'fit', 'src', 'loading_state']

@@ -8,30 +8,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Swiper } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 走马灯组件MobileSwiper
  */
-const MobileSwiper = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        items,
-        allowTouchMove,
-        autoplay,
-        autoplayInterval,
-        defaultIndex,
-        direction,
-        loop,
-        rubberband,
-        slideSize,
-        stuckAtBoundary,
-        trackOffset,
-        loading_state,
-        setProps
-    } = props;
+const MobileSwiper = ({
+    id,
+    key,
+    style,
+    className,
+    items = [],
+    allowTouchMove = true,
+    autoplay = false,
+    autoplayInterval = 3000,
+    defaultIndex = 0,
+    direction = 'horizontal',
+    loop = false,
+    rubberband = true,
+    slideSize = 100,
+    stuckAtBoundary = true,
+    trackOffset = 0,
+    setProps
+}) => {
 
     return <Swiper
         id={id}
@@ -53,9 +54,7 @@ const MobileSwiper = (props) => {
         slideSize={slideSize}
         stuckAtBoundary={stuckAtBoundary}
         trackOffset={trackOffset}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -162,40 +161,11 @@ MobileSwiper.propTypes = {
      */
     trackOffset: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileSwiper.defaultProps = {
-    items: [],
-    allowTouchMove: true,
-    autoplay: false,
-    autoplayInterval: 3000,
-    defaultIndex: 0,
-    direction: 'horizontal',
-    loop: false,
-    rubberband: true,
-    slideSize: 100,
-    stuckAtBoundary: true,
-    trackOffset: 0
 };
 
 export default React.memo(MobileSwiper);

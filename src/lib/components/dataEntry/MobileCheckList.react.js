@@ -8,25 +8,26 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { CheckList } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 可勾选列表组件MobileCheckList
  */
-const MobileCheckList = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        options,
-        defaultValue,
-        disabled,
-        multiple,
-        readOnly,
-        value,
-        loading_state,
-        setProps
-    } = props;
+const MobileCheckList = ({
+    id,
+    key,
+    style,
+    className,
+    options = [],
+    defaultValue,
+    disabled = false,
+    multiple = false,
+    readOnly = false,
+    value,
+    setProps
+}) => {
 
     // 处理defaultValue、value的初始化逻辑
     useEffect(() => {
@@ -53,9 +54,7 @@ const MobileCheckList = (props) => {
             )
         }
         onChange={(e) => setProps({ value: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -155,33 +154,11 @@ MobileCheckList.propTypes = {
      */
     value: PropTypes.arrayOf(PropTypes.string),
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCheckList.defaultProps = {
-    options: [],
-    disabled: false,
-    multiple: false,
-    readOnly: false,
 };
 
 export default React.memo(MobileCheckList);

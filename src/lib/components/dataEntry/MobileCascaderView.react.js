@@ -8,24 +8,25 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { CascaderView } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 级联选择视图组件MobileCascaderView
  */
-const MobileCascaderView = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        defaultValue,
-        options,
-        placeholder,
-        value,
-        loading,
-        loading_state,
-        setProps
-    } = props;
+const MobileCascaderView = ({
+    id,
+    key,
+    style,
+    className,
+    defaultValue,
+    options = [],
+    placeholder = '请选择',
+    value,
+    loading = false,
+    setProps
+}) => {
 
     // 处理defaultValue、value的初始化逻辑
     useEffect(() => {
@@ -47,9 +48,7 @@ const MobileCascaderView = (props) => {
         value={value}
         loading={loading}
         onChange={(e) => setProps({ value: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -132,32 +131,11 @@ MobileCascaderView.propTypes = {
      */
     loading: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCascaderView.defaultProps = {
-    options: [],
-    placeholder: '请选择',
-    loading: false
 };
 
 export default React.memo(MobileCascaderView);

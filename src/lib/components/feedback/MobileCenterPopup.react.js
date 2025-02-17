@@ -8,31 +8,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { CenterPopup } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 居中弹出层组件MobileCenterPopup
  */
-const MobileCenterPopup = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        children,
-        visible,
-        bodyClassName,
-        bodyStyle,
-        closeOnMaskClick,
-        destroyOnClose,
-        forceRender,
-        mask,
-        maskClassName,
-        maskStyle,
-        showCloseButton,
-        closeOnSwipe,
-        loading_state,
-        setProps
-    } = props;
+const MobileCenterPopup = ({
+    id,
+    key,
+    style,
+    className,
+    children,
+    visible = false,
+    bodyClassName,
+    bodyStyle,
+    closeOnMaskClick = false,
+    destroyOnClose = false,
+    forceRender = false,
+    mask = true,
+    maskClassName,
+    maskStyle,
+    showCloseButton,
+    closeOnSwipe = false,
+    setProps
+}) => {
 
     return <CenterPopup
         id={id}
@@ -52,9 +53,7 @@ const MobileCenterPopup = (props) => {
         showCloseButton={showCloseButton}
         closeOnSwipe={closeOnSwipe}
         onClose={() => setProps({ visible: false })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -148,35 +147,11 @@ MobileCenterPopup.propTypes = {
      */
     closeOnSwipe: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCenterPopup.defaultProps = {
-    visible: false,
-    closeOnMaskClick: false,
-    destroyOnClose: false,
-    forceRender: false,
-    mask: true,
-    closeOnSwipe: false
 };
 
 export default React.memo(MobileCenterPopup);

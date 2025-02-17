@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileResultPage(Component):
@@ -61,29 +68,42 @@ Keyword arguments:
     监听主要操作按钮累计点击次数  默认值：`0`.
 
 - nClicksSecondary (number; default 0):
-    监听辅助操作按钮累计点击次数  默认值：`0`.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    监听辅助操作按钮累计点击次数  默认值：`0`."""
     _children_props = ['title', 'description', 'icon', 'details[].label', 'details[].value', 'primaryButtonText', 'secondaryButtonText']
     _base_nodes = ['title', 'description', 'icon', 'primaryButtonText', 'secondaryButtonText', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileResultPage'
+    Details = TypedDict(
+        "Details",
+            {
+            "label": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "value": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "bold": NotRequired[bool]
+        }
+    )
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, title=Component.UNDEFINED, description=Component.UNDEFINED, icon=Component.UNDEFINED, details=Component.UNDEFINED, status=Component.UNDEFINED, primaryButtonText=Component.UNDEFINED, secondaryButtonText=Component.UNDEFINED, nClicksPrimary=Component.UNDEFINED, nClicksSecondary=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'title', 'description', 'icon', 'details', 'status', 'primaryButtonText', 'secondaryButtonText', 'nClicksPrimary', 'nClicksSecondary', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        title: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        description: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        icon: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        details: typing.Optional[typing.Sequence["Details"]] = None,
+        status: typing.Optional[Literal["success", "error", "info", "waiting", "warning"]] = None,
+        primaryButtonText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        secondaryButtonText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        nClicksPrimary: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        nClicksSecondary: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'title', 'description', 'icon', 'details', 'status', 'primaryButtonText', 'secondaryButtonText', 'nClicksPrimary', 'nClicksSecondary']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'title', 'description', 'icon', 'details', 'status', 'primaryButtonText', 'secondaryButtonText', 'nClicksPrimary', 'nClicksSecondary', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'title', 'description', 'icon', 'details', 'status', 'primaryButtonText', 'secondaryButtonText', 'nClicksPrimary', 'nClicksSecondary']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()

@@ -8,24 +8,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { Collapse } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 折叠面板组件MobileCollapse
  */
-const MobileCollapse = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        items,
-        accordion,
-        activeKey,
-        defaultActiveKey,
-        stretch,
-        loading_state,
-        setProps
-    } = props;
+const MobileCollapse = ({
+    id,
+    key,
+    style,
+    className,
+    items = [],
+    accordion,
+    activeKey,
+    defaultActiveKey,
+    stretch,
+    setProps
+}) => {
 
     return <Collapse
         id={id}
@@ -44,9 +45,7 @@ const MobileCollapse = (props) => {
         defaultActiveKey={defaultActiveKey}
         stretch={stretch}
         onChange={(e) => setProps({ activeKey: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -147,30 +146,11 @@ MobileCollapse.propTypes = {
      */
     stretch: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCollapse.defaultProps = {
-    items: []
 };
 
 export default React.memo(MobileCollapse);

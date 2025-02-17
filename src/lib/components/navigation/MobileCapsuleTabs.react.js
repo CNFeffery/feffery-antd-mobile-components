@@ -8,22 +8,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { CapsuleTabs } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 胶囊选项卡组件MobileCapsuleTabs
  */
-const MobileCapsuleTabs = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        items,
-        activeKey,
-        defaultActiveKey,
-        loading_state,
-        setProps
-    } = props;
+const MobileCapsuleTabs = ({
+    id,
+    key,
+    style,
+    className,
+    items = [],
+    activeKey,
+    defaultActiveKey,
+    setProps
+}) => {
 
     return <CapsuleTabs
         id={id}
@@ -40,9 +41,7 @@ const MobileCapsuleTabs = (props) => {
         activeKey={activeKey}
         defaultActiveKey={defaultActiveKey}
         onChange={(e) => setProps({ activeKey: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -120,30 +119,11 @@ MobileCapsuleTabs.propTypes = {
      */
     defaultActiveKey: PropTypes.string,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileCapsuleTabs.defaultProps = {
-    items: []
 };
 
 export default React.memo(MobileCapsuleTabs);

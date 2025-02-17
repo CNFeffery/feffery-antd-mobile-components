@@ -8,31 +8,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { SearchBar } from 'antd-mobile';
-// hooks
+// 辅助库
 import { useRequest } from 'ahooks';
+import { useLoading } from '../../utils';
+
 
 /**
  * 搜索框组件MobileSearchBar
  */
-const MobileSearchBar = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        cancelText,
-        clearOnCancel,
-        clearable,
-        icon,
-        maxLength,
-        onlyShowClearWhenFocus,
-        placeholder,
-        showCancelButton,
-        value,
-        debounceWait,
-        loading_state,
-        setProps
-    } = props;
+const MobileSearchBar = ({
+    id,
+    key,
+    style,
+    className,
+    cancelText = '取消',
+    clearOnCancel = true,
+    clearable = true,
+    icon,
+    maxLength,
+    onlyShowClearWhenFocus = false,
+    placeholder,
+    showCancelButton = false,
+    value,
+    debounceWait = 200,
+    setProps
+}) => {
 
     // 针对debounceValue的防抖监听更新
     const { run: onDebounceChange } = useRequest(
@@ -69,9 +69,7 @@ const MobileSearchBar = (props) => {
                 onDebounceChange(e)
             }
         }
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -161,35 +159,11 @@ MobileSearchBar.propTypes = {
      */
     debounceWait: PropTypes.number,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileSearchBar.defaultProps = {
-    cancelText: '取消',
-    clearOnCancel: true,
-    clearable: true,
-    onlyShowClearWhenFocus: false,
-    showCancelButton: false,
-    debounceWait: 200
 };
 
 export default React.memo(MobileSearchBar);

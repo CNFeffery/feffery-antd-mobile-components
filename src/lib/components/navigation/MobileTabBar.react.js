@@ -8,23 +8,24 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 // antd核心
 import { TabBar, Badge } from 'antd-mobile';
+// 辅助库
+import { useLoading } from '../../utils';
+
 
 /**
  * 标签栏组件MobileTabBar
  */
-const MobileTabBar = (props) => {
-    let {
-        id,
-        key,
-        style,
-        className,
-        items,
-        activeKey,
-        defaultActiveKey,
-        safeArea,
-        loading_state,
-        setProps
-    } = props;
+const MobileTabBar = ({
+    id,
+    key,
+    style,
+    className,
+    items = [],
+    activeKey,
+    defaultActiveKey,
+    safeArea = false,
+    setProps
+}) => {
 
     // 初始化同步props
     useEffect(() => {
@@ -57,9 +58,7 @@ const MobileTabBar = (props) => {
         defaultActiveKey={defaultActiveKey}
         safeArea={safeArea}
         onChange={(e) => setProps({ activeKey: e })}
-        data-dash-is-loading={
-            (loading_state && loading_state.is_loading) || undefined
-        }
+        data-dash-is-loading={useLoading()}
     />;
 };
 
@@ -131,31 +130,11 @@ MobileTabBar.propTypes = {
      */
     safeArea: PropTypes.bool,
 
-    loading_state: PropTypes.shape({
-        /**
-         * Determines if the component is loading or not
-         */
-        is_loading: PropTypes.bool,
-        /**
-         * Holds which property is loading
-         */
-        prop_name: PropTypes.string,
-        /**
-         * Holds the name of the component that is loading
-         */
-        component_name: PropTypes.string
-    }),
-
     /**
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
     setProps: PropTypes.func,
-};
-
-MobileTabBar.defaultProps = {
-    items: [],
-    safeArea: false
 };
 
 export default React.memo(MobileTabBar);

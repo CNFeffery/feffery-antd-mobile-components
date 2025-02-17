@@ -1,6 +1,13 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
+import typing  # noqa: F401
+import numbers # noqa: F401
+from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
+try:
+    from dash.development.base_component import ComponentType # noqa: F401
+except ImportError:
+    ComponentType = typing.TypeVar("ComponentType", bound=Component)
 
 
 class MobileNavBar(Component):
@@ -37,29 +44,30 @@ Keyword arguments:
     用于设置显示在当前导航栏标题右侧的内容.
 
 - nBackClicks (number; default 0):
-    用于记录当前导航栏返回区域累计被点击次数.
-
-- loading_state (dict; optional)
-
-    `loading_state` is a dict with keys:
-
-    - is_loading (boolean; optional):
-        Determines if the component is loading or not.
-
-    - prop_name (string; optional):
-        Holds which property is loading.
-
-    - component_name (string; optional):
-        Holds the name of the component that is loading."""
+    用于记录当前导航栏返回区域累计被点击次数."""
     _children_props = ['back', 'backArrow', 'left', 'right']
     _base_nodes = ['back', 'backArrow', 'left', 'right', 'children']
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileNavBar'
+
     @_explicitize_args
-    def __init__(self, children=None, id=Component.UNDEFINED, key=Component.UNDEFINED, style=Component.UNDEFINED, className=Component.UNDEFINED, back=Component.UNDEFINED, backArrow=Component.UNDEFINED, left=Component.UNDEFINED, right=Component.UNDEFINED, nBackClicks=Component.UNDEFINED, loading_state=Component.UNDEFINED, **kwargs):
-        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'back', 'backArrow', 'left', 'right', 'nBackClicks', 'loading_state']
+    def __init__(
+        self,
+        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        id: typing.Optional[str] = None,
+        key: typing.Optional[str] = None,
+        style: typing.Optional[dict] = None,
+        className: typing.Optional[str] = None,
+        back: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        backArrow: typing.Optional[typing.Union[bool, typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]] = None,
+        left: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        right: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        nBackClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        **kwargs
+    ):
+        self._prop_names = ['id', 'key', 'style', 'className', 'children', 'back', 'backArrow', 'left', 'right', 'nBackClicks']
         self._valid_wildcard_attributes =            []
-        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'back', 'backArrow', 'left', 'right', 'nBackClicks', 'loading_state']
+        self.available_properties = ['id', 'key', 'style', 'className', 'children', 'back', 'backArrow', 'left', 'right', 'nBackClicks']
         self.available_wildcard_properties =            []
         _explicit_args = kwargs.pop('_explicit_args')
         _locals = locals()
