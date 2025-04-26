@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileDialog(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
-
-- style (dict; optional):
-    当前组件css样式.
 
 - className (string; optional):
     当前组件css类名.
@@ -148,31 +153,31 @@ Keyword arguments:
         "ActionEvent",
             {
             "key": NotRequired[str],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "timestamp": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         actions: typing.Optional[typing.Sequence[typing.Union["Actions", typing.Sequence["Actions"]]]] = None,
         bodyClassName: typing.Optional[str] = None,
         bodyStyle: typing.Optional[dict] = None,
         closeOnAction: typing.Optional[bool] = None,
         closeOnMaskClick: typing.Optional[bool] = None,
-        content: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        content: typing.Optional[ComponentType] = None,
         destroyOnClose: typing.Optional[bool] = None,
         disableBodyScroll: typing.Optional[bool] = None,
         forceRender: typing.Optional[bool] = None,
-        header: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        header: typing.Optional[ComponentType] = None,
         image: typing.Optional[str] = None,
         maskClassName: typing.Optional[str] = None,
         maskStyle: typing.Optional[dict] = None,
-        title: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        title: typing.Optional[ComponentType] = None,
         visible: typing.Optional[bool] = None,
         actionEvent: typing.Optional["ActionEvent"] = None,
         **kwargs
@@ -187,3 +192,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileDialog, self).__init__(**args)
+
+setattr(MobileDialog, "__init__", _explicitize_args(MobileDialog.__init__))

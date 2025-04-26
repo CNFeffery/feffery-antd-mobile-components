@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileSwipeAction(Component):
@@ -78,9 +86,9 @@ Keyword arguments:
     LeftActions = TypedDict(
         "LeftActions",
             {
-            "key": NotRequired[typing.Union[str, typing.Union[int, float, numbers.Number]]],
+            "key": NotRequired[typing.Union[str, NumberType]],
             "color": NotRequired[str],
-            "text": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+            "text": NotRequired[ComponentType]
         }
     )
 
@@ -88,24 +96,24 @@ Keyword arguments:
         "RightActions",
             {
             "color": NotRequired[str],
-            "key": NotRequired[typing.Union[str, typing.Union[int, float, numbers.Number]]],
-            "text": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+            "key": NotRequired[typing.Union[str, NumberType]],
+            "text": NotRequired[ComponentType]
         }
     )
 
     ActionEvent = TypedDict(
         "ActionEvent",
             {
-            "key": NotRequired[typing.Union[str, typing.Union[int, float, numbers.Number]]],
-            "timestamp": NotRequired[typing.Union[int, float, numbers.Number]]
+            "key": NotRequired[typing.Union[str, NumberType]],
+            "timestamp": NotRequired[NumberType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        id: typing.Optional[str] = None,
+        children: typing.Optional[ComponentType] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
         closeOnAction: typing.Optional[bool] = None,
         closeOnTouchOutside: typing.Optional[bool] = None,
@@ -124,3 +132,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(MobileSwipeAction, self).__init__(children=children, **args)
+
+setattr(MobileSwipeAction, "__init__", _explicitize_args(MobileSwipeAction.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileInput(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     强制重绘当前组件时使用.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
 
 - className (string; optional):
     用于为当前组件设置css类名.
@@ -65,24 +70,24 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileInput'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         type: typing.Optional[Literal["text", "password"]] = None,
         clearable: typing.Optional[bool] = None,
         defaultValue: typing.Optional[str] = None,
         disabled: typing.Optional[bool] = None,
-        maxLength: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        maxLength: typing.Optional[NumberType] = None,
         onlyShowClearWhenFocus: typing.Optional[bool] = None,
         placeholder: typing.Optional[str] = None,
         readOnly: typing.Optional[bool] = None,
         value: typing.Optional[str] = None,
         debounceValue: typing.Optional[str] = None,
-        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        debounceWait: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'type', 'clearable', 'defaultValue', 'disabled', 'maxLength', 'onlyShowClearWhenFocus', 'placeholder', 'readOnly', 'value', 'debounceValue', 'debounceWait']
@@ -95,3 +100,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileInput, self).__init__(**args)
+
+setattr(MobileInput, "__init__", _explicitize_args(MobileInput.__init__))

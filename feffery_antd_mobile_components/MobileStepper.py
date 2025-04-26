@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileStepper(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
-
-- style (dict; optional):
-    当前组件css样式.
 
 - className (string; optional):
     当前组件css类名.
@@ -63,22 +68,22 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileStepper'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         allowEmpty: typing.Optional[bool] = None,
-        defaultValue: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        value: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        digits: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        defaultValue: typing.Optional[typing.Union[NumberType, str]] = None,
+        value: typing.Optional[typing.Union[NumberType, str]] = None,
+        digits: typing.Optional[NumberType] = None,
         disabled: typing.Optional[bool] = None,
         inputReadOnly: typing.Optional[bool] = None,
-        max: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        min: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        step: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        max: typing.Optional[typing.Union[NumberType, str]] = None,
+        min: typing.Optional[typing.Union[NumberType, str]] = None,
+        step: typing.Optional[typing.Union[NumberType, str]] = None,
         stringMode: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -92,3 +97,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileStepper, self).__init__(**args)
+
+setattr(MobileStepper, "__init__", _explicitize_args(MobileStepper.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileToast(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     强制重绘当前组件时使用.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
 
 - className (string; optional):
     用于为当前组件设置css类名.
@@ -53,15 +58,15 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileToast'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
-        content: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        duration: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        content: typing.Optional[ComponentType] = None,
+        duration: typing.Optional[NumberType] = None,
         icon: typing.Optional[Literal["success", "fail", "loading"]] = None,
         maskClassName: typing.Optional[str] = None,
         maskClickable: typing.Optional[bool] = None,
@@ -79,3 +84,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileToast, self).__init__(**args)
+
+setattr(MobileToast, "__init__", _explicitize_args(MobileToast.__init__))

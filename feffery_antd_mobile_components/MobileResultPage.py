@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileResultPage(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     对当前组件的`key`值进行更新，可实现强制重绘当前组件的效果.
-
-- style (dict; optional):
-    当前组件css样式.
 
 - className (string; optional):
     当前组件css类名.
@@ -76,29 +81,29 @@ Keyword arguments:
     Details = TypedDict(
         "Details",
             {
-            "label": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
-            "value": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "label": NotRequired[ComponentType],
+            "value": NotRequired[ComponentType],
             "bold": NotRequired[bool]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        id: typing.Optional[str] = None,
+        children: typing.Optional[ComponentType] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
-        title: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        description: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        icon: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        title: typing.Optional[ComponentType] = None,
+        description: typing.Optional[ComponentType] = None,
+        icon: typing.Optional[ComponentType] = None,
         details: typing.Optional[typing.Sequence["Details"]] = None,
         status: typing.Optional[Literal["success", "error", "info", "waiting", "warning"]] = None,
-        primaryButtonText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        secondaryButtonText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        nClicksPrimary: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        nClicksSecondary: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        primaryButtonText: typing.Optional[ComponentType] = None,
+        secondaryButtonText: typing.Optional[ComponentType] = None,
+        nClicksPrimary: typing.Optional[NumberType] = None,
+        nClicksSecondary: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'children', 'title', 'description', 'icon', 'details', 'status', 'primaryButtonText', 'secondaryButtonText', 'nClicksPrimary', 'nClicksSecondary']
@@ -111,3 +116,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(MobileResultPage, self).__init__(children=children, **args)
+
+setattr(MobileResultPage, "__init__", _explicitize_args(MobileResultPage.__init__))

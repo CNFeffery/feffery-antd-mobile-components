@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileSwiper(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     强制重绘当前组件时使用.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
 
 - className (string; optional):
     用于为当前组件设置css类名.
@@ -76,28 +81,28 @@ Keyword arguments:
         "Items",
             {
             "key": str,
-            "children": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]]
+            "children": NotRequired[ComponentType]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         items: typing.Optional[typing.Sequence["Items"]] = None,
         allowTouchMove: typing.Optional[bool] = None,
         autoplay: typing.Optional[bool] = None,
-        autoplayInterval: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        defaultIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        autoplayInterval: typing.Optional[NumberType] = None,
+        defaultIndex: typing.Optional[NumberType] = None,
         direction: typing.Optional[Literal["horizontal", "vertical"]] = None,
         loop: typing.Optional[bool] = None,
         rubberband: typing.Optional[bool] = None,
-        slideSize: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        slideSize: typing.Optional[NumberType] = None,
         stuckAtBoundary: typing.Optional[bool] = None,
-        trackOffset: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        trackOffset: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'items', 'allowTouchMove', 'autoplay', 'autoplayInterval', 'defaultIndex', 'direction', 'loop', 'rubberband', 'slideSize', 'stuckAtBoundary', 'trackOffset']
@@ -110,3 +115,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileSwiper, self).__init__(**args)
+
+setattr(MobileSwiper, "__init__", _explicitize_args(MobileSwiper.__init__))

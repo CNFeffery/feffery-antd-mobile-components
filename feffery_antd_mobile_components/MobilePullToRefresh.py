@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobilePullToRefresh(Component):
@@ -59,21 +67,21 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobilePullToRefresh'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        children: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        id: typing.Optional[str] = None,
+        children: typing.Optional[ComponentType] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        canReleaseText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        completeDelay: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        completeText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        canReleaseText: typing.Optional[ComponentType] = None,
+        completeDelay: typing.Optional[NumberType] = None,
+        completeText: typing.Optional[ComponentType] = None,
         disabled: typing.Optional[bool] = None,
-        headHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        pullingText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        refreshingText: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        threshold: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        refreshCount: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        headHeight: typing.Optional[NumberType] = None,
+        pullingText: typing.Optional[ComponentType] = None,
+        refreshingText: typing.Optional[ComponentType] = None,
+        threshold: typing.Optional[NumberType] = None,
+        refreshCount: typing.Optional[NumberType] = None,
         stopRefreshing: typing.Optional[bool] = None,
         **kwargs
     ):
@@ -87,3 +95,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args if k != 'children'}
 
         super(MobilePullToRefresh, self).__init__(children=children, **args)
+
+setattr(MobilePullToRefresh, "__init__", _explicitize_args(MobilePullToRefresh.__init__))

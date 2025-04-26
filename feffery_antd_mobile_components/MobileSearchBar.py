@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileSearchBar(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     强制重绘当前组件时使用.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
 
 - className (string; optional):
     用于为当前组件设置css类名.
@@ -65,24 +70,24 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileSearchBar'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         cancelText: typing.Optional[str] = None,
         clearOnCancel: typing.Optional[bool] = None,
         clearable: typing.Optional[bool] = None,
-        icon: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
-        maxLength: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        icon: typing.Optional[ComponentType] = None,
+        maxLength: typing.Optional[NumberType] = None,
         onlyShowClearWhenFocus: typing.Optional[bool] = None,
         placeholder: typing.Optional[str] = None,
         showCancelButton: typing.Optional[bool] = None,
         value: typing.Optional[str] = None,
         debounceValue: typing.Optional[str] = None,
-        debounceWait: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        debounceWait: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'cancelText', 'clearOnCancel', 'clearable', 'icon', 'maxLength', 'onlyShowClearWhenFocus', 'placeholder', 'showCancelButton', 'value', 'debounceValue', 'debounceWait']
@@ -95,3 +100,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileSearchBar, self).__init__(**args)
+
+setattr(MobileSearchBar, "__init__", _explicitize_args(MobileSearchBar.__init__))

@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileCheckboxGroup(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     强制重绘当前组件时使用.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
 
 - className (string; optional):
     用于为当前组件设置css类名.
@@ -67,19 +72,19 @@ Keyword arguments:
         "Options",
             {
             "disabled": NotRequired[bool],
-            "label": NotRequired[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]],
+            "label": NotRequired[ComponentType],
             "value": NotRequired[str],
             "style": NotRequired[dict],
             "className": NotRequired[str]
         }
     )
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         options: typing.Optional[typing.Sequence["Options"]] = None,
         block: typing.Optional[bool] = None,
@@ -98,3 +103,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileCheckboxGroup, self).__init__(**args)
+
+setattr(MobileCheckboxGroup, "__init__", _explicitize_args(MobileCheckboxGroup.__init__))

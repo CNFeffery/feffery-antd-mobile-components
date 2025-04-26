@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileImage(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     强制重绘当前组件时使用.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
 
 - className (string; optional):
     用于为当前组件设置css类名.
@@ -60,22 +65,22 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileImage'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         alt: typing.Optional[str] = None,
         draggable: typing.Optional[bool] = None,
-        fallback: typing.Optional[typing.Union[str, int, float, ComponentType, typing.Sequence[typing.Union[str, int, float, ComponentType]]]] = None,
+        fallback: typing.Optional[ComponentType] = None,
         fit: typing.Optional[Literal["contain", "cover", "fill", "none", "scale-down"]] = None,
-        height: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        height: typing.Optional[typing.Union[NumberType, str]] = None,
         lazy: typing.Optional[bool] = None,
         src: typing.Optional[str] = None,
-        width: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
-        nClicks: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        width: typing.Optional[typing.Union[NumberType, str]] = None,
+        nClicks: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'alt', 'draggable', 'fallback', 'fit', 'height', 'lazy', 'src', 'width', 'nClicks']
@@ -88,3 +93,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileImage, self).__init__(**args)
+
+setattr(MobileImage, "__init__", _explicitize_args(MobileImage.__init__))

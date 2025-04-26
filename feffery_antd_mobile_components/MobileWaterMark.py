@@ -1,13 +1,21 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
 import typing  # noqa: F401
-import numbers # noqa: F401
 from typing_extensions import TypedDict, NotRequired, Literal # noqa: F401
 from dash.development.base_component import Component, _explicitize_args
-try:
-    from dash.development.base_component import ComponentType # noqa: F401
-except ImportError:
-    ComponentType = typing.TypeVar("ComponentType", bound=Component)
+
+ComponentType = typing.Union[
+    str,
+    int,
+    float,
+    Component,
+    None,
+    typing.Sequence[typing.Union[str, int, float, Component, None]],
+]
+
+NumberType = typing.Union[
+    typing.SupportsFloat, typing.SupportsInt, typing.SupportsComplex
+]
 
 
 class MobileWaterMark(Component):
@@ -21,9 +29,6 @@ Keyword arguments:
 
 - key (string; optional):
     强制重绘当前组件时使用.
-
-- style (dict; optional):
-    用于为当前组件设置css样式.
 
 - className (string; optional):
     用于为当前组件设置css类名.
@@ -71,26 +76,26 @@ Keyword arguments:
     _namespace = 'feffery_antd_mobile_components'
     _type = 'MobileWaterMark'
 
-    @_explicitize_args
+
     def __init__(
         self,
-        id: typing.Optional[str] = None,
+        id: typing.Optional[typing.Union[str, dict]] = None,
         key: typing.Optional[str] = None,
-        style: typing.Optional[dict] = None,
+        style: typing.Optional[typing.Any] = None,
         className: typing.Optional[str] = None,
         content: typing.Optional[typing.Union[str, typing.Sequence[str]]] = None,
         fontColor: typing.Optional[str] = None,
-        fontSize: typing.Optional[typing.Union[typing.Union[int, float, numbers.Number], str]] = None,
+        fontSize: typing.Optional[typing.Union[NumberType, str]] = None,
         fullPage: typing.Optional[bool] = None,
-        gapX: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        gapY: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        height: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        gapX: typing.Optional[NumberType] = None,
+        gapY: typing.Optional[NumberType] = None,
+        height: typing.Optional[NumberType] = None,
         image: typing.Optional[str] = None,
-        imageHeight: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        imageWidth: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        rotate: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        width: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
-        zIndex: typing.Optional[typing.Union[int, float, numbers.Number]] = None,
+        imageHeight: typing.Optional[NumberType] = None,
+        imageWidth: typing.Optional[NumberType] = None,
+        rotate: typing.Optional[NumberType] = None,
+        width: typing.Optional[NumberType] = None,
+        zIndex: typing.Optional[NumberType] = None,
         **kwargs
     ):
         self._prop_names = ['id', 'key', 'style', 'className', 'content', 'fontColor', 'fontSize', 'fullPage', 'gapX', 'gapY', 'height', 'image', 'imageHeight', 'imageWidth', 'rotate', 'width', 'zIndex']
@@ -103,3 +108,5 @@ Keyword arguments:
         args = {k: _locals[k] for k in _explicit_args}
 
         super(MobileWaterMark, self).__init__(**args)
+
+setattr(MobileWaterMark, "__init__", _explicitize_args(MobileWaterMark.__init__))
