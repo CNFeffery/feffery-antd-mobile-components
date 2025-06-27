@@ -21,7 +21,7 @@ setup(
     license=package['license'],
     description=package.get('description', package_name),
     install_requires=[
-        'dash>=3.0.0',
+        'dash>=3.1.0',
     ],
     classifiers=[
         'Framework :: Dash',
